@@ -93,7 +93,7 @@ Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy ho
 > - **Quan hệ (Relation)**: Được gọi là Quan hệ chuyển trạng thái (Transition Relation).
 > - **Cặp $(q, r)$**: Được gọi là một Bước chuyển (Transition), ký hiệu là $q \to r$.
 
-![image](https://hackmd.io/_uploads/Skg5rFhIbe.png)
+![[I.01.png]]
 
 Tác giả phân chia máy trạng thái thành hai loại chính
 
@@ -205,25 +205,25 @@ Nguyên lý Quy nạp cấu trúc (Structural Induction) là một phiên bản 
 
 Thay vì chạy dọc theo các số nguyên $0, 1, 2, \dots, n$, quy nạp cấu trúc chạy dọc theo quy trình xây dựng dữ liệu. Nếu bạn chứng minh được một tính chất $P$ được bảo toàn qua mọi "bộ lắp ghép" (constructors) của dữ liệu, thì tính chất đó phải đúng cho toàn bộ tập dữ liệu đó.
 
-![image](https://hackmd.io/_uploads/rJAP5JpLZl.png)
+![[I.02.png]]
 
 #### 6.1.2 One More Thing
 
 Tương tự như cách định nghĩa độ dài, việc đếm một ký tự $c$ trong chuỗi $s$ cũng tuân theo cấu trúc của dữ liệu:
 
-![image](https://hackmd.io/_uploads/ByvOklTUZg.png)
+![[I.03.png]]
 
-![image](https://hackmd.io/_uploads/S1qt1l6UWl.png)
+![[I.04.png]]
 
-![image](https://hackmd.io/_uploads/S1Sq1xa8-l.png)
+![[I.05.png]]
 
 ### 6.2 Strings of Matched Brackets
 
 Sách ghi khá đẹp nên tôi chụp vào luôn, khỏi ghi lại =))
 
-![image](https://hackmd.io/_uploads/B1oAf_6L-g.png)
+![[I.06.png]]
 
-![image](https://hackmd.io/_uploads/BkvNEdpU-x.png)
+![[I.07.png]]
 
 > [!WARNING] Tính nhập nhằng trong kiểu dữ liệu đệ quy
 > Một kiểu dữ liệu đệ quy bị coi là nhập nhằng khi cùng một phần tử dữ liệu có thể được tạo ra bằng nhiều cách khác nhau (nhiều lộ trình đệ quy khác nhau) dựa trên các quy tắc đã cho.
@@ -232,9 +232,9 @@ Sách ghi khá đẹp nên tôi chụp vào luôn, khỏi ghi lại =))
 
 Dưới đây là một ví dụ minh họa.
 
-![image](https://hackmd.io/_uploads/BJ8Q8daL-l.png)
+![[I.08.png]]
 
-![image](https://hackmd.io/_uploads/Hk8B8upLWg.png)
+![[I.09.png]]
 
 Tập hợp **AmbRecMatch** trong ảnh là một định nghĩa bị nhập nhằng (ambiguous), còn tập hợp **RecMatch** ban đầu thì không. Việc một tập hợp có thể được định nghĩa bằng hai bộ quy tắc khác nhau không làm cho nó bị nhập nhằng, mà sự nhập nhằng nằm ở cấu trúc bên trong của chính bộ quy tắc đó.
 
@@ -271,7 +271,7 @@ Hai phương pháp này là một. Quy nạp cấu trúc là phiên bản tổng
 
 Giả thuyết Collatz (hay hàm $f_4$) là một ví dụ điển hình trong toán học về một định nghĩa hàm trông có vẻ đệ quy nhưng lại cực kỳ khó để xác định là "xác định tốt" (well-defined).
 
-![image](https://hackmd.io/_uploads/rkTxA_aI-x.png)
+![[I.10.png]]
 
 Mặc dù thực nghiệm đã chứng minh mọi số nguyên lên đến hơn $10^{18}$ đều cuối cùng hội tụ về giá trị 1, nhưng về mặt lý thuyết, chúng ta vẫn chưa thể chứng minh điều này đúng cho mọi số tự nhiên $\mathbb{N}$.
 
@@ -279,7 +279,7 @@ Thách thức chính nằm ở chỗ quy tắc $3n+1$ xác định giá trị c�
 
 **Hàm Ackermann**
 
-![image](https://hackmd.io/_uploads/HyjdMFaL-g.png)
+![[I.11.png]]
 
 Nó nổi tiếng vì tốc độ tăng trưởng nhanh khủng khiếp, nhanh hơn bất kỳ hàm đa thức hay hàm mũ thông thường nào.
 
@@ -295,9 +295,9 @@ Số bước chạy của Union-Find tỉ lệ với Hàm ngược Ackermann ($\
 
 Phần này giới thiệu về **Biểu thức số học (Aexp)** như một kiểu dữ liệu đệ quy. Đây là nền tảng để máy tính có thể "hiểu" và xử lý các công thức toán học mà chúng ta nhập vào.
 
-![image](https://hackmd.io/_uploads/rkHZoKT8Zx.png)
+![[I.12.png]]
 
-![image](https://hackmd.io/_uploads/Bk0mitpL-g.png)
+![[I.13.png]]
 
 #### 6.4.1 Evaluation and Substitution with Aexp’s
 
@@ -345,7 +345,7 @@ Tức là sẽ vận dụng **Mapping Theorem**, 2 tập được gọi là lớ
 
 #### 7.1.1 Infinity is different
 
-![image](https://hackmd.io/_uploads/B1Idv9TUZg.png)
+![[I.14.png]]
 
 #### 7.1.2 Countable Sets
 
@@ -378,7 +378,7 @@ Việc thêm một số lượng hữu hạn phần tử vào một tập vô h�
 
 Mọi người thường nghĩ khi một tập hợp infinite thì xem như chúng tương tự nhau, bằng nhau (vì đều vô hạn mà). Nhưng có những tập vô hạn lớn hơn rất nhiều. Tập các tập con là một ví dụ.
 
-![image](https://hackmd.io/_uploads/SJNPL2pU-l.png)
+![[I.15.png]]
 
 **Từ đó dẫn tới hệ quả:** pow($\mathbb{N}$) là vô hạn không đếm được (vì $\mathbb{N}$ "nhỏ hơn", thì làm sao có toàn ánh từ $\mathbb{N}$ đến tập pow($\mathbb{N}$) được)
 
@@ -393,7 +393,7 @@ Phương pháp này thường được minh họa thông qua tập hợp các ch
 - **Thiết lập đường chéo $D$:** Tập hợp các bit nằm trên đường chéo chính của bảng, ký hiệu là $D = d_1 d_2 d_3 \dots$ (trong đó $d_n$ là bit thứ $n$ của chuỗi $A_n$).
 - **Tạo chuỗi nghịch đảo $C$:** Xây dựng chuỗi $C$ bằng cách đảo ngược mọi bit trên đường chéo $D$ (nếu $d_n = 0$ thì bit tương ứng của $C$ là $1$ và ngược lại).
 
-![image](https://hackmd.io/_uploads/H1Md0nT8Wx.png)
+![[I.16.png]]
 
 **Kết luận logic:** Chuỗi $C$ không thể xuất hiện ở bất kỳ vị trí nào trong danh sách ban đầu. Nó khác với chuỗi $A_1$ ở bit thứ nhất, khác với $A_2$ ở bit thứ hai, và tổng quát là khác với $A_n$ ở bit thứ $n$. Điều này dẫn đến mâu thuẫn: danh sách không hề đầy đủ như ta đã giả định, do đó tập $\{0, 1\}^\omega$ là không đếm được.
 
@@ -454,7 +454,7 @@ Vào cuối thế kỷ 19, nhà logic học Gottlob Frege cho rằng bất kỳ 
 
 Hãy tưởng tượng một tập hợp $W$, bao gồm tất cả các tập hợp **không tự chứa chính nó** làm phần tử. Câu hỏi đặt ra là: **$W$ có chứa chính nó không? ($W \in W$? )**
 
-![image](https://hackmd.io/_uploads/SkNZ-0TLZe.png)
+![[I.17.png]]
 
 Cách duy nhất để cứu toán học là thừa nhận rằng: **$W$ thực chất không phải là một tập hợp**. Để phủ nhận $W$ là một tập hợp, các nhà toán học buộc phải từ bỏ một định lý cực kỳ tự nhiên: **"Mọi bộ sưu tập các đối tượng được định nghĩa rõ ràng đều là một tập hợp"**. ếu không phải mọi bộ sưu tập đều là tập hợp, thì cái gì mới thực sự là tập hợp?
 
