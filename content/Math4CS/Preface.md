@@ -2,35 +2,6 @@
 title: Preface
 ---
 
----
-
-title: "Preface"
-tags:
-
-- Math4CS
-- Introduction
-
----
-
-Đây là một cuốn sách thuộc course về Computer Science của MIT.
-Link sách pdf như này https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
-Để thuận lợi hơn trong quá trình đọc, và để phù hợp cho lộ trình của sinh viên năm 2 UIT bị dí deadline điếng người thì tôi đọc sách này và viết thành một cái blog/note để các bé đến sau có thể nắm được ý tưởng chính của sách một cách nhanh gọn mà không phải đọc 900 trang.
-
-> [!WARNING]
-> Mặt khác, tôi bỏ qua mục Problem ở cuối mỗi chương và Example để tinh gọn nội dung. Tuy nhiên, nếu có thời gian tôi khuyến khích các bạn (và cả chính tôi) nên đọc qua các phần này vì có những bài toán/ví dụ rất hay.
-
-Theo nhận xét riêng của tôi thì sách chủ yếu trình bày về chủ đề Toán Tổ hợp, Toán Rời Rạc...Nên ai có nền tảng tốt về ngành này thì đọc sẽ thấy thoải mái hơn. Vì vậy note của tôi phù hợp cho các bạn đã học qua Toán Tổ hợp ở THPT hoặc Toán rời rạc, Cấu trúc rời rạc ở bậc đại học.
-
-Chúc các bạn học tốt~~
-**NCT**---
-title: "Preface"
-tags:
-
-- Math4CS
-- Introduction
-
----
-
 Đây là một cuốn sách thuộc course về Computer Science của MIT.
 Link sách pdf như này https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
 Để thuận lợi hơn trong quá trình đọc, và để phù hợp cho lộ trình của sinh viên năm 2 UIT bị dí deadline điếng người thì tôi đọc sách này và viết thành một cái blog/note để các bé đến sau có thể nắm được ý tưởng chính của sách một cách nhanh gọn mà không phải đọc 900 trang.
