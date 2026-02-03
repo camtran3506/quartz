@@ -1,6 +1,10 @@
 ---
-title: Welcome to Quartz
+title: Chào, tôi là NCT
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+Đây là blog tôi dùng để take note trong quá trình học tập và làm việc.
+Phải có căn mới vào được blog này, bạn rất may mắn đó.
+Bạn gì đó ơiii~ Cho xin miếng donate hihi.
+BIDV 6211203303.
+
+Chúc bạn học tập tốt.

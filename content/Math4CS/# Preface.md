@@ -1,7 +1,3 @@
----
-title: Preface
----
-
 Đây là một cuốn sách thuộc course về Computer Science của MIT.
 Link sách pdf như này https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
 
