@@ -4,6 +4,7 @@ title: Preface
 
 Đây là một cuốn sách thuộc course về Computer Science của MIT.
 Link sách pdf như này https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
+
 Để thuận lợi hơn trong quá trình đọc, và để phù hợp cho lộ trình của sinh viên năm 2 UIT bị dí deadline điếng người thì tôi đọc sách này và viết thành một cái blog/note để các bé đến sau có thể nắm được ý tưởng chính của sách một cách nhanh gọn mà không phải đọc 900 trang.
 
 > [!WARNING]
