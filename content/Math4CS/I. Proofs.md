@@ -1,8 +1,8 @@
-## 1. What is a Proof?
+# 1. What is a Proof?
 
 Nội dung chủ yếu là giới thiệu về mệnh đề, các tiên đề, các cách chứng minh mệnh đề từ tiên đề hoặc mệnh đề đã chứng minh trước đó (trực tiếp, gián tiếp, phản chứng, phản đề, chứng minh chia trường hợp và chứng minh tương đương) giống với phần đầu môn **Cấu trúc Rời rạc ở UIT**. Ngoài ra **mục 1.10** còn giới thiệu một số tips để viết chứng minh dễ hiểu, rõ ràng hơn.
 
-## 2. The Well Ordering Principle
+# 2. The Well Ordering Principle
 
 > [!INFO]
 > Every nonempty set of nonnegative integers has a smallest element.
@@ -18,11 +18,11 @@ Nội dung chủ yếu là giới thiệu về mệnh đề, các tiên đề, c
 - **Bước 4 Tìm mâu thuẫn:** Đây là bước đòi hỏi tư duy sáng tạo nhất. Bạn cần chỉ ra một điều vô lý, thường bằng 2 cách: **Chứng minh rằng thực chất $P(n)$ vẫn đúng (mâu thuẫn với việc $n$ thuộc tập "lỗi" $C$)** hoặc **Tìm ra một phần tử khác cũng thuộc $C$ nhưng lại nhỏ hơn cả $n$ (mâu thuẫn với việc $n$ là phần tử nhỏ nhất).**
 - **Bước 5 Kết luận:** Vì việc giả sử $C$ khác rỗng dẫn tới mâu thuẫn, nên $C$ buộc phải là tập rỗng. Điều này đồng nghĩa với việc không có "phần tử lỗi" nào tồn tại, hay $P(n)$ đúng với mọi $n$.
 
-## 3. Logical Formulas
+# 3. Logical Formulas
 
 Nội dung về các phép logic AND, OR, NOT...Tóm lại, là **đại số Boolean**.
 
-### 3.5 The SAT Problem
+## 3.5 The SAT Problem
 
 **Bài toán SAT (viết tắt của Satisfiability)** là bài toán xác định xem một mệnh đề logic cho trước có thể True hay không. Tức là liệu có một cách gán các giá trị True hoặc False cho các biến trong công thức logic sao cho toàn bộ công thức đó đạt giá trị True. Cách tiếp cận truyền thống là làm việc với bảng chân trị. Đương nhiên đây không phải là một ý tưởng hay (nếu có quá nhiều biến)
 
@@ -49,12 +49,12 @@ Các chương trình SAT-solvers hiện nay tuy rất mạnh mẽ nhưng vẫn t
 - **Khó dự đoán:** Không thể dự đoán được loại công thức nào sẽ phù hợp với các phương pháp của SAT-solver.
 - **Bế tắc với các bài toán không thỏa mãn:** Đối với những công thức không thể đạt giá trị Đúng (unsatisfiable), các chương trình này thường không mang lại kết quả khả quan.
 
-## 4. Mathematical Data Type
+# 4. Mathematical Data Type
 
 Trình bày rõ hơn về tập hợp, dãy số, tích Cartesian và hàm số. Đều là kiến thức cũ ở THPT.
 **Phân biệt khái niệm Domain, Codomain, Range**. Domain là tập xác định của hàm số, Codomain là tập đích (ví dụ khi f: A -> B thì B chính là tập đích), Range là tập giá trị và là tập con của tập đích.
 
-### 4.4 Binary Relations (Quan hệ hai ngôi)
+## 4.4 Binary Relations (Quan hệ hai ngôi)
 
 > [!INFO]
 > Binary relations define relations between two objects.
@@ -68,11 +68,11 @@ Ví dụ 1: Quan hệ "Nhỏ hơn" ($<$): Trên tập số thực, số $a$ có 
 Ví dụ 2: Quan hệ "Tập con" ($\subseteq$): Tập hợp $A$ có quan hệ với $B$ khi $A \subseteq B$.
 Ví dụ 3: Hàm số là trường hợp đặc biệt của quan hệ.
 
-## 5. Induction (Quy nạp)
+# 5. Induction (Quy nạp)
 
 **Weak vs Strong Induction:** Trong một lập luận quy nạp thông thường, bạn giả sử rằng $P(n)$ đúng và cố gắng chứng minh rằng $P(n+1)$ cũng đúng. Còn trong một lập luận quy nạp mạnh, bạn có quyền giả sử rằng tất cả các mệnh đề $P(0), P(1), \dots,$ và $P(n)$ đều đã đúng khi bạn tiến hành chứng minh $P(n+1)$.Vì vậy, bạn có thể dựa trên một tập hợp các giả thiết mạnh hơn, điều này giúp công việc chứng minh của bạn trở nên dễ dàng hơn.
 
-### 5.3 Strong Induction vs Induction vs Well Ordering
+## 5.3 Strong Induction vs Induction vs Well Ordering
 
 Về mặt lý thuyết, **nguyên lý Thứ tự tốt (Well Ordering Principle), Quy nạp thông thường (Ordinary Induction) và Quy nạp mạnh (Strong Induction)** thực chất là ba cách trình bày khác nhau cho cùng một kiểu lập luận toán học. Mọi bài chứng minh sử dụng phương pháp này đều có thể được định dạng lại một cách hệ thống để chuyển sang phương pháp kia mà không làm thay đổi bản chất logic.
 
@@ -80,11 +80,11 @@ Về mặt lý thuyết, **nguyên lý Thứ tự tốt (Well Ordering Principle
 
 Việc lựa chọn phương pháp nào tùy thuộc vào sự rõ ràng của từng bài toán cụ thể, nhưng điều quan trọng nhất là người viết cần công bố rõ phương pháp đã chọn ngay từ đầu để người đọc dễ dàng theo dõi lộ trình chứng minh.
 
-### 5.4 State Machines
+## 5.4 State Machines
 
 Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy hoặc một đoạn code). Tại bất kỳ thời điểm nào, hệ thống đó cũng đang ở một trạng thái nhất định (ví dụ: Đèn Xanh). Khi có một sự kiện xảy ra (hết thời gian chờ), hệ thống thực hiện một bước nhảy (transition) sang trạng thái tiếp theo (Đèn Vàng). **Trong tin học, State Machine giúp ta mô hình hóa logic phức tạp thành các trạng thái và các quy tắc chuyển đổi rõ ràng.**
 
-#### 5.4.1 States and Transitions
+### 5.4.1 States and Transitions
 
 > [!INFO] State machine
 > State machine thực chất chỉ là một Quan hệ hai ngôi (Binary Relation) trên một tập hợp, nhưng được gọi bằng những cái tên chuyên biệt trong ngữ cảnh hệ thống:
@@ -108,7 +108,7 @@ Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, 
 
 **Phần này khá giống với khái niệm state và transition trong Reinforcement Learning.**
 
-#### 5.4.3 The Invariant Principle
+### 5.4.3 The Invariant Principle
 
 > [!INFO] Execution & Reachability
 > An **execution** of the state machine is a (possibly infinite) sequence of states with the property that it begins with the start state, and if $q$ and $r$ are consecutive states in the sequence, then $q \to r$.
@@ -117,7 +117,7 @@ Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, 
 > [!INFO] The Invariant Principle
 > If a preserved invariant of a state machine is true for the start state, then it is true for all reachable states.
 
-#### 5.4.5 Fast Exponentiation
+### 5.4.5 Fast Exponentiation
 
 Để khẳng định một chương trình "chạy đúng", chúng ta cần chứng minh được hai thành phần độc lập nhưng bổ sung cho nhau: Partial Correctness (Tính đúng đắn từng phần) và Termination (Tính dừng).
 
@@ -131,7 +131,7 @@ Thường sử dụng Nguyên lý Bất biến (Invariant Principle). Chúng ta 
 
 Chúng ta gán cho mỗi bước của chương trình một giá trị (thường là một số nguyên không âm). Nếu ta chứng minh được giá trị này giảm dần sau mỗi bước, thì theo Well Ordering Principle, nó không thể giảm vô hạn. Nó bắt buộc phải chạm đến phần tử nhỏ nhất và dừng lại.
 
-#### 5.4.6 Derived Variables
+### 5.4.6 Derived Variables
 
 Dưới đây là một phương pháp tổng quát hơn để phân tích và chứng minh các thuật toán sẽ dừng lại, bằng cách mượn ý tưởng từ vật lý.
 
@@ -160,7 +160,7 @@ Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên g
 > - **Mục tiêu**: Chứng minh không tồn tại một trạng thái $T$ nào đó.
 > - **Cách làm**: Chỉ cần chứng minh trạng thái $T$ không thỏa mãn một tính chất bất biến vốn luôn được duy trì trong suốt quá trình thực thi (execution) hoặc giữa các bước chuyển trạng thái (state transitions).
 
-## 6. Recursive Data Types (Kiểu dữ liệu đệ quy)
+# 6. Recursive Data Types (Kiểu dữ liệu đệ quy)
 
 > [!INFO] Định nghĩa Đệ quy (Recursive Data Types)
 > Một kiểu dữ liệu được gọi là đệ quy khi nó được xác định dựa trên chính nó. Phần tử ở sau được định nghĩa dựa trên phần tử ở trước.
@@ -174,7 +174,7 @@ Một số ví dụ về kiểu dữ liệu này:
 - Nonnegative integers (Số nguyên không âm): Số $n+1$ được tạo ra từ số $n$.
 - Arithmetic expressions (Biểu thức số học): Một biểu thức có thể gồm các biểu thức con kết hợp với nhau bằng các toán tử $+$, $-$, $\times$, $\dots$
 
-### 6.1 Recursive Definitions and Structural Induction
+## 6.1 Recursive Definitions and Structural Induction
 
 Ta bắt đầu với kiểu dữ liệu **String**.
 
@@ -191,7 +191,7 @@ Cấu trúc dữ liệu được định nghĩa thế nào thì các hàm xử l
 - **Độ dài của chuỗi rỗng:** $|\lambda| = 0$.
 - **Độ dài của một chuỗi có ký tự đầu $a$:** $|\langle a, s \rangle| = 1 + |s|$.
 
-#### 6.1.1 Structural Induction
+### 6.1.1 Structural Induction
 
 Như đã giới thiệu ở trên, đây là định nghĩa của Quy nạp cấu trúc:
 
@@ -207,7 +207,7 @@ Thay vì chạy dọc theo các số nguyên $0, 1, 2, \dots, n$, quy nạp cấ
 
 ![[I.02.png]]
 
-#### 6.1.2 One More Thing
+### 6.1.2 One More Thing
 
 Tương tự như cách định nghĩa độ dài, việc đếm một ký tự $c$ trong chuỗi $s$ cũng tuân theo cấu trúc của dữ liệu:
 
@@ -217,7 +217,7 @@ Tương tự như cách định nghĩa độ dài, việc đếm một ký tự 
 
 ![[I.05.png]]
 
-### 6.2 Strings of Matched Brackets
+## 6.2 Strings of Matched Brackets
 
 Sách ghi khá đẹp nên tôi chụp vào luôn, khỏi ghi lại =))
 
@@ -238,7 +238,7 @@ Dưới đây là một ví dụ minh họa.
 
 Tập hợp **AmbRecMatch** trong ảnh là một định nghĩa bị nhập nhằng (ambiguous), còn tập hợp **RecMatch** ban đầu thì không. Việc một tập hợp có thể được định nghĩa bằng hai bộ quy tắc khác nhau không làm cho nó bị nhập nhằng, mà sự nhập nhằng nằm ở cấu trúc bên trong của chính bộ quy tắc đó.
 
-### 6.3 Recursive Functions on Nonnegative Integers
+## 6.3 Recursive Functions on Nonnegative Integers
 
 Thay vì coi số nguyên là những ký hiệu có sẵn, chúng ta xây dựng chúng từ con số không:
 
@@ -254,7 +254,7 @@ Tác giả muốn nhấn mạnh một tư duy hệ thống:
 
 Hai phương pháp này là một. Quy nạp cấu trúc là phiên bản tổng quát hơn vì nó có thể áp dụng cho cả những cấu trúc "phân nhánh" như Cây (Trees), trong khi quy nạp thường chỉ áp dụng cho cấu trúc "đường thẳng" như số nguyên.
 
-#### 6.3.2 Ill-formed Function Definitions
+### 6.3.2 Ill-formed Function Definitions
 
 > [!WARNING] Tính xác định tốt (Well-definedness)
 > Không phải mọi định nghĩa trông có vẻ "đệ quy" đều là một hàm số hợp lệ. Để một hàm đệ quy được coi là **xác định tốt** (well-defined), nó phải tuân thủ nghiêm ngặt cấu trúc của kiểu dữ liệu nền tảng.
@@ -291,7 +291,7 @@ Hàm Ackermann không chỉ là một bài toán lý thuyết suông. Nó xuất
 
 Số bước chạy của Union-Find tỉ lệ với Hàm ngược Ackermann ($\alpha(n)$). Vì hàm Ackermann tăng cực nhanh, nên hàm ngược của nó tăng cực kỳ chậm. Thậm chí với đầu vào là số lượng nguyên tử trong vũ trụ, giá trị của $\alpha(n)$ vẫn nhỏ hơn 5. Điều này có nghĩa là trên thực tế, thuật toán Union-Find chạy nhanh gần như một hàm tuyến tính (linear).
 
-### 6.4 Arithmetic Expressions
+## 6.4 Arithmetic Expressions
 
 Phần này giới thiệu về **Biểu thức số học (Aexp)** như một kiểu dữ liệu đệ quy. Đây là nền tảng để máy tính có thể "hiểu" và xử lý các công thức toán học mà chúng ta nhập vào.
 
@@ -299,7 +299,7 @@ Phần này giới thiệu về **Biểu thức số học (Aexp)** như một k
 
 ![[I.13.png]]
 
-#### 6.4.1 Evaluation and Substitution with Aexp’s
+### 6.4.1 Evaluation and Substitution with Aexp’s
 
 Tức là tính toán và thay thế (thay giá trị) vào biểu thức. Có 2 cách.
 
@@ -320,7 +320,7 @@ Ví dụ: Tính giá trị của biểu thức thay thế ($3x$) trước, sau �
 
 **Ưu điểm:** Chỉ cần thực hiện phép nhân $3 \times 2$ đúng một lần. Đây là cách các ngôn ngữ lập trình hiện đại thường hoạt động để tăng hiệu năng.
 
-### 6.5 Induction in Computer Science
+## 6.5 Induction in Computer Science
 
 Tổng kết lại chương 6.
 
@@ -329,7 +329,7 @@ Tổng kết lại chương 6.
 
 Mặc dù bạn có thể dùng Quy nạp thường trên "độ dài" của chuỗi hoặc "số phép toán" trong một biểu thức để chứng minh một tính chất, nhưng tác giả chỉ ra rằng: Quy nạp cấu trúc tạo ra các bài chứng minh ít cồng kềnh và mạch lạc hơn vì nó đi sát với cách dữ liệu được tạo ra. Quy nạp cấu trúc thực sự mạnh hơn quy nạp thường khi làm việc với các kiểu dữ liệu vô hạn (ví dụ: những cái cây vô tận). Tuy nhiên, trong thực tế lập trình, điểm quan trọng nhất vẫn là sự đơn giản và tự nhiên.
 
-## 7. Infinite Sets
+# 7. Infinite Sets
 
 Tại sao dân tin học lại phải học về vô hạn, trong khi bộ nhớ máy tính và cả vũ trụ này đều hữu hạn?
 
@@ -337,17 +337,17 @@ Tại sao dân tin học lại phải học về vô hạn, trong khi bộ nhớ
 - Làm việc với các tập hợp vô hạn buộc chúng ta phải cực kỳ khắt khe trong lập luận
 - Việc nghiên cứu các tập hợp vô hạn đã dẫn đến khám phá về giới hạn logic tuyệt đối của máy tính.
 
-### 7.1 Infinite Cardinality
+## 7.1 Infinite Cardinality
 
 Tác giả nêu rõ họ sẽ không định nghĩa giá trị cụ thể cho kích thước của một tập vô hạn (vốn đòi hỏi các khái niệm phức tạp như số thứ tự - ordinals và tính thứ tự tốt). Thay vì cố gắng trả lời câu hỏi "Tập hợp này lớn bao nhiêu?", chúng ta chỉ tập trung vào việc so sánh: "Tập hợp này có cùng kích thước hoặc lớn bằng tập hợp kia không?".
 
 Tức là sẽ vận dụng **Mapping Theorem**, 2 tập được gọi là lớn bằng nhau khi có song ánh giữa chúng.
 
-#### 7.1.1 Infinity is different
+### 7.1.1 Infinity is different
 
 ![[I.14.png]]
 
-#### 7.1.2 Countable Sets
+### 7.1.2 Countable Sets
 
 Một tập hợp được gọi là đếm được nếu nó finite và nếu nó countably infinite. Countably infinite nghĩa là vô hạn đếm được.
 
@@ -374,7 +374,7 @@ Tác giả khẳng định rằng các tập hợp vô hạn đếm được ch�
 
 Việc thêm một số lượng hữu hạn phần tử vào một tập vô hạn không làm thay đổi kích thước của nó. Thậm chí, bạn có thể thêm một lượng vô hạn đếm được các phần tử mới vào một tập vô hạn, và kết quả vẫn là một tập hợp có cùng kích thước ban đầu. Nhưng không có nghĩa là bạn luôn có thể thêm một lượng vô hạn phần tử mà kích thước vẫn giữ nguyên (điều này chỉ đúng với một số trường hợp cụ thể).
 
-#### 7.1.3 Power sets are strictly bigger
+### 7.1.3 Power sets are strictly bigger
 
 Mọi người thường nghĩ khi một tập hợp infinite thì xem như chúng tương tự nhau, bằng nhau (vì đều vô hạn mà). Nhưng có những tập vô hạn lớn hơn rất nhiều. Tập các tập con là một ví dụ.
 
@@ -382,7 +382,7 @@ Mọi người thường nghĩ khi một tập hợp infinite thì xem như chú
 
 **Từ đó dẫn tới hệ quả:** pow($\mathbb{N}$) là vô hạn không đếm được (vì $\mathbb{N}$ "nhỏ hơn", thì làm sao có toàn ánh từ $\mathbb{N}$ đến tập pow($\mathbb{N}$) được)
 
-#### 7.1.4 Diagonal Argument (Optional)
+### 7.1.4 Diagonal Argument (Optional)
 
 Trong toán học lý thuyết, việc chứng minh một tập hợp là "không đếm được" đòi hỏi những công cụ logic mạnh mẽ hơn việc liệt kê thông thường. **Phương pháp đường chéo của Georg Cantor** là một kỹ thuật phản chứng kinh điển, dùng để chỉ ra rằng có những tập hợp vô hạn "lớn hơn" so với tập số tự nhiên $\mathbb{N}$.
 
@@ -397,7 +397,7 @@ Phương pháp này thường được minh họa thông qua tập hợp các ch
 
 **Kết luận logic:** Chuỗi $C$ không thể xuất hiện ở bất kỳ vị trí nào trong danh sách ban đầu. Nó khác với chuỗi $A_1$ ở bit thứ nhất, khác với $A_2$ ở bit thứ hai, và tổng quát là khác với $A_n$ ở bit thứ $n$. Điều này dẫn đến mâu thuẫn: danh sách không hề đầy đủ như ta đã giả định, do đó tập $\{0, 1\}^\omega$ là không đếm được.
 
-### 7.2 The Halting Problem (Optional)
+## 7.2 The Halting Problem (Optional)
 
 Chúng ta đã đi qua tính partial correctness, tính termination, giờ ta sẽ chứng minh **tính không thể tính toán (Uncomputability).**
 
@@ -446,9 +446,9 @@ Tuy nhiên, đây là thực tế:
 
 Dù về mặt logic là không thể giải quyết bài toán cho mọi trường hợp, nhưng chúng ta vẫn có thể làm cực tốt trên những chương trình thực tế mà con người sử dụng.
 
-### 7.3 The Logic of Sets
+## 7.3 The Logic of Sets
 
-#### 7.3.1 Russell's Paradox
+### 7.3.1 Russell's Paradox
 
 Vào cuối thế kỷ 19, nhà logic học Gottlob Frege cho rằng bất kỳ tính chất nào được định nghĩa rõ ràng cũng đều tạo thành một tập hợp. Nhưng Bertrand Russell đã chứng minh điều này sai bằng một lập luận chỉ vỏn vẹn 3 dòng.
 
@@ -460,7 +460,7 @@ Cách duy nhất để cứu toán học là thừa nhận rằng: **$W$ thực 
 
 Cuối cùng, một hệ tiên đề đơn giản hơn và chặt chẽ hơn đã ra đời, gọi là **hệ tiên đề Zermelo-Fraenkel (ZF)**. Đây là hệ thống mà hầu hết các nhà toán học ngày nay đang sử dụng để định nghĩa tập hợp một cách an toàn, tránh được những vòng lặp chết người như nghịch lý Russell.
 
-#### 7.3.3 Avoiding Russell’s Paradox
+### 7.3.3 Avoiding Russell’s Paradox
 
 **Tiên đề cơ sở (Foundation Axiom)**
 
@@ -471,6 +471,6 @@ Cuối cùng, một hệ tiên đề đơn giản hơn và chặt chẽ hơn đ�
 
 Do đó giải quyết được nghịch lý Russell.
 
-### 7.4 Does All This Really Work?
+## 7.4 Does All This Really Work?
 
 Toán học hiện đại đang đứng trên một nền tảng cực kỳ mạnh mẽ nhưng không phải là tuyệt đối. ZFC giúp chúng ta tiến xa trong việc giải quyết các bài toán, nhưng ở mức độ bản chất, nó vẫn là một hệ thống mở với những câu hỏi chưa có lời đáp và những giới hạn logic không thể vượt qua **(Định lý Bất toàn của Gödel, Giả thuyết Continuum, Những nghịch lý từ Tiên đề Chọn (Axiom of Choice)...)**
