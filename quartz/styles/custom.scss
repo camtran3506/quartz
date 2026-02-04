@@ -2,32 +2,22 @@
 
 // put your custom CSS here!
 
-// Sửa lỗi triệt để cho thanh Table of Contents bị cắt cụt
+/* Ép hiển thị toàn bộ mục lục */
 .toc {
-  // Ép chiều cao tối đa dựa trên chiều cao màn hình thực tế
-  max-height: calc(100vh - 120px) !important;
+  max-height: calc(100vh - 150px) !important;
   overflow-y: auto !important;
-  display: flex !important;
-  flex-direction: column;
-
-  // Tạo khoảng đệm cực lớn ở dưới cùng để không mục nào bị che bởi cạnh dưới màn hình
-  padding-bottom: 100px !important;
+  padding-bottom: 5rem !important;
+  mask-image: none !important; // Tắt hiệu ứng gradient làm mờ của base.css
+  -webkit-mask-image: none !important;
 
   & > #toc-content {
     max-height: none !important;
     overflow: visible !important;
-    // Đảm bảo các mục con không bị ẩn
-    & > ul {
-      margin-bottom: 20px;
-    }
   }
 }
 
-// Làm thanh cuộn rõ ràng hơn để bạn dễ thao tác
-.toc::-webkit-scrollbar {
-  width: 5px;
-}
-.toc::-webkit-scrollbar-thumb {
-  background-color: var(--gray);
-  border-radius: 10px;
+/* Đảm bảo sidebar không bóp nghẹt nội dung */
+.sidebar.right {
+  height: 100vh !important;
+  overflow: visible !important;
 }
