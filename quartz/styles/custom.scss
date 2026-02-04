@@ -2,22 +2,21 @@
 
 // put your custom CSS here!
 
-/* Ép hiển thị toàn bộ mục lục */
+/* Ép thanh TOC hiện đầy đủ mục 7.4 */
 .toc {
-  max-height: calc(100vh - 150px) !important;
+  max-height: calc(100vh - 100px) !important;
   overflow-y: auto !important;
-  padding-bottom: 5rem !important;
-  mask-image: none !important; // Tắt hiệu ứng gradient làm mờ của base.css
+  padding-bottom: 150px !important; // Tạo khoảng trống cực lớn ở cuối
+  mask-image: none !important; // Tắt bỏ lớp mờ che khuất mục cuối
   -webkit-mask-image: none !important;
 
-  & > #toc-content {
+  #toc-content {
     max-height: none !important;
     overflow: visible !important;
-  }
-}
 
-/* Đảm bảo sidebar không bóp nghẹt nội dung */
-.sidebar.right {
-  height: 100vh !important;
-  overflow: visible !important;
+    // Đảm bảo các mục con (li) luôn hiện ra
+    li {
+      display: list-item !important;
+    }
+  }
 }

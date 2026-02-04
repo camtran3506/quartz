@@ -42,12 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.Graph(),
-    Component.DesktopOnly(
-      Component.TableOfContents({
-        maxDepth: 4, // Cho phép hiện đến cấp độ #### (nếu 7.4 là h4)
-        layout: "stacked", // Chế độ xếp chồng giúp xử lý danh sách dài tốt hơn
-      }),
-    ),
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
 }
