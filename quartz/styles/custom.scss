@@ -1,37 +1,3 @@
 @use "./base.scss";
 
 // put your custom CSS here!
-
-/* RESET TOÀN BỘ GIỚI HẠN CỦA TOC */
-.toc {
-  max-height: calc(100vh - 80px) !important; // Chừa khoảng trống rất nhỏ cho header
-  overflow-y: scroll !important; // Ép hiện thanh cuộn mọi lúc để kiểm tra
-  padding-bottom: 250px !important; // Tạo khoảng trống cực lớn ở dưới cùng
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-
-  #toc-content {
-    display: block !important;
-    max-height: none !important;
-    overflow: visible !important;
-
-    // Đảm bảo toàn bộ danh sách ul và li bên trong không bị ẩn
-    ul,
-    li {
-      display: block !important;
-      max-height: none !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  }
-}
-
-/* Đảm bảo sidebar chứa TOC không bị giới hạn */
-.sidebar.right {
-  height: 100vh !important;
-  max-height: 100vh !important;
-  overflow: visible !important;
-  display: flex !important;
-}
