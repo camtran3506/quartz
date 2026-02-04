@@ -2,21 +2,32 @@
 
 // put your custom CSS here!
 
-// Cho phép thanh Table of Contents cuộn khi quá dài
+// Sửa lỗi triệt để cho thanh Table of Contents bị cắt cụt
 .toc {
-  max-height: 80vh; // Giới hạn chiều cao bằng 80% màn hình
-  overflow-y: auto; // Hiện thanh cuộn dọc khi nội dung vượt quá
+  // Ép chiều cao tối đa dựa trên chiều cao màn hình thực tế
+  max-height: calc(100vh - 120px) !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column;
+
+  // Tạo khoảng đệm cực lớn ở dưới cùng để không mục nào bị che bởi cạnh dưới màn hình
+  padding-bottom: 100px !important;
 
   & > #toc-content {
-    overflow-y: visible;
+    max-height: none !important;
+    overflow: visible !important;
+    // Đảm bảo các mục con không bị ẩn
+    & > ul {
+      margin-bottom: 20px;
+    }
   }
 }
 
-// Làm mượt thanh cuộn (tùy chọn)
+// Làm thanh cuộn rõ ràng hơn để bạn dễ thao tác
 .toc::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 .toc::-webkit-scrollbar-thumb {
-  background-color: var(--lightgray);
+  background-color: var(--gray);
   border-radius: 10px;
 }
