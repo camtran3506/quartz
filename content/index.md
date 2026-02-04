@@ -1,8 +1,8 @@
 ---
-title: Chào, tôi là NCT
+title: Chào nha, mình là NCT
 ---
 
-Đây là blog tôi dùng để take note trong quá trình học tập và làm việc.
+Đây là blog mình dùng để take note trong quá trình học tập và làm việc.
 
 Phải có căn mới vào được blog này, bạn rất may mắn đó.
 

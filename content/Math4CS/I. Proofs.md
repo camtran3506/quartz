@@ -219,7 +219,7 @@ Tương tự như cách định nghĩa độ dài, việc đếm một ký tự 
 
 ## 6.2 Strings of Matched Brackets
 
-Sách ghi khá đẹp nên tôi chụp vào luôn, khỏi ghi lại =))
+Sách ghi khá đẹp nên mình chụp vào luôn, khỏi ghi lại
 
 ![[I.06.png]]
 
