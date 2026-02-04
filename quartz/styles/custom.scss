@@ -1,3 +1,22 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// Cho phép thanh Table of Contents cuộn khi quá dài
+.toc {
+  max-height: 80vh; // Giới hạn chiều cao bằng 80% màn hình
+  overflow-y: auto; // Hiện thanh cuộn dọc khi nội dung vượt quá
+
+  & > #toc-content {
+    overflow-y: visible;
+  }
+}
+
+// Làm mượt thanh cuộn (tùy chọn)
+.toc::-webkit-scrollbar {
+  width: 4px;
+}
+.toc::-webkit-scrollbar-thumb {
+  background-color: var(--lightgray);
+  border-radius: 10px;
+}
