@@ -128,11 +128,13 @@ Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, 
 Để khẳng định một chương trình "chạy đúng", chúng ta cần chứng minh được hai thành phần độc lập nhưng bổ sung cho nhau: Partial Correctness (Tính đúng đắn từng phần) và Termination (Tính dừng).
 
 **Partial Correctness**
+
 Cái tên "Partial" (từng phần) ở đây không có nghĩa là kết quả đúng một nửa, sai một nửa. Nghĩa là NẾU chương trình kết thúc và trả về kết quả, thì kết quả đó chắc chắn phải đúng với yêu cầu hệ thống. Nó không đảm bảo chương trình sẽ kết thúc. Chương trình có thể bị kẹt trong một vòng lặp vô hạn (infinite loop).
 
 Thường sử dụng Nguyên lý Bất biến (Invariant Principle). Chúng ta chứng minh rằng tại mọi bước chạy, một tính chất logic nào đó (Invariant) luôn được giữ vững, cho đến khi máy dừng lại ở kết quả cuối cùng.
 
 **Termination**
+
 Đảm bảo rằng quy trình tính toán chắc chắn sẽ dừng lại và đưa ra một giá trị cuối cùng, chứ không chạy mãi mãi.
 
 Chúng ta gán cho mỗi bước của chương trình một giá trị (thường là một số nguyên không âm). Nếu ta chứng minh được giá trị này giảm dần sau mỗi bước, thì theo Well Ordering Principle, nó không thể giảm vô hạn. Nó bắt buộc phải chạm đến phần tử nhỏ nhất và dừng lại.
@@ -142,14 +144,17 @@ Chúng ta gán cho mỗi bước của chương trình một giá trị (thườ
 Dưới đây là một phương pháp tổng quát hơn để phân tích và chứng minh các thuật toán sẽ dừng lại, bằng cách mượn ý tưởng từ vật lý.
 
 **Phép đo trạng thái (State Measure)**
+
 Để chứng minh một thuật toán không chạy mãi mãi, chúng ta cần một công cụ để đo lường "tiến độ" của nó.
 
 Gán cho mỗi trạng thái của máy một con số (thường là số nguyên không âm), gọi là "kích thước" (size) của trạng thái đó.Nếu mỗi bước chuyển trạng thái đều làm giảm con số này, thì theo Nguyên lý Thứ tự tốt (WOP), nó không thể giảm mãi được. Khi đạt tới giá trị nhỏ nhất, máy sẽ không thể thực hiện thêm bước chuyển nào nữa—tức là thuật toán đã dừng.
 
 **Biến dẫn xuất (Derived Variables) và Hàm tiềm năng (Potential Functions)**
+
 Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên giảm dần
 
 **Derived Variables:** Trong tin học, bất kỳ giá trị nào được tính toán dựa trên trạng thái của máy (như tổng các phần tử trong mảng, số lượng nút còn lại trong cây...) đều được gọi là biến dẫn xuất.
+
 **Hàm tiềm năng (Potential Functions):** Đây là một thuật ngữ mượn từ vật lý (như thế năng). Trong phân tích thuật toán (Amortized Analysis), chúng ta dùng hàm này để theo dõi năng lượng hoặc tài nguyên mà thuật toán đang tiêu thụ.
 
 > [!TIP] Hàm tiềm năng (Potential Function)
@@ -190,6 +195,7 @@ Thay vì coi chuỗi là một mảng (array) nằm ngang như cách ta thườn
 - **Constructor (Bộ tạo):** Một chuỗi mới được tạo ra bằng cách lấy một ký tự $a$ gắn vào đầu một chuỗi $s$ đã có sẵn: $\langle a, s \rangle$.
 
 **Tại sao lại dùng cặp $\langle a, s \rangle$?**
+
 Cách này phản ánh đúng cấu trúc Linked List (Danh sách liên kết). Trong Python, nó tương đương với việc phần tử đầu tiên trỏ tới phần còn lại của danh sách. Chuỗi $1011$ thực chất là: 1 kết nối với (0 kết nối với (1 kết nối với (1 kết nối với Rỗng))).
 
 Cấu trúc dữ liệu được định nghĩa thế nào thì các hàm xử lý nó cũng được định nghĩa như thế. Đều có base case và constructor.
@@ -310,6 +316,7 @@ Phần này giới thiệu về **Biểu thức số học (Aexp)** như một k
 Tức là tính toán và thay thế (thay giá trị) vào biểu thức. Có 2 cách.
 
 **Mô hình Thay thế (Substitution Model)**
+
 Trong mô hình này, chúng ta thực hiện việc thay thế các ký hiệu trước, sau đó mới tính toán giá trị số.
 
 Ví dụ: Để tính giá trị của $x(x-1)$ khi thay $x = 3x$ tại $x=2$
@@ -320,6 +327,7 @@ Ví dụ: Để tính giá trị của $x(x-1)$ khi thay $x = 3x$ tại $x=2$
 **Nhược điểm:** Phép tính $3 \times 2$ bị lặp lại hai lần vì cụm $3x$ xuất hiện hai lần sau khi thay thế. Điều này gây lãng phí tài nguyên tính toán.
 
 **Mô hình Môi trường (Environment Model)**
+
 Mô hình này tối ưu hơn bằng cách tính toán giá trị của biểu thức thay thế ngay lập tức.
 
 Ví dụ: Tính giá trị của biểu thức thay thế ($3x$) trước, sau đó dùng kết quả đó làm "môi trường" (giá trị mới của $x$) để tính biểu thức chính.
@@ -331,6 +339,7 @@ Ví dụ: Tính giá trị của biểu thức thay thế ($3x$) trước, sau �
 Tổng kết lại chương 6.
 
 **Quy nạp thông thường & Quy nạp mạnh:** Áp dụng cho bất kỳ thứ gì có thể gán cho một "kích thước" là số nguyên không âm (như số bước chạy của một thuật toán).
+
 **Quy nạp cấu trúc:** Đi xa hơn việc chỉ "đếm số", nó cung cấp một cách tiếp cận tự nhiên và trực tiếp để chứng minh các tính chất của dữ liệu đệ quy (như chuỗi, cây, biểu thức) mà không cần phải quy đổi chúng về con số.
 
 Mặc dù bạn có thể dùng Quy nạp thường trên "độ dài" của chuỗi hoặc "số phép toán" trong một biểu thức để chứng minh một tính chất, nhưng tác giả chỉ ra rằng: Quy nạp cấu trúc tạo ra các bài chứng minh ít cồng kềnh và mạch lạc hơn vì nó đi sát với cách dữ liệu được tạo ra. Quy nạp cấu trúc thực sự mạnh hơn quy nạp thường khi làm việc với các kiểu dữ liệu vô hạn (ví dụ: những cái cây vô tận). Tuy nhiên, trong thực tế lập trình, điểm quan trọng nhất vẫn là sự đơn giản và tự nhiên.
@@ -420,15 +429,18 @@ Tức là, các task (type-checking, optimizing...) không thể được hoàn 
 Tác giả sẽ dùng lập luận đường chéo (tương tự cách Cantor chứng minh số thực nhiều hơn số tự nhiên) để chỉ ra mâu thuẫn logic: **Nếu bạn có một chương trình "siêu cấp" có thể nhận biết mọi chương trình không dừng, bạn có thể dùng chính nó để tạo ra một chương trình mà "siêu chương trình" đó không thể phân tích được.**
 
 **Bước 1: Giả định điều "không tưởng"**
+
 Giả sử tồn tại một chương trình phân tích (gọi là $H$) có khả năng giải quyết Bài toán dừng.
 
 - **Input:** Một chương trình $P_s$ và một dữ liệu $t$.
 - **Output:** $H$ sẽ dừng và trả về "Dừng" nếu $P_s$ chạy trên $t$ và cuối cùng sẽ dừng. $H$ sẽ dừng và trả về "Không dừng" nếu $P_s$ chạy trên $t$ và sẽ lặp vô tận.
 
 **Bước 2: Thu hẹp vào "Trường hợp đặc biệt"**
+
 Để tạo ra mâu thuẫn, chúng ta chỉ quan tâm đến việc chuyện gì xảy ra khi một chương trình tự phân tích chính mã nguồn của nó. Tức là chúng ta xét $H(s, s)$—liệu chương trình $P_s$ có dừng khi đầu vào là chuỗi $s$ không?
 
 **Bước 3: Chế tạo "Chương trình quái dị" (The Monster)**
+
 Đây là lúc chúng ta dùng lập luận đường chéo. Hãy tưởng tượng ta xây dựng một chương trình mới, gọi là $M$ (viết tắt của Mischievous - kẻ tinh quái), dựa trên chương trình $H$ ở trên:
 
 - Nếu $H(s, s)$ bảo rằng $P_s$ sẽ DỪNG: Thì chương trình $M$ sẽ cố tình LẶP VÔ TẬN.
@@ -437,6 +449,7 @@ Giả sử tồn tại một chương trình phân tích (gọi là $H$) có kh�
 $M$ luôn làm ngược lại hoàn toàn so với kết quả mà chương trình phân tích $H$ dự đoán về việc một chương trình tự chạy trên chính nó.
 
 **Bước 4: Đòn chí mạng - Nghịch lý tự thân**
+
 Chuyện gì sẽ xảy ra nếu chúng ta đưa mã nguồn của chính chương trình $M$ vào cho chương trình $M$ xử lý? (Tức là xét $M(m)$ với $m$ là mã nguồn của $M$).
 
 - Nếu $H$ dự đoán $M$ sẽ dừng: Theo định nghĩa của $M$ ở Bước 3, nó sẽ lặp vô tận. (Mâu thuẫn: Dự đoán dừng nhưng thực tế lặp).
@@ -462,7 +475,7 @@ Hãy tưởng tượng một tập hợp $W$, bao gồm tất cả các tập h�
 
 ![[I.17.png]]
 
-Cách duy nhất để cứu toán học là thừa nhận rằng: **$W$ thực chất không phải là một tập hợp**. Để phủ nhận $W$ là một tập hợp, các nhà toán học buộc phải từ bỏ một định lý cực kỳ tự nhiên: **"Mọi bộ sưu tập các đối tượng được định nghĩa rõ ràng đều là một tập hợp"**. ếu không phải mọi bộ sưu tập đều là tập hợp, thì cái gì mới thực sự là tập hợp?
+Cách duy nhất để cứu toán học là thừa nhận rằng: **$W$ thực chất không phải là một tập hợp**. Để phủ nhận $W$ là một tập hợp, các nhà toán học buộc phải từ bỏ một định lý cực kỳ tự nhiên: **"Mọi bộ sưu tập các đối tượng được định nghĩa rõ ràng đều là một tập hợp"**. Nếu không phải mọi bộ sưu tập đều là tập hợp, thì cái gì mới thực sự là tập hợp?
 
 Cuối cùng, một hệ tiên đề đơn giản hơn và chặt chẽ hơn đã ra đời, gọi là **hệ tiên đề Zermelo-Fraenkel (ZF)**. Đây là hệ thống mà hầu hết các nhà toán học ngày nay đang sử dụng để định nghĩa tập hợp một cách an toàn, tránh được những vòng lặp chết người như nghịch lý Russell.
 
