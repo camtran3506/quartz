@@ -10,6 +10,7 @@ Nội dung chủ yếu là giới thiệu về mệnh đề, các tiên đề, c
 **WOP** thường được dùng để tạo ra một sự mâu thuẫn nhằm chứng minh một tính chất nào đó **đúng cho mọi số nguyên**.
 
 **Quy trình chứng minh bằng Well Ordering Principle (WOP)**
+
 Để chứng minh một tính chất $P(n)$ đúng với mọi số nguyên không âm $n \in \mathbb{N}$, bạn thực hiện theo các bước:
 
 - **Bước 1 Định nghĩa tập các "phần tử lỗi" ($C$):** Bạn thiết lập một tập hợp $C$ chứa tất cả các số nguyên $n$ làm cho $P(n)$ bị sai (các trường hợp phản ví dụ).
@@ -35,15 +36,18 @@ Việc tìm ra một giải pháp hiệu quả cho bài toán SAT có tầm ản
 Mặc dù có vai trò quan trọng, việc giải quyết triệt để bài toán SAT vẫn đang gặp phải những rào cản lớn về mặt lý thuyết:
 
 **A. Vấn đề "P vs. NP"**
+
 Đây là câu hỏi quan trọng nhất trong lý thuyết khoa học máy tính: Liệu có tồn tại một quy trình giải SAT trong thời gian đa thức ($n^2, n^{14},...$) thay vì thời gian hàm mũ ($2^n$) hay không? Hiện nay, chưa ai có thể đưa ra câu trả lời hoặc chứng minh rằng điều đó là không thể.
 
 **B. Nguy cơ đối với an ninh toàn cầu**
+
 Nếu bài toán SAT được giải quyết hiệu quả (nghĩa là P = NP), thế giới có thể rơi vào tình trạng hỗn loạn:
 
 - **Sụp đổ hệ thống bảo mật:** Việc giải mã các thông điệp mật sẽ trở nên dễ dàng.
 - **Mất an toàn tài chính:** Các giao dịch trực tuyến sẽ không còn được bảo mật và các thông tin liên lạc bí mật có thể bị bất kỳ ai đọc được.
 
 **C. Hạn chế của các công cụ hiện tại**
+
 Các chương trình SAT-solvers hiện nay tuy rất mạnh mẽ nhưng vẫn tồn tại những nhược điểm:
 
 - **Khó dự đoán:** Không thể dự đoán được loại công thức nào sẽ phù hợp với các phương pháp của SAT-solver.
@@ -65,12 +69,14 @@ Quan hệ hai ngôi thực chất giống hệt định nghĩa về Hàm số, n
 - Quan hệ ($R$): Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
 
 Ví dụ 1: Quan hệ "Nhỏ hơn" ($<$): Trên tập số thực, số $a$ có quan hệ với $b$ khi $a < b$.
+
 Ví dụ 2: Quan hệ "Tập con" ($\subseteq$): Tập hợp $A$ có quan hệ với $B$ khi $A \subseteq B$.
+
 Ví dụ 3: Hàm số là trường hợp đặc biệt của quan hệ.
 
 # 5. Induction (Quy nạp)
 
-**Weak vs Strong Induction:** Trong một lập luận quy nạp thông thường, bạn giả sử rằng $P(n)$ đúng và cố gắng chứng minh rằng $P(n+1)$ cũng đúng. Còn trong một lập luận quy nạp mạnh, bạn có quyền giả sử rằng tất cả các mệnh đề $P(0), P(1), \dots,$ và $P(n)$ đều đã đúng khi bạn tiến hành chứng minh $P(n+1)$.Vì vậy, bạn có thể dựa trên một tập hợp các giả thiết mạnh hơn, điều này giúp công việc chứng minh của bạn trở nên dễ dàng hơn.
+**Weak vs Strong Induction:** Trong một lập luận quy nạp thông thường, bạn giả sử rằng $P(n)$ đúng và cố gắng chứng minh rằng $P(n+1)$ cũng đúng. Còn trong một lập luận quy nạp mạnh, bạn có quyền giả sử rằng tất cả các mệnh đề $P(0), P(1), \dots,$ và $P(n)$ đều đã đúng khi bạn tiến hành chứng minh $P(n+1)$. Vì vậy, bạn có thể dựa trên một tập hợp các giả thiết mạnh hơn, điều này giúp công việc chứng minh của bạn trở nên dễ dàng hơn.
 
 ## 5.3 Strong Induction vs Induction vs Well Ordering
 
