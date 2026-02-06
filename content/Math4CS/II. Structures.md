@@ -20,11 +20,7 @@ Có một cách thường dùng để tính GCD là thuật toán Euclid. Cùng 
 
 ![[II.05.png]]
 
-Từ công thức $\pi(x) \approx \frac{x}{\ln x}$, ta có thể suy ra:
-
-Nếu bạn chọn ngẫu nhiên một số nguyên trong khoảng từ $1$ đến $x$, xác suất để số đó là số nguyên tố là khoảng:
-
-$$\frac{1}{\ln x}$$
+Từ công thức $\pi(x) \approx \frac{x}{\ln x}$, ta có thể suy ra: Nếu bạn chọn ngẫu nhiên một số nguyên trong khoảng từ $1$ đến $x$, xác suất để số đó là số nguyên tố là khoảng: $$\frac{1}{\ln x}$$
 
 ## 8.4 The Fundamental Theorem of Arithmetic
 
@@ -64,7 +60,7 @@ Tin nhắn 1: $m_{c1} = m_1 \times k$
 
 Tin nhắn 2: $m_{c2} = m_2 \times k$
 
-Quân Phát xít (kẻ tấn công) bây giờ có hai con số $m_{c1}$ và $m_{c2}$. Chúng không cần phải phân tích thừa số nguyên tố (bài toán khó) nữa. Thay vào đó, chúng chỉ cần tìm Ước chung lớn nhất (GCD). Theo tính chất của GCD:$$gcd(m_{c1}, m_{c2}) = gcd(m_1 \cdot k, m_2 \cdot k) = k \cdot gcd(m_1, m_2)$$Vì $m_1$ và $m_2$ là các số nguyên tố khác nhau (theo quy định của mã Turing), nên $gcd(m_1, m_2) = 1$. Kết quả là:$$gcd(m_{c1}, m_{c2}) = k$$
+Quân Phát xít (kẻ tấn công) bây giờ có hai con số $m_{c1}$ và $m_{c2}$. Chúng không cần phải phân tích thừa số nguyên tố (bài toán khó) nữa. Thay vào đó, chúng chỉ cần tìm Ước chung lớn nhất (GCD). Theo tính chất của GCD: $$gcd(m_{c1}, m_{c2}) = gcd(m_1 \cdot k, m_2 \cdot k) = k \cdot gcd(m_1, m_2)$$. Vì $m_1$ và $m_2$ là các số nguyên tố khác nhau (theo quy định của mã Turing), nên $gcd(m_1, m_2) = 1$. Kết quả là: $$gcd(m_{c1}, m_{c2}) = k$$
 
 ## 8.8 Turing’s Code (Version 2.0)
 
@@ -142,7 +138,7 @@ Trong vành $\mathbb{Z}_n$, nghịch đảo của $k$ chính là $k^{\phi(n)-1}$
 
 ![[II.20.png]]
 
-Các bạn để ý thấy các phần này toàn chụp định nghĩa và định lí các thứ, thì nó vậy đó :-1: Về chứng minh thì nếu ai đã từng học qua chương trình THPT cho chuyên toán thì chắc đều biết rồi nên tôi nhắc lại thôi.
+Các bạn để ý thấy các phần này toàn chụp định nghĩa và định lí các thứ, thì nó vậy đó huheo. Về chứng minh thì nếu ai đã từng học qua chương trình THPT cho chuyên toán thì chắc đều biết rồi nên mình nhắc lại thôi.
 
 ## 8.11 RSA Public Key Encryption
 
@@ -297,6 +293,7 @@ Nếu việc A và việc B "có thể so sánh", nghĩa là chúng có quan h�
 Tất cả các việc trong chuỗi này phải được thực hiện theo một thứ tự duy nhất, việc nọ nối tiếp việc kia. **Đỉnh lớn nhất (Maximum element):** Là việc cuối cùng của chuỗi, chỉ được làm khi tất cả các việc khác trong chuỗi đã xong.
 
 **Critical Path**
+
 Chính là chuỗi có độ dài lớn nhất (có nhiều đỉnh nhất) trong đồ thị. Dù bạn có bao nhiêu bộ vi xử lý đi chăng nữa, thời gian tối thiểu để hoàn thành toàn bộ dự án luôn bằng số bước trong chuỗi dài nhất này.
 
 Bởi vì các công việc trong một chuỗi buộc phải làm tuần tự. Nếu chuỗi dài nhất có 5 việc, bạn không bao giờ có thể hoàn thành dự án trong 4 bước, vì ít nhất 5 việc đó phải chiếm 5 mốc thời gian khác nhau.
@@ -315,7 +312,7 @@ Trong đồ thị DAG, lập lịch song song là việc bạn chia các công v
 > [!INFO]
 > A largest chain ending at an element a is called a critical path to a, and the number of elements less than a in the chain is called the depth of a.
 
-Đây là cách lập lịch nhanh nhất có thể (với giả định bạn có vô hạn máy tính/nhân lực): Việc gì có độ sâu bằng $k$ thì hãy làm nó ngay ở bước thứ $k$. Nó giống hệt cách tôi giải thích trước đó, chỉ khác góc nhìn thôi. Hiểu rằng độ sâu $k$ này có nghĩa là cần làm $k$ việc trước rồi mới tới $a$.
+Đây là cách lập lịch nhanh nhất có thể (với giả định bạn có vô hạn máy tính/nhân lực): Việc gì có độ sâu bằng $k$ thì hãy làm nó ngay ở bước thứ $k$. Nó giống hệt cách mình giải thích trước đó, chỉ khác góc nhìn thôi. Hiểu rằng độ sâu $k$ này có nghĩa là cần làm $k$ việc trước rồi mới tới $a$.
 
 ### 9.5.3 Dilworth’s Lemma (Optional)
 
@@ -329,7 +326,7 @@ Trong đồ thị DAG, lập lịch song song là việc bạn chia các công v
 
 ## 9.6 Partial Orders
 
-Gọi là quan hệ thứ tự một phần, nhưng chắc bạn quên nên tôi nhắc lại.
+Gọi là quan hệ thứ tự một phần, nhưng chắc bạn quên nên mình nhắc lại.
 
 ### 9.6.1 The Properties of the Walk Relation in DAGs
 
@@ -360,7 +357,7 @@ Hoặc ta có thể định nghĩa thông qua Strict Partial Orders như sau:
 
 ![[II.37.png]]
 
-For example, <=, on numbers is a strict partial order.
+For example, "nhỏ hơn hoặc bằng", on numbers is a weak partial order.
 
 ## 9.7 Representing Partial Orders by Set Containment
 
@@ -415,7 +412,7 @@ Hai phần tử $a$ và $a'$ có quan hệ với nhau khi và chỉ khi kết qu
 
 ### 9.10.1 Equivalence Classes
 
-Tôi sẽ không chụp định nghĩa vào đây mà so sánh nó với một khái niệm đã làm quen từ trước: **phân hoạch của tập hợp**. **Quan hệ tương đương và Phân hoạch thực chất là hai cách nhìn cho cùng một vấn đề.**
+Mình sẽ không chụp định nghĩa vào đây mà so sánh nó với một khái niệm đã làm quen từ trước: **phân hoạch của tập hợp**. **Quan hệ tương đương và Phân hoạch thực chất là hai cách nhìn cho cùng một vấn đề.**
 
 **Phân hoạch $\to$ Quan hệ tương đương:** Nếu bạn chủ động chia một tập hợp thành các khối (blocks) không chồng lấn, thì việc "ở chung một khối" nghiễm nhiên là một quan hệ tương đương.
 
