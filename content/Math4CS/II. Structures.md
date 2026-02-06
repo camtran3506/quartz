@@ -20,7 +20,11 @@ Có một cách thường dùng để tính GCD là thuật toán Euclid. Cùng 
 
 ![[II.05.png]]
 
-Từ công thức $\pi(x) \approx \frac{x}{\ln x}$, ta có thể suy ra: Nếu bạn chọn ngẫu nhiên một số nguyên trong khoảng từ $1$ đến $x$, xác suất để số đó là số nguyên tố là khoảng:$$\frac{1}{\ln x}$$
+Từ công thức $\pi(x) \approx \frac{x}{\ln x}$, ta có thể suy ra:
+
+Nếu bạn chọn ngẫu nhiên một số nguyên trong khoảng từ $1$ đến $x$, xác suất để số đó là số nguyên tố là khoảng:
+
+$$\frac{1}{\ln x}$$
 
 ## 8.4 The Fundamental Theorem of Arithmetic
 
@@ -35,16 +39,19 @@ Trước khi mã hóa thì ta phải số hóa thông điệp trước. Tức l�
 Ví dụ: Chữ "victory" được ghép lại thành một con số khổng lồ: 22090320151825.
 
 Trong mã của Turing, thông điệp $m$ phải là một số nguyên tố. Nếu số $m$ sau khi đổi từ chữ sang số không phải là số nguyên tố, ta sẽ thêm vài chữ số vào đuôi (padding) cho đến khi tìm được một số nguyên tố.
+
 => **Prime Number Theorem nói rằng số nguyên tố không quá hiếm.** Vì vậy, ta không cần phải thử quá nhiều lần; chỉ cần thêm vài chữ số (như số 13 trong ví dụ) là xác suất tìm được số nguyên tố là rất cao.
 
 ![[II.07.png]]
 
 **Kiểm tra tính nguyên tố (Primality Testing)**
+
 Câu hỏi đặt ra là: "Làm sao để chắc chắn $m$ và $k$ là số nguyên tố?". Nếu bạn chọn đại một số cực lớn (ví dụ có 500 chữ số), làm sao bạn biết nó là số nguyên tố hay là hợp số?
 
 Tác giả nhấn mạnh rằng việc kiểm tra một số có phải nguyên tố hay không thực ra "dễ" hơn nhiều so với việc phân tích nó. Hiện nay, chúng ta có các thuật toán như Miller-Rabin (thuật toán xác suất cực nhanh) hoặc AKS (thuật toán đa thức chắc chắn).
 
 **Tại sao quân Phát xít lại "bó tay"? (Độ an toàn)**
+
 Hệ thống này dựa trên một thứ gọi là Hàm một chiều (One-way function): Bạn có $m$ và $k$ (hai số nguyên tố cực lớn). Việc nhân chúng lại để tạo ra $m_b = m \times k$ là cực kỳ nhanh chóng, ngay cả với máy tính yếu. Kẻ địch chỉ có $m_b$. Để tìm lại thông điệp $m$, chúng buộc phải phân tích thừa số nguyên tố (factorize) số $m_b$.
 
 Như đã đề cập ở phần trước, chưa ai tìm ra một thuật toán chạy trong "thời gian đa thức" để phân tích một số là tích của hai số nguyên tố lớn.
@@ -52,7 +59,9 @@ Như đã đề cập ở phần trước, chưa ai tìm ra một thuật toán 
 ### 8.5.2 Breaking Turing’s Code (Version 1.0)
 
 Khi bạn gửi hai tin nhắn $m_1$ và $m_2$ với cùng một khóa $k$:
+
 Tin nhắn 1: $m_{c1} = m_1 \times k$
+
 Tin nhắn 2: $m_{c2} = m_2 \times k$
 
 Quân Phát xít (kẻ tấn công) bây giờ có hai con số $m_{c1}$ và $m_{c2}$. Chúng không cần phải phân tích thừa số nguyên tố (bài toán khó) nữa. Thay vào đó, chúng chỉ cần tìm Ước chung lớn nhất (GCD). Theo tính chất của GCD:$$gcd(m_{c1}, m_{c2}) = gcd(m_1 \cdot k, m_2 \cdot k) = k \cdot gcd(m_1, m_2)$$Vì $m_1$ và $m_2$ là các số nguyên tố khác nhau (theo quy định của mã Turing), nên $gcd(m_1, m_2) = 1$. Kết quả là:$$gcd(m_{c1}, m_{c2}) = k$$
