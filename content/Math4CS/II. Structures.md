@@ -490,3 +490,78 @@ Một đặc điểm quan trọng là: **Giữa bất kỳ đầu vào $i$ và �
 ![[II.46.png]]
 
 # 11. Simple Graphs
+
+Phần này bàn về đồ thị vô hướng, bổ đề bắt tay,...
+
+## 11.4 Isomorphism
+
+Một đồ thị có thể được vẽ theo nhiều cách: co giãn, bẻ cong các cạnh, hoặc đặt tên đỉnh khác nhau (đỉnh $A$ thay vì đỉnh $1$). Tuy nhiên, nếu "cấu trúc kết nối" của chúng là một, thì chúng được gọi là đẳng cấu.
+
+![[II.47.png]]
+
+Tác giả nhấn mạnh rằng đẳng cấu là một quan hệ tương đương (equivalence relation), nghĩa là nó hội đủ 3 tính chất: Phản xạ, Đối xứng, Bắc cầu.
+
+> [!INFO]
+> Thật ra định nghĩa về đẳng cấu đã có ở mục 9.7, cụ thể là định nghĩa 9.7.1. Chỉ là ở mục này ta áp dụng nó một cách trực quan hơn.
+
+Nếu $G$ và $H$ đẳng cấu, chúng bắt buộc phải có chung các đặc điểm sau:
+
+- Cùng số lượng đỉnh và số lượng cạnh.
+- Cùng bậc của các đỉnh (ví dụ: nếu $G$ có 2 đỉnh bậc 3, thì $H$ cũng phải có 2 đỉnh bậc 3).
+- Có cùng các cấu trúc con (ví dụ: nếu $G$ có một chu trình tam giác, $H$ cũng phải có).
+
+Nếu bạn tìm thấy một tính chất mà $G$ có nhưng $H$ không có (ví dụ số cạnh khác nhau), bạn có thể kết luận ngay lập tức: chúng không đẳng cấu.
+
+Tác giả đưa ra hai ứng dụng thực tế rất thú vị:
+
+- **Hóa học (Chemistry):** Giúp tìm kiếm các phân tử trong cơ sở dữ liệu. Hai công thức hóa học trông có vẻ khác nhau trên giấy nhưng thực tế lại là cùng một loại phân tử dựa trên các liên kết nguyên tử.
+- **Bảo mật & Mã hóa (Cryptography):** Việc xác định hai đồ thị lớn có đẳng cấu hay không là một bài toán cực kỳ khó về mặt tính toán (chưa có thuật toán thời gian đa thức hiệu quả cho mọi trường hợp). Sự "khó nhằn" này chính là cơ sở để xây dựng các giao thức xác thực và mã hóa an toàn.
+
+> [!INFO]
+> "Lý thuyết đồ thị thực chất là nghiên cứu về các tính chất được bảo toàn bởi sự đẳng cấu." Khi ta nói "Đồ thị đầy đủ $K_n$ có $n$ đỉnh", ta không quan tâm đó là đỉnh $A, B, C$ hay $1, 2, 3$. Ta đang nói về một "gia đình" các đồ thị có cùng cấu trúc đẳng cấu.
+
+## 11.5 Bipartite Graphs & Matchings
+
+Tức là bạn có thể chia các đỉnh thành 2 tập hợp, mà mỗi đỉnh trong mỗi tập hợp sẽ không nối nhau, vì vậy chỉ có cạnh từ đỉnh tập A đến đỉnh tập B thôi. Trực quan thì tưởng tượng nó giống như hình ảnh ánh xạ vv.
+
+![[II.48.png]]
+
+![[II.49.png]]
+
+### 11.5.1 The Bipartite Matching Problem
+
+**Bối cảnh bài toán:** Số lượng phụ nữ nhiều hơn số lượng nam giới. Không thể có chuyện mọi phụ nữ đều lấy chồng, do đó ta tập trung vào việc tìm vợ cho mọi đàn ông sao cho mỗi người đàn ông đều được ghép đôi với một người phụ nữ mà anh ta thích.
+
+Để giải quyết bài toán này, chúng ta sử dụng một đồ thị hai phía. Một cạnh tồn tại giữa người đàn ông $A$ và người phụ nữ $B$ nếu $A$ thích $B$. Trong mô hình này, mối quan hệ "thích" không nhất thiết phải đến từ hai phía. Chúng ta hiện chỉ ưu tiên điều kiện "người đàn ông thích người vợ của mình".
+
+> [!INFO]
+> **Một Matching** (Ghép cặp) hoàn hảo cho phía nam giới được định nghĩa là một sự phân công thỏa mãn 3 điều kiện:
+> Mọi người đàn ông đều có vợ
+> Không ai chung vợ
+> Người đàn ông phải được ghép đôi với người phụ nữ mà anh ta thực sự thích
+
+**The Matching Condition**
+
+> [!INFO] Hall's Matching Theorem
+> Mọi tập hợp con gồm các người đàn ông bất kỳ phải yêu thích một tập hợp phụ nữ có số lượng lớn hơn hoặc bằng số lượng đàn ông đó.
+> Hãy gọi $S$ là một nhóm đàn ông bất kỳ, và $N(S)$ là tập hợp tất cả những người phụ nữ mà ít nhất một người trong nhóm $S$ thích. Điều kiện này yêu cầu: $$\lvert S \rvert \le \lvert N(S) \rvert$$
+
+Nếu điều kiện trên không thỏa mãn, chắc chắn không có cách nào ghép cặp được. Điều này khá dễ hiểu. Đây mới là phần gây kinh ngạc. Hall chứng minh rằng chỉ cần điều kiện trên được đảm bảo cho mọi tập con của nam giới, thì chắc chắn sẽ tồn tại ít nhất một phương án ghép cặp hoàn hảo. Do đó **Matching Condition là điều kiện cần và đủ**.
+
+![[II.50.png]]
+
+Phép chứng minh Định lý trên đưa ra một thuật toán để tìm một phép ghép cặp trong đồ thị hai phía, mặc dù đó không hiệu quả cho lắm. Tuy nhiên, các thuật toán hiệu quả để tìm phép ghép cặp trong đồ thị hai phía thực sự tồn tại. Vì vậy, nếu một bài toán có thể được quy dẫn về việc tìm một phép ghép cặp, thì bài toán đó về cơ bản đã được giải quyết dưới góc độ tính toán.
+
+**An Easy Matching Condition**
+
+Định lý Hall yêu cầu ta kiểm tra mọi tập hợp con của nam giới. Việc kiểm tra thủ công hay dùng máy tính yếu để quét sạch các tập con này là bất khả thi. Vì vậy, chúng ta cần những dấu hiệu nhận biết nhanh hơn dựa trên **Bậc của đỉnh (Degree)**.
+
+![[II.51.png]]
+
+![[II.52.png]]
+
+Nếu xem tập nam giới là L(G) thì matching covers L(G) tương đương với bài toán ta xét nãy giờ.
+
+Một đồ thị là chính quy (regular) nếu mọi đỉnh đều có bậc bằng nhau (ví dụ: tất cả đều có bậc bằng 3). Mọi đồ thị hai phía chính quy đều có một phép ghép cặp hoàn hảo (perfect matching), là phép ghép cặp mà tất cả các đỉnh ở cả hai phía $L$ và $R$ đều được ghép đôi, không sót một ai.
+
+## 11.6 The Stable Marriage Problem
