@@ -565,3 +565,39 @@ Nếu xem tập nam giới là L(G) thì matching covers L(G) tương đương v
 Một đồ thị là chính quy (regular) nếu mọi đỉnh đều có bậc bằng nhau (ví dụ: tất cả đều có bậc bằng 3). Mọi đồ thị hai phía chính quy đều có một phép ghép cặp hoàn hảo (perfect matching), là phép ghép cặp mà tất cả các đỉnh ở cả hai phía $L$ và $R$ đều được ghép đôi, không sót một ai.
 
 ## 11.6 The Stable Marriage Problem
+
+**Bối cảnh bài toán:** Cũng là ghép đôi, nhưng lần này kèm theo trọng số và số nam = số nữ. Các con số cạnh tên mỗi người thể hiện thứ tự ưu tiên của họ. Số 1 tức là họ thích người này nhất, tương tự cho số 2, 3...cho đến n. Họ sẽ xếp hạng mức độ ưu tiên của mình.
+
+![[II.53.png]]
+
+Một cặp đôi (ví dụ: Brad và Angelina) được gọi là Rogue Couple khi cả hai không cưới nhau, nhưng lại thích nhau hơn người bạn đời hiện tại của mình. Như trên ảnh. Brad và Angelina sẽ có xu hướng "rời bỏ" cuộc hôn nhân hiện tại để đến với nhau. Đây chính là yếu tố gây ra sự **không ổn định**.
+
+> [!INFO]
+> Một hệ thống hôn nhân được gọi là ổn định khi không tồn tại bất kỳ một "Rogue Couple" nào.
+
+Trong ví dụ trên, nếu cho Brad cưới Angelina thì Jennifer phải cưới Billy Bob. Dù Jennifer hay Billy Bob có thể "không hạnh phúc" và muốn tìm người khác, nhưng họ không thể rủ rê được ai. Do đó, **sự ổn định** không có nghĩa là tất cả mọi người đều lấy được người mình yêu nhất, mà có nghĩa là không có hai người nào "đồng lòng" phản bội cuộc hôn nhân hiện tại để đến với nhau.
+
+Trong bài toán Nam - Nữ (đồ thị lưỡng phân), toán học chứng minh được rằng **luôn luôn tồn tại ít nhất một cách ghép đôi ổn định**. Khi chúng ta bỏ đi ranh giới giới tính (không còn là đồ thị lưỡng phân), và nó thành **bài toán Buddy Matching**, sự ổn định không còn được đảm bảo nữa.
+
+### 11.6.1 The Mating Ritual
+
+Đây là **Thuật toán Gale-Shapley**:
+
+- Bước 1: Lấy một người đàn ông $m$ tự do. Gọi $w$ là người phụ nữ xếp hạng cao nhất trong danh sách của $m$ mà $m$ **chưa từng cầu hôn trước đó**.
+- Bước 2: Nếu $w$ đang tự do: $(m, w)$ trở thành một cặp "đính hôn tạm thời". Nếu $w$ đang đính hôn với $m'$ và $w$ ưu tiên $m$ hơn $m'$ thì $m'$ trở lại trạng thái tự do và $(m, w)$ trở thành cặp đính hôn tạm thời mới. Nếu $w$ ưu tiên $m'$ hơn $m$ thì $m$ vẫn ở trạng thái tự do (bị từ chối).
+- Bước 3: Những người $m$ bị từ chối thì sẽ gạch $w$ đã từ chối họ khỏi danh sách riêng (tức là vòng lặp sau sẽ cầu hôn người khác).
+- Bước 4: Lặp lại thuật toán cho tới khi ghép đủ hết.
+
+Kết thúc: Khi không còn người đàn ông nào tự do và có thể cầu hôn, tất cả các cặp đính hôn tạm thời trở thành hôn nhân chính thức.
+
+Một số facts ta cần chứng minh, và sẽ chứng minh lần lượt ở các mục sau:
+
+- The Ritual eventually reaches the termination condition.
+- Everybody ends up married.
+- The resulting marriages are stable.
+
+### 11.6.2 There is a Marriage Day
+
+Giả sử có $n$ nam và $n$ nữ, mỗi người đàn ông sẽ khởi đầu với một danh sách ưu tiên chứa đầy đủ $n$ người phụ nữ. Như vậy, tổng số mục (entries) trong tất cả các danh sách ưu tiên của nam giới là $n \times n = n^2$. Trong mỗi bước lặp của thuật toán (mỗi ngày của nghi lễ), nếu điều kiện dừng chưa được thỏa mãn, tức là vẫn còn ít nhất một người phụ nữ nhận được từ hai lời cầu hôn trở lên, thì ít nhất một người đàn ông sẽ bị từ chối. Theo quy tắc, người bị từ chối bắt buộc phải gạch tên người phụ nữ đó khỏi danh sách ưu tiên của mình. Vì các mục đã bị gạch sẽ không bao giờ được thêm lại, tổng số mục trong tất cả các danh sách ưu tiên là một đại lượng giảm ngặt sau mỗi bước lặp. Do đó thuật toán sẽ đạt trạng thái dừng.
+
+### 11.6.3 They All Live Happily Ever After. . .
