@@ -623,7 +623,7 @@ Mặc dù thuật toán mang lại cảm giác phụ nữ nắm quyền kiểm s
 
 Trước khi có thuật toán này, việc phân bổ bác sĩ vào bệnh viện gặp phải những "khủng hoảng" nghiêm trọng. Các bệnh viện và sinh viên thường xuyên phá vỡ hợp đồng vì họ tìm thấy những lựa chọn khác tốt hơn. Thuật toán Gale-Shapley đã giải quyết vấn đề này hiệu quả đến mức nó được giữ nguyên gần như không thay đổi trong suốt hàng thập kỷ.
 
-Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến tạng, và có thể là tuyển sinh đại học.
+Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến tạng, tuyển sinh đại học...
 
 ## 11.7 Coloring
 
@@ -681,3 +681,41 @@ Nếu ta gọi một chu trình là một "đường đi khép kín" (closed wal
 $C_n$ là gì? Đây là một "khuôn mẫu" chuẩn về một cái vòng có $n$ cạnh (ví dụ $C_3$ là tam giác, $C_4$ là hình vuông). Ta sẽ kêu chu trình là một đồ thị mà nó đẳng cấu với đồ thị vòng ;v. Chỉ là vấn đề về định nghĩa thôi.
 
 ## 11.9 Connectivity
+
+Phần này bàn về khái niệm liên thông giữa 2 đỉnh, đồ thị liên thông, thành phần liên thông. Thành phần liên thông = đồ thị con mà nó liên thông.
+
+### 11.9.2 Odd Cycles and 2-Colorability
+
+> [!INFO]
+> Các tính chất sau là tương đương:
+>
+> - Đồ thị chứa một chu trình độ dài lẻ
+> - Đồ thị không thể tô bằng 2 màu (hay nói cách khác nó không phải lưỡng phân)
+> - Đồ thị chứa một đường đi khép kín độ dài lẻ
+
+Từ đây cũng suy ra một kết quả hay dùng: **đồ thị lưỡng phân khi và chỉ khi nó không chứa chu trình lẻ**.
+
+### 11.9.3 K-connected Graphs
+
+Trong thực tế (như đường ống dầu hay cáp điện), chúng ta cần sự dự phòng. Một mạng lưới tốt là mạng lưới vẫn hoạt động được ngay cả khi một vài thành phần bị hỏng.
+
+> [!INFO]
+> Hai đỉnh được gọi là $k$-connected nếu bạn xóa đi bất kỳ $k-1$ cạnh nào, thì đồ thị thu được sau đó vẫn liên thông.
+> Cầu: Là cạnh mà nếu thiếu nó, đồ thị không còn liên thông nữa.
+> Một cạnh là cầu khi nó không nằm trong chu trình nào (khá hiển nhiên)
+
+Tổng quát hơn, nếu hai đỉnh được kết nối bởi một số $k$ đường đi rời rạc về cạnh (tức là không có cạnh nào xuất hiện đồng thời trong hai đường đi khác nhau), thì chúng chắc chắn là $k$-kết nối. Điều này là do ta phải xóa ít nhất một cạnh từ mỗi con đường đó thì mới có thể khiến chúng mất liên lạc.
+
+Một sự thật cơ bản, mà chúng tôi xin phép bỏ qua phần chứng minh cực kỳ khéo léo của nó, chính là **định lý Menger**. Định lý này khẳng định rằng điều ngược lại cũng đúng: nếu hai đỉnh là $k$-kết nối, thì sẽ có đúng $k$ đường đi rời rạc về cạnh nối giữa chúng.
+
+### 11.9.4 The Minimum Number of Edges in a Connected Graph
+
+> [!INFO]
+> Mọi đồ thị $G$ đều có ít nhất $|V(G)| - |E(G)|$ thành phần liên thông
+> Dẫn đến hệ quả: Mọi đồ thị liên thông có $n$ đỉnh thì phải có ít nhất $n - 1$ cạnh
+
+Khi bạn gặp một bài toán đồ thị, hai cách tiếp cận này nên là những lựa chọn đầu tiên bạn cân nhắc: **quy nạp trên số cạnh và quy nạp trên số đỉnh của đồ thị**.
+
+Mặt khác, khi quy nạp trên số cạnh chẳng hạn, ta hay gặp buildup error. Cụ thể ta thường bắt đầu với một đồ thị $k$ cạnh rồi thêm một cạnh nữa để có đồ thị $(k+1)$ cạnh. Bạn sẽ sai khi giả định rằng mọi đồ thị $(k+1)$ cạnh đều có thể được tạo ra bằng cách thêm 1 cạnh vào một đồ thị $k$ cạnh "có tính chất X nào đó". Cách làm đúng là bắt đầu bằng một đồ thị $(k+1)$ cạnh bất kỳ (tổng quát hoàn toàn), bẻ đi 1 cạnh để nó rơi về trường hợp $k$ cạnh đã biết, sau đó gắn lại để xem tính chất có được bảo toàn không.
+
+## 11.10 Forests & Trees
