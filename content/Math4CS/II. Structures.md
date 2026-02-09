@@ -619,6 +619,12 @@ Bổ đề này bạn tự chứng minh nhe hê hê. Tóm lại là nếu $m$ b�
 
 Mặc dù thuật toán mang lại cảm giác phụ nữ nắm quyền kiểm soát thông qua việc lựa chọn và từ chối, nhưng định lý 11.6.10 đã chứng minh một kết quả ngược lại: Thuật toán này tối ưu hóa lợi ích cho người cầu hôn và tối thiểu hóa lợi ích cho người nhận lời. Cụ thể, thuật toán đảm bảo mọi đàn ông đều cưới được "Bạn đời tối ưu" (Optimal Spouse) — người họ thích nhất trong số tất cả các lựa chọn có thể tạo ra một cuộc hôn nhân ổn định. Ngược lại, mọi phụ nữ đều kết thúc với "Bạn đời tệ nhất" (Pessimal Spouse) — người họ ít ưu tiên nhất trong số những đối tác khả thi về mặt toán học. Điều này xảy ra bởi vì đàn ông được chủ động "duyệt" danh sách từ trên xuống dưới và dừng lại ngay ở điểm cao nhất có thể; trong khi đó, phụ nữ phải chờ đợi và tiêu chuẩn của họ chỉ được nâng lên dựa trên sự ngẫu nhiên của những người đến cầu hôn. Vì vậy, trong lý thuyết ghép đôi, thực thể nắm quyền chủ động cầu hôn luôn giành được lợi thế tuyệt đối về chất lượng hôn nhân.
 
+### 11.6.5 Applications
+
+Trước khi có thuật toán này, việc phân bổ bác sĩ vào bệnh viện gặp phải những "khủng hoảng" nghiêm trọng. Các bệnh viện và sinh viên thường xuyên phá vỡ hợp đồng vì họ tìm thấy những lựa chọn khác tốt hơn. Thuật toán Gale-Shapley đã giải quyết vấn đề này hiệu quả đến mức nó được giữ nguyên gần như không thay đổi trong suốt hàng thập kỷ.
+
+Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến tạng, và có thể là tuyển sinh đại học.
+
 ## 11.7 Coloring
 
 ### 11.7.1 An Exam Scheduling Problem
@@ -653,7 +659,7 @@ Kết quả này có thể chứng minh dựa trên quy nạp. Tác giả có m�
 
 ### 11.7.3 Why coloring?
 
-Một số ứng dụng của tô màu đồ thị:
+Một số ứng dụng của tô màu đồ thị, chủ yếu là **tối ưu hóa tài nguyên bị giới hạn**:
 
 - **Triển khai phần mềm quy mô lớn:** Có một số máy chủ phụ thuộc vào nhau. Thay vì cập nhật từng cái một, họ chỉ cần chia thành vài đợt (số màu cần tô). Mỗi đợt cập nhật hàng nghìn máy chủ cùng lúc.
 - **Cấp phát tần số vô tuyến:** Hai đài phát thanh có vùng phủ sóng chồng lấn không được phép dùng chung tần số (vì sẽ gây nhiễu). Tìm sắc số $\chi(G)$ để sử dụng ít tần số nhất mà vẫn đảm bảo tín hiệu rõ nét.
@@ -661,3 +667,17 @@ Một số ứng dụng của tô màu đồ thị:
 - **Tô màu bản đồ và Đồ thị phẳng**: Đây là bài toán khởi nguồn của lý thuyết tô màu đồ thị. **Định lý Bốn màu:** Mọi bản đồ trên mặt phẳng đều có thể được tô bằng tối đa 4 màu sao cho các quốc gia giáp ranh không trùng màu.
 
 ## 11.8 Simple Walks
+
+Phần này nhắc lại khái niệm về đường đi trên đồ thị, nhưng lần này là cho simple graphs. Chắc các bạn đều biết hết rồi nên mình sẽ không ghi ở đây.
+
+### 11.8.2 Cycles as Subgraphs
+
+Nếu ta gọi một chu trình là một "đường đi khép kín" (closed walk), ta vô tình tạo ra một điểm bắt đầu (ví dụ: $A \to B \to C \to A$). Nhưng thực tế, cái vòng đó vẫn là một dù bạn bắt đầu từ $A, B$ hay $C$. Để giải quyết việc này, tác giả đã chuyển sang dùng khái niệm Đồ thị con (Subgraph).
+
+> [!INFO]
+> Đồ thị $G$ là con của $H$ nếu toàn bộ đỉnh và cạnh của $G$ đều nằm trong $H$.
+> Chu trình là một tập hợp các đỉnh và cạnh tạo thành một đồ thị con đẳng cấu (isomorphic) với $C_n$
+
+$C_n$ là gì? Đây là một "khuôn mẫu" chuẩn về một cái vòng có $n$ cạnh (ví dụ $C_3$ là tam giác, $C_4$ là hình vuông). Ta sẽ kêu chu trình là một đồ thị mà nó đẳng cấu với đồ thị vòng ;v. Chỉ là vấn đề về định nghĩa thôi.
+
+## 11.9 Connectivity
