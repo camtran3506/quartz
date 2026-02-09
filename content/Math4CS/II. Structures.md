@@ -536,14 +536,16 @@ Tức là bạn có thể chia các đỉnh thành 2 tập hợp, mà mỗi đ�
 
 > [!INFO]
 > **Một Matching** (Ghép cặp) hoàn hảo cho phía nam giới được định nghĩa là một sự phân công thỏa mãn 3 điều kiện:
-> Mọi người đàn ông đều có vợ
-> Không ai chung vợ
-> Người đàn ông phải được ghép đôi với người phụ nữ mà anh ta thực sự thích
+>
+> - Mọi người đàn ông đều có vợ
+> - Không ai chung vợ
+> - Người đàn ông phải được ghép đôi với người phụ nữ mà anh ta thực sự thích
 
 **The Matching Condition**
 
 > [!INFO] Hall's Matching Theorem
 > Mọi tập hợp con gồm các người đàn ông bất kỳ phải yêu thích một tập hợp phụ nữ có số lượng lớn hơn hoặc bằng số lượng đàn ông đó.
+>
 > Hãy gọi $S$ là một nhóm đàn ông bất kỳ, và $N(S)$ là tập hợp tất cả những người phụ nữ mà ít nhất một người trong nhóm $S$ thích. Điều kiện này yêu cầu: $$\lvert S \rvert \le \lvert N(S) \rvert$$
 
 Nếu điều kiện trên không thỏa mãn, chắc chắn không có cách nào ghép cặp được. Điều này khá dễ hiểu. Đây mới là phần gây kinh ngạc. Hall chứng minh rằng chỉ cần điều kiện trên được đảm bảo cho mọi tập con của nam giới, thì chắc chắn sẽ tồn tại ít nhất một phương án ghép cặp hoàn hảo. Do đó **Matching Condition là điều kiện cần và đủ**.
@@ -676,6 +678,7 @@ Nếu ta gọi một chu trình là một "đường đi khép kín" (closed wal
 
 > [!INFO]
 > Đồ thị $G$ là con của $H$ nếu toàn bộ đỉnh và cạnh của $G$ đều nằm trong $H$.
+>
 > Chu trình là một tập hợp các đỉnh và cạnh tạo thành một đồ thị con đẳng cấu (isomorphic) với $C_n$
 
 $C_n$ là gì? Đây là một "khuôn mẫu" chuẩn về một cái vòng có $n$ cạnh (ví dụ $C_3$ là tam giác, $C_4$ là hình vuông). Ta sẽ kêu chu trình là một đồ thị mà nó đẳng cấu với đồ thị vòng ;v. Chỉ là vấn đề về định nghĩa thôi.
@@ -701,7 +704,9 @@ Trong thực tế (như đường ống dầu hay cáp điện), chúng ta cần
 
 > [!INFO]
 > Hai đỉnh được gọi là $k$-connected nếu bạn xóa đi bất kỳ $k-1$ cạnh nào, thì đồ thị thu được sau đó vẫn liên thông.
+>
 > Cầu: Là cạnh mà nếu thiếu nó, đồ thị không còn liên thông nữa.
+>
 > Một cạnh là cầu khi nó không nằm trong chu trình nào (khá hiển nhiên)
 
 Tổng quát hơn, nếu hai đỉnh được kết nối bởi một số $k$ đường đi rời rạc về cạnh (tức là không có cạnh nào xuất hiện đồng thời trong hai đường đi khác nhau), thì chúng chắc chắn là $k$-kết nối. Điều này là do ta phải xóa ít nhất một cạnh từ mỗi con đường đó thì mới có thể khiến chúng mất liên lạc.
@@ -712,6 +717,7 @@ Một sự thật cơ bản, mà chúng tôi xin phép bỏ qua phần chứng m
 
 > [!INFO]
 > Mọi đồ thị $G$ đều có ít nhất $|V(G)| - |E(G)|$ thành phần liên thông
+>
 > Dẫn đến hệ quả: Mọi đồ thị liên thông có $n$ đỉnh thì phải có ít nhất $n - 1$ cạnh
 
 Khi bạn gặp một bài toán đồ thị, hai cách tiếp cận này nên là những lựa chọn đầu tiên bạn cân nhắc: **quy nạp trên số cạnh và quy nạp trên số đỉnh của đồ thị**.
@@ -719,3 +725,61 @@ Khi bạn gặp một bài toán đồ thị, hai cách tiếp cận này nên l
 Mặt khác, khi quy nạp trên số cạnh chẳng hạn, ta hay gặp buildup error. Cụ thể ta thường bắt đầu với một đồ thị $k$ cạnh rồi thêm một cạnh nữa để có đồ thị $(k+1)$ cạnh. Bạn sẽ sai khi giả định rằng mọi đồ thị $(k+1)$ cạnh đều có thể được tạo ra bằng cách thêm 1 cạnh vào một đồ thị $k$ cạnh "có tính chất X nào đó". Cách làm đúng là bắt đầu bằng một đồ thị $(k+1)$ cạnh bất kỳ (tổng quát hoàn toàn), bẻ đi 1 cạnh để nó rơi về trường hợp $k$ cạnh đã biết, sau đó gắn lại để xem tính chất có được bảo toàn không.
 
 ## 11.10 Forests & Trees
+
+> [!INFO]
+> Tree: đồ thị liên thông và không có chu trình
+> Forest: đồ thị không có chu trình (gồm nhiều thành phần liên thông hợp thành, mỗi thành phần đó là một tree)
+
+### 11.10.2 Properties
+
+Sau đây là các tính chất của cây:
+
+- Mọi đồ thị con liên thông cũng là một cây
+- Có duy nhất một đường đi giữa mọi cặp đỉnh (Nếu không nó sẽ tạo chu trình)
+- Thêm một cạnh giữa hai nút không kề nhau sẽ tạo ra chu trình. (Nếu thêm sẽ tạo chu trình)
+- Xóa bất kỳ cạnh nào cũng làm đồ thị mất liên thông (Mọi cạnh đều là cạnh cắt)
+- Nếu cây có ít nhất 2 đỉnh, nó phải có ít nhất 2 lá
+- Số lượng đỉnh luôn lớn hơn số lượng cạnh đúng 1 đơn vị
+
+### 11.10.3 Spanning Trees
+
+> [!INFO]
+> Every connected graph contains a spanning tree, a subgraph containing all the vertices of G.
+
+### 11.10.4 Minimum Weight Spanning Trees
+
+Cây khung (Spanning trees) rất thú vị bởi vì chúng kết nối tất cả các nút của một đồ thị bằng cách sử dụng số lượng cạnh ít nhất có thể. Trong nhiều ứng dụng, có các chi phí bằng số hoặc trọng số (weights) gắn liền với các cạnh của đồ thị. Trọng số của một đồ thị được định nghĩa đơn giản là tổng trọng số của tất cả các cạnh cấu thành nên nó.
+
+=> **Bài toán tìm cây khung tối tiểu (tối thiểu hóa trọng số/chi phí)** hay còn gọi là **tìm MST**
+
+Với **pre-MST là một đồ thị con bao trùm của $G$ và đồng thời là đồ thị con của ít nhất một MST nào đó của $G$.** Định nghĩa hơi khó hiểu ha ;>
+
+> [!INFO] Chiến lược xây dựng MST
+>
+> - **Khởi tạo:** Bắt đầu với một rừng bao trùm rỗng (pre-MST). Thật ra là bắt đầu với đồ thị chỉ toàn đỉnh, không có cạnh.
+> - **Lặp lại:** Liên tục tìm và thêm các cạnh mở rộng vào rừng hiện tại.
+> - **Kết thúc:** Khi số cạnh đạt đúng $|V(G)| - 1$, rừng sẽ trở thành một cây. Vì nó là một pre-MST và đã là một cây, nó chắc chắn là một MST.
+
+Làm sao để tìm và thêm các cạnh mở rộng? Có một phương pháp gọi là **Solid Coloring** như sau:
+
+> [!INFO] Phương pháp Solid Coloring
+>
+> - Tô màu khối (Solid Coloring): Tô màu tất cả các đỉnh trong mỗi thành phần liên thông của pre-MST $F$ bằng màu Đen hoặc Trắng. Các đỉnh trong cùng một thành phần phải cùng màu. Phải tồn tại ít nhất một cụm màu Đen và một cụm màu Trắng.
+> - Xác định cạnh xám (Gray Edges): Một cạnh xám là cạnh nối giữa một đỉnh màu trắng và một đỉnh màu đen trong đồ thị gốc $G$.
+> - Áp dụng bổ đề: Một cạnh sẽ là cạnh mở rộng nếu nó có trọng số nhỏ nhất trong số tất cả các cạnh xám của một cách tô màu khối bất kỳ.
+
+Ví dụ: Nếu bạn có 4 thành phần liên thông $A, B, C, D$. Bạn có thể tô $\{A, B\}$ màu Trắng và $\{C, D\}$ màu Đen. Hoặc chỉ tô $\{A\}$ màu Trắng và $\{B, C, D\}$ màu Đen. Mỗi cách chọn này là một "loại" solid coloring khác nhau.
+
+Mỗi loại solid coloring dẫn đến các thuật toán khác nhau, tiêu biểu như:
+
+- Thuật toán Prim: Thuật toán này duy trì một tập đỉnh đã liên thông $V_{tree}$ và mở rộng nó.
+- Thuật toán Kruskal: Thuật toán này tập trung vào việc chọn các cạnh rẻ nhất trên toàn đồ thị mà không tạo thành chu trình.
+- Thuật toán tổng quát hóa (dùng cùng coloring với Prim): Chính là dựa trên phương pháp solid coloring. Grow a forest one edge at a time by picking any component and adding a minimum weight edge among the edges leaving that component.
+
+Khác với thuật toán Prim (bắt buộc phải mọc ra từ một gốc duy nhất), Thuật toán 3 cho phép bạn chọn bất kỳ thành phần liên thông (component) nào để mở rộng. Do đó có thể áp dụng **tính song song**, áp dụng nhiều bộ xử lí song song để hoàn thành công việc. Mặt khác, đối với bài toán MST, **sự tham lam** luôn mang lại kết quả đúng. Các nhà toán học đã chứng minh được rằng chỉ cần bạn cứ chọn cạnh rẻ nhất (thỏa mãn điều kiện), bạn chắc chắn sẽ có được cây khung rẻ nhất toàn cục.
+
+Nếu đồ thị có các trọng số đôi một khác nhau (distinct weights), thì đồ thị đó chỉ có duy nhất một MST. Lúc này, cả Prim và Kruskal chắc chắn sẽ hội tụ về cùng một kết quả duy nhất. Vì cả hai đều tuân theo nguyên lý chọn cạnh xám rẻ nhất.
+
+Về mặt kỹ thuật, các thuật toán như Prim hay Kruskal có độ phức tạp khoảng $O(E \log V)$ hoặc $O(E \log E)$. Rất lẹ ;v
+
+# 11. Simple Graphs
