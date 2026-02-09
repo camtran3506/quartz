@@ -633,7 +633,7 @@ Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến 
 
 => Ta cần tô màu đồ thị sao cho 2 đỉnh kề nhau thì được tô 2 màu khác nhau. Và số màu tô phải là ít nhất.
 
-> ![INFO]
+> [!INFO]
 > The minimum value of $k$ for which a graph, G, has a valid coloring is called its chromatic number, $\chi(G)$
 
 Việc xác định $\chi(G)$ là một bài toán kinh điển thuộc nhóm NP-complete. Đặc trưng của bài toán này nằm ở sự bất đối xứng về chi phí tính toán: trong khi việc kiểm tra tính hợp lệ của một phương án tô màu cho trước có thể thực hiện rất nhanh chóng (thời gian đa thức), thì việc tìm ra cách tô màu tối ưu lại cực kỳ khó khăn và hiện chưa có thuật toán giải nhanh nào được biết đến. Do đó, việc tìm ra một thuật toán hiệu quả để giải quyết bài toán này không chỉ mang lại giá trị thực tiễn to lớn trong tối ưu hóa nguồn lực mà còn giúp giải quyết giả thuyết $P$ vs $NP$.
