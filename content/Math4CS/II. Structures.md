@@ -633,3 +633,31 @@ Mặc dù thuật toán mang lại cảm giác phụ nữ nắm quyền kiểm s
 Việc xác định $\chi(G)$ là một bài toán kinh điển thuộc nhóm NP-complete. Đặc trưng của bài toán này nằm ở sự bất đối xứng về chi phí tính toán: trong khi việc kiểm tra tính hợp lệ của một phương án tô màu cho trước có thể thực hiện rất nhanh chóng (thời gian đa thức), thì việc tìm ra cách tô màu tối ưu lại cực kỳ khó khăn và hiện chưa có thuật toán giải nhanh nào được biết đến. Do đó, việc tìm ra một thuật toán hiệu quả để giải quyết bài toán này không chỉ mang lại giá trị thực tiễn to lớn trong tối ưu hóa nguồn lực mà còn giúp giải quyết giả thuyết $P$ vs $NP$.
 
 ### 11.7.2 Some Coloring Bounds
+
+Một cách tự nhiên, ta có:
+
+- Đồ thị vòng chẵn ($C_{even}$): Luôn có $\chi = 2$. Bạn chỉ cần tô xen kẽ màu 1 và màu 2.
+- Đồ thị vòng lẻ ($C_{odd}$): Luôn có $\chi = 3$. Do đỉnh cuối cùng sẽ kề với cả đỉnh đầu tiên và đỉnh áp chót, nên 2 màu là không đủ.
+- Đồ thị đầy đủ ($K_n$): Trong $K_n$, mọi đỉnh đều nối với nhau. Vì thế, không có hai đỉnh nào được phép trùng màu. $\chi(K_n) = n$.
+- Đồ thị lưỡng phân: $\chi(G)$ = 2, tập $L$ một màu, tập $R$ một màu.
+
+> [!INFO]
+> A graph, G, with at least one edge is bipartite iff $\chi(G)$ = 2
+
+Việc tô được 2 màu với việc phân ra được 2 tập đỉnh trong đồ thị lưỡng phân nó là tương đương nhau, nên ta có bổ đề trên đây.
+
+> [!INFO]
+> Nếu bậc cao nhất của một đỉnh trong đồ thị là $k$, thì đồ thị đó có thể tô được bằng $k+1$ màu.
+
+Kết quả này có thể chứng minh dựa trên quy nạp. Tác giả có một lời khuyên rất hay là đừng dùng quy nạp trên $k$ (vì sẽ rất rắc rối), mà hãy dùng quy nạp trên số đỉnh $n$ hoặc số cạnh $e$. Nhớ là có thể thôi, chứ $k + 1$ chưa chắc là số màu ít nhất.
+
+### 11.7.3 Why coloring?
+
+Một số ứng dụng của tô màu đồ thị:
+
+- **Triển khai phần mềm quy mô lớn:** Có một số máy chủ phụ thuộc vào nhau. Thay vì cập nhật từng cái một, họ chỉ cần chia thành vài đợt (số màu cần tô). Mỗi đợt cập nhật hàng nghìn máy chủ cùng lúc.
+- **Cấp phát tần số vô tuyến:** Hai đài phát thanh có vùng phủ sóng chồng lấn không được phép dùng chung tần số (vì sẽ gây nhiễu). Tìm sắc số $\chi(G)$ để sử dụng ít tần số nhất mà vẫn đảm bảo tín hiệu rõ nét.
+- **Cấp phát thanh ghi:** Hai biến số không thể dùng chung một thanh ghi nếu chúng đang được sử dụng cùng lúc trong chương trình. Sử dụng tối thiểu số thanh ghi (màu) để chạy chương trình hiệu quả nhất.
+- **Tô màu bản đồ và Đồ thị phẳng**: Đây là bài toán khởi nguồn của lý thuyết tô màu đồ thị. **Định lý Bốn màu:** Mọi bản đồ trên mặt phẳng đều có thể được tô bằng tối đa 4 màu sao cho các quốc gia giáp ranh không trùng màu.
+
+## 11.8 Simple Walks
