@@ -601,3 +601,35 @@ Một số facts ta cần chứng minh, và sẽ chứng minh lần lượt ở 
 Giả sử có $n$ nam và $n$ nữ, mỗi người đàn ông sẽ khởi đầu với một danh sách ưu tiên chứa đầy đủ $n$ người phụ nữ. Như vậy, tổng số mục (entries) trong tất cả các danh sách ưu tiên của nam giới là $n \times n = n^2$. Trong mỗi bước lặp của thuật toán (mỗi ngày của nghi lễ), nếu điều kiện dừng chưa được thỏa mãn, tức là vẫn còn ít nhất một người phụ nữ nhận được từ hai lời cầu hôn trở lên, thì ít nhất một người đàn ông sẽ bị từ chối. Theo quy tắc, người bị từ chối bắt buộc phải gạch tên người phụ nữ đó khỏi danh sách ưu tiên của mình. Vì các mục đã bị gạch sẽ không bao giờ được thêm lại, tổng số mục trong tất cả các danh sách ưu tiên là một đại lượng giảm ngặt sau mỗi bước lặp. Do đó thuật toán sẽ đạt trạng thái dừng.
 
 ### 11.6.3 They All Live Happily Ever After. . .
+
+Dễ dàng nhận thấy rằng, **tiêu chuẩn của nữ chỉ tăng lên**. Bởi vì mỗi vòng lặp $w$ chỉ thay đổi cặp khi $m$ "tốt hơn". Đương nhiên nếu không có $m$ tốt hơn thì cặp đó vẫn giữ nguyên và ông $m$ đó không làm hành động gạch $w$ khỏi danh sách riêng.
+
+Sử dụng tính chất này kèm phản chứng để chứng minh rằng: **Everybody ends up married** và **The resulting marriages are stable**. Phần chứng minh rất dễ, bạn có thể tự thực hành nha.
+
+### 11.6.4 . . . Especially the Men
+
+> [!INFO]
+> While the Mating Ritual produces one stable matching, stable matchings need not be unique.
+
+Chẳng hạn như khi đổi lại là bên tập nữ chủ động đi cầu hôn thì nó sẽ ra một kết quả stable matching khác. Stable không có nghĩa là Unique.
+
+![[II.54.png]]
+
+Bổ đề này bạn tự chứng minh nhe hê hê. Tóm lại là nếu $m$ bị $w$ nào đó từ chối thì họ không thể là một cặp trong bất kì stable matching nào. Tức là không phải feasible spouse như trên định nghĩa.
+
+Mặc dù thuật toán mang lại cảm giác phụ nữ nắm quyền kiểm soát thông qua việc lựa chọn và từ chối, nhưng định lý 11.6.10 đã chứng minh một kết quả ngược lại: Thuật toán này tối ưu hóa lợi ích cho người cầu hôn và tối thiểu hóa lợi ích cho người nhận lời. Cụ thể, thuật toán đảm bảo mọi đàn ông đều cưới được "Bạn đời tối ưu" (Optimal Spouse) — người họ thích nhất trong số tất cả các lựa chọn có thể tạo ra một cuộc hôn nhân ổn định. Ngược lại, mọi phụ nữ đều kết thúc với "Bạn đời tệ nhất" (Pessimal Spouse) — người họ ít ưu tiên nhất trong số những đối tác khả thi về mặt toán học. Điều này xảy ra bởi vì đàn ông được chủ động "duyệt" danh sách từ trên xuống dưới và dừng lại ngay ở điểm cao nhất có thể; trong khi đó, phụ nữ phải chờ đợi và tiêu chuẩn của họ chỉ được nâng lên dựa trên sự ngẫu nhiên của những người đến cầu hôn. Vì vậy, trong lý thuyết ghép đôi, thực thể nắm quyền chủ động cầu hôn luôn giành được lợi thế tuyệt đối về chất lượng hôn nhân.
+
+## 11.7 Coloring
+
+### 11.7.1 An Exam Scheduling Problem
+
+Đây là bài toán sắp xếp lịch thi sao cho **không có sinh viên nào có 2 môn học phải thi cùng một ca thi**. Chắc chắn là không xếp theo kiểu mỗi ca một môn rồi :> nếu vậy thì kì thi sẽ kéo dài rất lâu. Trong bài toán này thì mỗi đỉnh là một môn, **2 đỉnh kề nhau nếu như có một sinh viên nào đó đăng kí cả 2 môn này**. **Mỗi ca thi sẽ là một màu**.
+
+=> Ta cần tô màu đồ thị sao cho 2 đỉnh kề nhau thì được tô 2 màu khác nhau. Và số màu tô phải là ít nhất.
+
+> ![INFO]
+> The minimum value of $k$ for which a graph, G, has a valid coloring is called its chromatic number, $\chi(G)$
+
+Việc xác định $\chi(G)$ là một bài toán kinh điển thuộc nhóm NP-complete. Đặc trưng của bài toán này nằm ở sự bất đối xứng về chi phí tính toán: trong khi việc kiểm tra tính hợp lệ của một phương án tô màu cho trước có thể thực hiện rất nhanh chóng (thời gian đa thức), thì việc tìm ra cách tô màu tối ưu lại cực kỳ khó khăn và hiện chưa có thuật toán giải nhanh nào được biết đến. Do đó, việc tìm ra một thuật toán hiệu quả để giải quyết bài toán này không chỉ mang lại giá trị thực tiễn to lớn trong tối ưu hóa nguồn lực mà còn giúp giải quyết giả thuyết $P$ vs $NP$.
+
+### 11.7.2 Some Coloring Bounds
