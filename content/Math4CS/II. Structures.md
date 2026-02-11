@@ -822,3 +822,38 @@ Như ở ví dụ trên thì ta định nghĩa theo đường sau: abcefgecda, �
 Như hình này thì không định nghĩa dựa trên chu trình được ha ;v nên họ mới dùng closed walks.
 
 ### 12.2.2 A Recursive Definition for Planar Embeddings
+
+Ý tưởng chính ở đây là sử dụng logic của các mặt (faces):
+
+- Planar Embedding: Một tập hợp các đường đi đóng đại diện cho ranh giới của các mặt.
+- Quy tắc xây dựng không giao cắt: Một cạnh mới có thể được vẽ mà không cắt các cạnh cũ nếu và chỉ nếu hai đầu mút của nó cùng nằm trên ranh giới của cùng một mặt.
+- Cập nhật cạnh: Mỗi khi một cạnh mới được thêm vào, cấu trúc của các mặt sẽ thay đổi (một mặt cũ bị chia đôi thành hai mặt mới), và tập hợp các đường đi đóng này cần được cập nhật lại.
+
+Mặc dù khái niệm tính phẳng áp dụng cho mọi đồ thị, nhưng định nghĩa đệ quy về Planar Embedding thường ưu tiên xét trên đồ thị liên thông để đảm bảo tính nhất quán trong việc xác định ranh giới các mặt. Việc giới hạn này cho phép mô tả quá trình xây dựng đồ thị thông qua các thao tác logic như 'chia mặt' (split a face) hoặc 'thêm cầu' (add a bridge). Đối với các đồ thị không liên thông, Planar Embedding có thể được hiểu là sự kết hợp của các thành phần liên thông riêng lẻ cùng chia sẻ một mặt ngoài vô hạn, đảm bảo rằng cấu trúc tổng thể vẫn tuân thủ các quy tắc.
+
+Đây là định nghĩa chính thức. Một Planar Embedding của đồ thị liên thông là một tập hợp không rỗng các đường đi đóng (closed walks) được gọi là các mặt rời rạc (discrete faces). Cấu trúc này được xây dựng đệ quy thông qua các trường hợp sau:
+
+- Base case: Nếu đồ thị $G$ chỉ gồm một đỉnh duy nhất $v$, Planar Embedding của $G$ có đúng một mặt rời rạc là đường đi đóng có độ dài bằng 0 tại chính đỉnh $v$.
+- Trường hợp chia mặt (Split a face): Áp dụng khi thêm một cạnh mới nối hai đỉnh $a$ và $b$ đã tồn tại nhưng chưa kề nhau, với điều kiện cả hai cùng nằm trên một mặt rời rạc $\gamma$. Giả sử mặt $\gamma$ có dạng $\gamma = \alpha \widehat{} \beta$ (trong đó $\alpha$ là đường đi từ $a$ đến $b$, và $\beta$ là đường đi từ $b$ về $a$). hi thêm cạnh $\langle a—b \rangle$, mặt $\gamma$ sẽ bị thay thế bởi hai mặt rời rạc mới là: $$\alpha \widehat{} \langle b—a \rangle \quad \text{và} \quad \langle a—b \rangle \widehat{} \beta$$
+- Trường hợp thêm cầu (Add a bridge): Áp dụng khi kết nối hai đồ thị liên thông rời rạc $G$ và $H$ bằng một cạnh mới $\langle a—b \rangle$. Giả sử $\gamma$ là một mặt của $G$ chứa đỉnh $a$, và $\delta$ là một mặt của $H$ chứa đỉnh $b$. Khi kết nối $G$ và $H$ bằng cạnh $\langle a—b \rangle$, hai mặt $\gamma$ và $\delta$ sẽ bị thay thế bởi một mặt mới duy nhất được gộp lại theo công thức: $$\gamma \widehat{} \langle a—b \rangle \widehat{} \delta \widehat{} \langle b—a \rangle$$
+
+![[II.59.png]]
+
+![[II.60.png]]
+
+A bridge is simply a cut edge, but in the context of planar embeddings, the bridges are precisely the edges that occur twice on the same discrete face —as opposed to once on each of two faces. Dongles are trees made of bridges; we only use dongles in illustrations, so there’s no need to define them more precisely.
+
+### 12.2.3 Does It Work?
+
+Mối liên hệ giữa hình vẽ và lý thuyết Planar Embedding là một ví dụ điển hình của việc mô hình hóa các khái niệm hình học liên tục thành cấu trúc dữ liệu rời rạc. Mặc dù việc tư duy dựa trên hình vẽ mang tính trực quan cao, nhưng phương pháp Planar Embedding lại cung cấp một nền tảng toán học an toàn và chính xác hơn. Về cơ bản, một đồ thị được coi là phẳng khi mọi thành phần liên thông của nó đều có thể biểu diễn dưới dạng các tập hợp 'mặt' rời rạc.
+
+### 12.2.4 Where Did the Outer Face Go?
+
+Trong một bản vẽ trên giấy, chúng ta luôn thấy một vùng trống trải dài vô tận bao quanh đồ thị, gọi là mặt ngoài. Tuy nhiên, trong toán học nhúng phẳng (embedding), khái niệm "ngoài" hay "trong" chỉ là tương đối:
+
+- Hai hình vẽ trông có vẻ khác nhau (vì có mặt ngoài khác nhau) thực chất có thể là cùng một Planar Embedding nếu chúng có chung các tập hợp chu trình ranh giới.
+- Nếu bạn chọn một mặt bất kỳ, "chọc thủng" nó và kéo dãn lỗ thủng đó ra, mặt đó sẽ biến thành ranh giới bao quanh toàn bộ phần còn lại của đồ thị khi trải phẳng lên giấy, tức là nó có thể thành mặt ngoài.
+
+=> Điều này giải thích tại sao thao tác "thêm cầu" (add bridge) luôn thực hiện được. Ta có thể chọn bất kỳ mặt nào từ hai đồ thị rời rạc để nối chúng lại, vì ta luôn có thể "biến" các mặt đó thành mặt ngoài để kết nối mà không sợ cắt qua các cạnh khác.
+
+## 12.3 Euler’s Formula
