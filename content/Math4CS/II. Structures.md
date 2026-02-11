@@ -782,4 +782,43 @@ Nếu đồ thị có các trọng số đôi một khác nhau (distinct weights
 
 Về mặt kỹ thuật, các thuật toán như Prim hay Kruskal có độ phức tạp khoảng $O(E \log V)$ hoặc $O(E \log E)$. Rất lẹ ;v
 
-# 11. Simple Graphs
+# 12. Planar Graphs
+
+## 12.1 Drawing Graphs in the Plane
+
+Tính phẳng của đồ thị tức là bạn có thể vẽ chúng trên một mặt phẳng mà không có các cạnh cắt nhau. Đây là 2 ví dụ kinh điển mà đồ thị của chúng là không phẳng:
+
+- Bài toán Ba ngôi nhà ($K_{3,3}$): Đây là đồ thị lưỡng phân đầy đủ, nơi mỗi nút trong nhóm 3 nút này phải kết nối với tất cả các nút trong nhóm 3 nút kia.
+- Bài toán Quadrapus ($K_5$): Đây là đồ thị đầy đủ với 5 nút, nơi mọi nút đều được kết nối trực tiếp với nhau.
+
+Tuy nhiên, chúng ở trạng thái "suýt soát": Chỉ cần loại bỏ đúng một cạnh duy nhất, phần còn lại của đồ thị sẽ trở thành đồ thị phẳng.
+
+![[II.55.png]]
+
+Việc nghiên cứu tính phẳng có ứng dụng thực tiễn quan trọng trong tối ưu hóa bố cục bảng mạch điện tử (các đường dẫn điện không được phép chạm nhau), thiết kế sơ đồ luồng (flowcharts) và lập lịch trình, giúp giảm thiểu sự chồng chéo và tăng tính minh bạch cho các hệ thống dữ liệu phức tạp.
+
+## 12.2 Definitions of Planar Graphs
+
+Ở mục này có đưa ra định nghĩa: Một đồ thị được gọi là "phẳng" nếu bạn có thể vẽ nó sao cho các cạnh (được coi là các đường cong trơn) không cắt nhau. Tuy nhiên, "đường cong trơn" là một khái niệm thuộc về toán học liên tục và hình học, vốn rất phức tạp để định nghĩa chính xác. Và việc tin vào hình vẽ có thể dẫn đến những "chứng minh rác" (bogus proofs).
+
+Do đó chúng ta định nghĩa đồ thị phẳng bằng toán học rời rạc thông qua cấu trúc dữ liệu đệ quy.
+
+### 12.2.1 Faces
+
+Khi bạn vẽ một đồ thị phẳng, các cạnh của nó chia mặt phẳng thành các vùng riêng biệt. Có những vùng nằm bên trong (hữu hạn) và luôn có một vùng bao quanh bên ngoài (vô hạn - gọi là outside face). Ta gọi nó là **continuous faces**.
+
+Trong toán học rời rạc và lập trình, chúng ta không thể "vẽ" vùng vô hạn. Thay vào đó, chúng ta xác định mỗi mặt bằng chu trình các đỉnh (cycle) bao quanh mặt đó. Vì "chu trình" là một kiểu dữ liệu (list/array) mà máy tính có thể xử lý, tính toán và chứng minh. Đây gọi là **discrete faces**.
+
+![[II.56.png]]
+
+Trong các đồ thị phẳng phức tạp, ranh giới của một mặt không phải lúc nào cũng là một chu trình đơn giản (cycle). Sự xuất hiện của các cấu trúc như cạnh cầu (bridges) hoặc phần treo (dongles) buộc chúng ta phải mở rộng định nghĩa về mặt rời rạc. Thay vì chỉ sử dụng các chu trình đỉnh, **ranh giới của một mặt được xác định chính xác hơn dưới dạng các đường đi đóng (closed walks)**.
+
+![[II.57.png]]
+
+Như ở ví dụ trên thì ta định nghĩa theo đường sau: abcefgecda, đây không phải là chu trình, mà là một đường đi đóng.
+
+![[II.58.png]]
+
+Như hình này thì không định nghĩa dựa trên chu trình được ha ;v nên họ mới dùng closed walks.
+
+### 12.2.2 A Recursive Definition for Planar Embeddings
