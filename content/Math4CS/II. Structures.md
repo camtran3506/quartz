@@ -857,3 +857,36 @@ Trong một bản vẽ trên giấy, chúng ta luôn thấy một vùng trống 
 => Điều này giải thích tại sao thao tác "thêm cầu" (add bridge) luôn thực hiện được. Ta có thể chọn bất kỳ mặt nào từ hai đồ thị rời rạc để nối chúng lại, vì ta luôn có thể "biến" các mặt đó thành mặt ngoài để kết nối mà không sợ cắt qua các cạnh khác.
 
 ## 12.3 Euler’s Formula
+
+Giá trị cốt lõi của việc định nghĩa đồ thị phẳng dưới dạng đệ quy nằm ở khả năng **áp dụng phương pháp quy nạp cấu trúc** để chứng minh các tính chất toán học. Phần này chứng minh định lí Euler cho đồ thị phẳng.
+
+> [!INFO]
+> If a connected graph has a planar embedding, then $v - e + f = 2$ where v is the number of vertices, e is the number of edges and f is the number of faces.
+
+## 12.4 Bounding the Number of Edges in a Planar Graph
+
+Sau đây là một số bổ đề:
+
+- Trong một Planar Embedding, mỗi cạnh chỉ có hai khả năng: hoặc nó là "biên giới" chung của hai mặt khác nhau, hoặc nó là một "cạnh cầu" nằm trọn trong một mặt duy nhất (xuất hiện 2 lần trên ranh giới mặt đó).
+- Nếu đồ thị có ít nhất 3 đỉnh, mỗi mặt phải được bao quanh bởi ít nhất 3 cạnh (tương đương với việc một đa giác tối thiểu phải là hình tam giác).
+
+Dựa trên 2 bổ đề vừa rồi và định lí Euler, ta chứng minh được kết quả sau:
+
+> [!INFO]
+> Đối với bất kỳ đồ thị phẳng liên thông nào có $v \ge 3$, số cạnh $e$ không bao giờ vượt quá $3v - 6$.
+
+## 12.5 Returning to K5 and K(3;3)
+
+Đối với đồ thị đầy đủ $K_5$, số lượng cạnh vượt quá giới hạn $3v - 6$ cho phép đối với một đồ thị phẳng. Trong trường hợp đồ thị lưỡng phân $K_{3,3}$, do đặc tính không chứa chu trình tam giác, ranh giới các mặt phải có độ dài tối thiểu là 4, dẫn đến một định mức cạnh khắt khe hơn là $e \le 2v - 4$. Từ đó chứng minh được cả hai đồ thị này đều không phẳng.
+
+## 12.6 Coloring Planar Graphs
+
+Để đi tới định lý **Mọi đồ thị phẳng đều có thể tô bằng 5 màu**, tác giả đưa ra ba bổ đề:
+
+- Any subgraph of a planar graph is planar.
+- Khi bạn "nén" hai đỉnh đang nối với nhau thành một đỉnh duy nhất, đồ thị mới tạo ra vẫn giữ được tính phẳng.
+- Trong bất kỳ đồ thị phẳng nào, luôn tồn tại ít nhất một đỉnh có bậc (số cạnh nối vào nó) nhỏ hơn hoặc bằng 5. Đây là hệ quả trực tiếp từ việc đồ thị phẳng không thể có quá nhiều cạnh ($e \le 3v - 6$).
+
+![[II.61.png]]
+
+## 12.7 Classifying Polyhedra
