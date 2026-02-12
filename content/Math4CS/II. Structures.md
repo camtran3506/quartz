@@ -5,7 +5,7 @@
 ### 8.2.2 The Pulverizer
 
 > [!INFO]
-> Ước chung lớn nhất của hai số $a$ và $b$ luôn có thể biểu diễn dưới dạng tổ hợp tuyến tính của $a$ và $b$
+> Ước chung lớn nhất của hai số $a$ và $b$ luôn có thể biểu diễn dưới dạng tổ hợp tuyến tính của $a$ và $b$:
 > $$\gcd(a, b) = sa + tb$$
 
 > [!INFO]
@@ -66,7 +66,9 @@ Tin nhắn 1: $m_{c1} = m_1 \times k$
 
 Tin nhắn 2: $m_{c2} = m_2 \times k$
 
-Quân Phát xít (kẻ tấn công) bây giờ có hai con số $m_{c1}$ và $m_{c2}$. Chúng không cần phải phân tích thừa số nguyên tố (bài toán khó) nữa. Thay vào đó, chúng chỉ cần tìm Ước chung lớn nhất (GCD). Theo tính chất của GCD: $$gcd(m_{c1}, m_{c2}) = gcd(m_1 \cdot k, m_2 \cdot k) = k \cdot gcd(m_1, m_2)$$. Vì $m_1$ và $m_2$ là các số nguyên tố khác nhau (theo quy định của mã Turing), nên $gcd(m_1, m_2) = 1$. Kết quả là: $$gcd(m_{c1}, m_{c2}) = k$$
+Quân Phát xít (kẻ tấn công) bây giờ có hai con số $m_{c1}$ và $m_{c2}$. Chúng không cần phải phân tích thừa số nguyên tố (bài toán khó) nữa. Thay vào đó, chúng chỉ cần tìm Ước chung lớn nhất (GCD). Theo tính chất của GCD: $$gcd(m_{c1}, m_{c2}) = gcd(m_1 \cdot k, m_2 \cdot k) = k \cdot gcd(m_1, m_2)$$. Vì $m_1$ và $m_2$ là các số nguyên tố khác nhau (theo quy định của mã Turing), nên $gcd(m_1, m_2) = 1$.
+
+Kết quả là: $$gcd(m_{c1}, m_{c2}) = k$$
 
 ## 8.8 Turing’s Code (Version 2.0)
 
@@ -337,28 +339,32 @@ Gọi là quan hệ thứ tự một phần, nhưng chắc bạn quên nên mìn
 
 ### 9.6.1 The Properties of the Walk Relation in DAGs
 
-![[II.30.png]]
-
-![[II.31.png]]
-
-![[II.32.png]]
+> [!INFO]
+> A binary relation, $R$, on a set, $A$, is **transitive** iff $(a R b) AND (b R c) \implies a R c$ for every $a, b, c \in A$.
+>
+> A binary relation, $R$, on a set, $A$, is **reflexive** iff $a R a$ for all $a \in A$
+>
+> A binary relation, $R$, on a set, $A$, is **irreflexive** iff $NOT(a R a)$ for all $a \in A$
 
 ### 9.6.2 Strict Partial Orders
 
-![[II.33.png]]
+> [!INFO]
+> A relation that is transitive and irreflexive is called a strict partial order.
 
 For example, the less-than order, <, on numbers is a strict partial order.
 
-![[II.34.png]]
+> [!INFO]
+> A binary relation, $R$, on a set, $A$, is **asymmetric** iff $(a R b) \implies NOT(b R a)$ for all $a, b \in A$
 
 Quan hệ thứ tự một phần (Strict Partial Order) quan tâm đến việc: "A có đứng trước C hay không?". Nó không quan tâm bạn đi đến đó bằng 1 bước hay 10 bước. Do đó **nhiều DAG có thể tạo ra cùng một quan hệ thứ tự một phần.**
 => Tìm một DAG có ít cạnh nhất để biểu diễn một quan hệ thứ tự, bỏ hết các cạnh thừa.
 
 ### 9.6.3 Weak Partial Orders
 
-![[II.35.png]]
-
-![[II.36.png]]
+> [!INFO]
+> A binary relation, $R$, on a set, $A$, is **antisymmetric** iff $(a R b) \implies NOT(b R a)$ for all $a \neq b \in A$
+>
+> A binary relation on a set is a weak partial order iff it is transitive, reflexive and antisymmetric
 
 Hoặc ta có thể định nghĩa thông qua Strict Partial Orders như sau:
 
@@ -408,7 +414,8 @@ Nếu $R_1$ và $R_2$ là các Thứ tự một phần (Partial Orders), thì t�
 
 ## 9.10 Equivalence Relations
 
-![[II.40.png]]
+> [!INFO]
+> A relation is an equivalence relation if it is reflexive, symmetric and transitive
 
 Ví dụ về quan hệ tương đương cũng nhiều, nhưng đây là một ví dụ khá tổng quát, tạo ra quan hệ dựa trên một hàm số.
 
