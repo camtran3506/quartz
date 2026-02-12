@@ -60,8 +60,8 @@ Trình bày rõ hơn về tập hợp, dãy số, tích Cartesian và hàm số.
 > Binary relations define relations between two objects.
 
 Quan hệ hai ngôi thực chất giống hệt định nghĩa về Hàm số, ngoại trừ một điều kiện quan trọng.
-- Hàm số ($f: A \to B$): Một phần tử $a \in A$ chỉ có thể liên kết với tối đa một phần tử $b \in B$. Trong đồ thị của hàm số, không bao giờ có hai cặp $(a, b_1)$ và $(a, b_2)$ với $b_1 \neq b_2$.
-- Quan hệ ($R$): Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
+- **Hàm số ($f: A \to B$):** Một phần tử $a \in A$ chỉ có thể liên kết với tối đa một phần tử $b \in B$. Trong đồ thị của hàm số, không bao giờ có hai cặp $(a, b_1)$ và $(a, b_2)$ với $b_1 \neq b_2$.
+- **Quan hệ ($R$):** Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
 
 Ví dụ 1 Quan hệ "Nhỏ hơn" ($<$): Trên tập số thực, số $a$ có quan hệ với $b$ khi $a < b$.
 
@@ -100,9 +100,9 @@ Tác giả phân chia máy trạng thái thành hai loại chính
 - Máy trạng thái vô hạn (Infinite State Machines)
 
 Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, máy trạng thái thường đi kèm với các nhãn (labels):
-- Input/Output: Giá trị đưa vào để chuyển trạng thái và kết quả trả về.
-- Costs/Capacities: Chi phí để thực hiện một bước chuyển hoặc dung lượng tối đa của một trạng thái.
-- Probabilities: Xác suất để một bước chuyển xảy ra (như trong Chuỗi Markov).
+- **Input/Output:** Giá trị đưa vào để chuyển trạng thái và kết quả trả về.
+- **Costs/Capacities:** Chi phí để thực hiện một bước chuyển hoặc dung lượng tối đa của một trạng thái.
+- **Probabilities:** Xác suất để một bước chuyển xảy ra (như trong Chuỗi Markov).
 
 **Phần này khá giống với khái niệm state và transition trong Reinforcement Learning.**
 
@@ -123,13 +123,13 @@ Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, 
 
 Cái tên "Partial" (từng phần) ở đây không có nghĩa là kết quả đúng một nửa, sai một nửa. Nghĩa là NẾU chương trình kết thúc và trả về kết quả, thì kết quả đó chắc chắn phải đúng với yêu cầu hệ thống. Nó không đảm bảo chương trình sẽ kết thúc. Chương trình có thể bị kẹt trong một vòng lặp vô hạn (infinite loop).
 
-Thường sử dụng Nguyên lý Bất biến (Invariant Principle). Chúng ta chứng minh rằng tại mọi bước chạy, một tính chất logic nào đó (Invariant) luôn được giữ vững, cho đến khi máy dừng lại ở kết quả cuối cùng.
+Thường sử dụng **Nguyên lý Bất biến (Invariant Principle)**. Chúng ta chứng minh rằng tại mọi bước chạy, một tính chất logic nào đó (Invariant) luôn được giữ vững, cho đến khi máy dừng lại ở kết quả cuối cùng.
 
 **Termination**
 
 Đảm bảo rằng quy trình tính toán chắc chắn sẽ dừng lại và đưa ra một giá trị cuối cùng, chứ không chạy mãi mãi.
 
-Chúng ta gán cho mỗi bước của chương trình một giá trị (thường là một số nguyên không âm). Nếu ta chứng minh được giá trị này giảm dần sau mỗi bước, thì theo Well Ordering Principle, nó không thể giảm vô hạn. Nó bắt buộc phải chạm đến phần tử nhỏ nhất và dừng lại.
+Chúng ta gán cho mỗi bước của chương trình một giá trị (thường là một số nguyên không âm). Nếu ta chứng minh được giá trị này giảm dần sau mỗi bước, thì theo **Well Ordering Principle**, nó không thể giảm vô hạn. Nó bắt buộc phải chạm đến phần tử nhỏ nhất và dừng lại.
 
 ### 5.4.6 Derived Variables
 
@@ -139,7 +139,7 @@ Dưới đây là một phương pháp tổng quát hơn để phân tích và c
 
 Để chứng minh một thuật toán không chạy mãi mãi, chúng ta cần một công cụ để đo lường "tiến độ" của nó.
 
-Gán cho mỗi trạng thái của máy một con số (thường là số nguyên không âm), gọi là "kích thước" (size) của trạng thái đó.Nếu mỗi bước chuyển trạng thái đều làm giảm con số này, thì theo Nguyên lý Thứ tự tốt (WOP), nó không thể giảm mãi được. Khi đạt tới giá trị nhỏ nhất, máy sẽ không thể thực hiện thêm bước chuyển nào nữa—tức là thuật toán đã dừng.
+Gán cho mỗi trạng thái của máy một con số (thường là số nguyên không âm), gọi là "kích thước" (size) của trạng thái đó.Nếu mỗi bước chuyển trạng thái đều làm giảm con số này, thì theo **WOP**, nó không thể giảm mãi được. Khi đạt tới giá trị nhỏ nhất, máy sẽ không thể thực hiện thêm bước chuyển nào nữa—tức là thuật toán đã dừng.
 
 **Biến dẫn xuất (Derived Variables) và Hàm tiềm năng (Potential Functions)**
 
@@ -154,12 +154,10 @@ Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên g
 
 > [!INFO] Mối liên hệ với Phương pháp đơn biến
 > Phần này nói về việc sử dụng WOP và hàm tiềm năng để chứng minh một chương trình sẽ đạt trạng thái dừng. Trong toán học tổ hợp cũng có một dạng bài toán yêu cầu chứng minh tồn tại trạng thái dừng, gọi là **phương pháp đơn biến**.
->
-> - **Ý tưởng chính**: Tìm một hàm số sao cho giá trị của nó luôn giảm sau mỗi bước, cho đến khi đạt đến một giá trị giới hạn (ví dụ bằng 0).
+> **Ý tưởng chính**: Tìm một hàm số sao cho giá trị của nó luôn giảm sau mỗi bước, cho đến khi đạt đến một giá trị giới hạn (ví dụ bằng 0).
 
 > [!IMPORTANT] Ứng dụng Invariant Principle (Nguyên lý bất biến)
 > Việc ứng dụng Invariant Principle dùng để tìm ra quy luật không đổi trong mọi trạng thái.
->
 > - **Mục tiêu**: Chứng minh không tồn tại một trạng thái $T$ nào đó.
 > - **Cách làm**: Chỉ cần chứng minh trạng thái $T$ không thỏa mãn một tính chất bất biến vốn luôn được duy trì trong suốt quá trình thực thi (execution) hoặc giữa các bước chuyển trạng thái (state transitions).
 
@@ -167,11 +165,9 @@ Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên g
 
 > [!INFO] Định nghĩa Đệ quy (Recursive Data Types)
 > Một kiểu dữ liệu được gọi là đệ quy khi nó được xác định dựa trên chính nó. Phần tử ở sau được định nghĩa dựa trên phần tử ở trước.
->
 > **Lưu ý:** Khái niệm này thực chất chúng ta đã làm quen rất kỹ ở phần dãy số rồi.
 
 Một số ví dụ về kiểu dữ liệu này:
-
 - Strings (Chuỗi ký tự): Một chuỗi là một ký tự đứng trước một chuỗi khác (ví dụ: "abc" là 'a' + "bc").
 - Balanced strings of brackets (Chuỗi ngoặc cân bằng): Các quy tắc để đảm bảo ngoặc mở luôn có ngoặc đóng tương ứng (như (())).
 - Nonnegative integers (Số nguyên không âm): Số $n+1$ được tạo ra từ số $n$.
@@ -182,7 +178,6 @@ Một số ví dụ về kiểu dữ liệu này:
 Ta bắt đầu với kiểu dữ liệu **String**.
 
 Thay vì coi chuỗi là một mảng (array) nằm ngang như cách ta thường viết ($1011$), toán học định nghĩa nó theo cấu trúc "vỏ bọc" (nested):
-
 - **Base case (Trường hợp cơ sở):** Chuỗi rỗng (ký hiệu là $\lambda$) là một chuỗi.
 - **Constructor (Bộ tạo):** Một chuỗi mới được tạo ra bằng cách lấy một ký tự $a$ gắn vào đầu một chuỗi $s$ đã có sẵn: $\langle a, s \rangle$.
 
@@ -191,7 +186,6 @@ Thay vì coi chuỗi là một mảng (array) nằm ngang như cách ta thườn
 Cách này phản ánh đúng cấu trúc Linked List (Danh sách liên kết). Trong Python, nó tương đương với việc phần tử đầu tiên trỏ tới phần còn lại của danh sách. Chuỗi $1011$ thực chất là: 1 kết nối với (0 kết nối với (1 kết nối với (1 kết nối với Rỗng))).
 
 Cấu trúc dữ liệu được định nghĩa thế nào thì các hàm xử lý nó cũng được định nghĩa như thế. Đều có base case và constructor.
-
 - **Độ dài của chuỗi rỗng:** $|\lambda| = 0$.
 - **Độ dài của một chuỗi có ký tự đầu $a$:** $|\langle a, s \rangle| = 1 + |s|$.
 
@@ -201,7 +195,6 @@ Như đã giới thiệu ở trên, đây là định nghĩa của Quy nạp c�
 
 > [!INFO] Structural Induction Proof
 > A **structural induction** proof has two parts corresponding to the recursive definition:
->
 > - **Base case**: Prove that each base case element has the property.
 > - **Constructor case**: Prove that each constructor case element has the property, khi constructor được áp dụng cho các phần tử đã có tính chất đó.
 
@@ -231,7 +224,6 @@ Sách ghi khá đẹp nên mình chụp vào luôn, khỏi ghi lại
 
 > [!WARNING] Tính nhập nhằng trong kiểu dữ liệu đệ quy
 > Một kiểu dữ liệu đệ quy bị coi là nhập nhằng khi cùng một phần tử dữ liệu có thể được tạo ra bằng nhiều cách khác nhau (nhiều lộ trình đệ quy khác nhau) dựa trên các quy tắc đã cho.
->
 > **Hệ quả:** Nếu một phần tử có thể được tạo ra theo hai cách, và bạn định nghĩa một hàm $f$ dựa trên cấu trúc đó, thì hàm $f$ có thể trả về hai giá trị khác nhau cho cùng một đầu vào. Khi đó, $f$ vi phạm định nghĩa của một hàm số.
 
 Dưới đây là một ví dụ minh họa.
