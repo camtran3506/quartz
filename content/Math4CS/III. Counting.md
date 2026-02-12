@@ -20,9 +20,9 @@ Niên kim (annuity) là một loại công cụ tài chính mà bạn sẽ nhậ
 ### 13.1.1 The Future Value of Money
 
 > [!INFO] Gọi $p$ là lãi suất
-> **Giá trị tương lai (Future Value):** Nếu bạn có 10$ hôm nay, sau 1 năm bạn sẽ có $10 \times (1+p)$. Sau 2 năm là $10 \times (1+p)^2$. Tương tự cho $n$ năm.
+> **Giá trị tương lai (Future Value):** Nếu bạn có 10 USD hôm nay, sau 1 năm bạn sẽ có $10 \times (1+p)$. Sau 2 năm là $10 \times (1+p)^2$. Tương tự cho $n$ năm.
 >
-> **Giá trị hiện tại (Present Value):** Ngược lại, để có 10$ vào năm sau, hôm nay bạn chỉ cần bỏ ra một khoản ít hơn là $10 / (1+p)$. Đây chính là giá trị của "10$ tương lai" quy đổi về thời điểm hiện tại.
+> **Giá trị hiện tại (Present Value):** Ngược lại, để có 10 USD vào năm sau, hôm nay bạn chỉ cần bỏ ra một khoản ít hơn là $10 / (1+p)$. Đây chính là giá trị của "10 USD tương lai" quy đổi về thời điểm hiện tại.
 
 Một niên kim trả $m$ đô mỗi năm, kéo dài trong $n$ năm sẽ có tổng giá trị hiện tại được tính bằng cách cộng tất cả các khoản thanh toán đã được "chiết khấu":
 
@@ -56,7 +56,7 @@ Chuyển vế suy ra: $$ S = \frac{1 - x^{n+1}}{1 - x}$$
 
 Có công thức rồi thì ta thế vô và so sánh xem nên chọn phương án nào. Nhắc lại, đây là giá trị hiện tại của annuity.
 
-Khi quảng cáo nói rằng bạn trúng 1 triệu đô, nhưng thực tế họ trả bạn 50.000$ mỗi năm trong 20 năm. Thế vào công thức đã tính thì $V \approx 530.180$ USD. Vì các khoản thanh toán bị trì hoãn (deferred), giá trị thực sự của giải thưởng này ở thời điểm hiện tại chỉ hơn một nửa so với con số 1 triệu đô được quảng cáo.
+Khi quảng cáo nói rằng bạn trúng 1 triệu đô, nhưng thực tế họ trả bạn 50.000 đô mỗi năm trong 20 năm. Thế vào công thức đã tính thì $V \approx 530.180$ USD. Vì các khoản thanh toán bị trì hoãn (deferred), giá trị thực sự của giải thưởng này ở thời điểm hiện tại chỉ hơn một nửa so với con số 1 triệu đô được quảng cáo.
 
 => Các nhà quảng cáo xổ số sử dụng sự thiếu hiểu biết về **giá trị thời gian của tiền bạc** để làm cho giải thưởng trông có vẻ hấp dẫn gấp đôi giá trị thực của nó. Trong tài chính, việc sở hữu tiền ngay lập tức luôn có lợi thế vượt trội so với việc nhận cùng số tiền đó nhưng chia nhỏ ra nhiều năm.
 
@@ -73,11 +73,11 @@ Thay các con số vào thì $V = 50.000 \times \frac{1,08}{0,08} = \mathbf{675.
 
 **Tại sao 1 triệu đô hôm nay lại thắng "vô hạn tiền" tương lai?**
 
-Con số 675.000$ thấp hơn nhiều so với 1 triệu đô. Để hiểu tại sao điều này hợp lý, hãy nhìn ngược lại:
+Con số 675.000 đô thấp hơn nhiều so với 1 triệu đô. Để hiểu tại sao điều này hợp lý, hãy nhìn ngược lại:
 
-- Nếu bạn có 1.000.000$ trong ngân hàng với lãi suất 8%.
+- Nếu bạn có 1.000.000 đô trong ngân hàng với lãi suất 8%.
 - Mỗi năm, tiền lãi sinh ra là: $1.000.000 \times 0,08 = \mathbf{80.000}$.
-- Bạn có thể rút 80.000$ này ra tiêu xài mãi mãi mà không bao giờ chạm vào số tiền gốc 1 triệu đô ban đầu.
+- Bạn có thể rút 80.000 đô này ra tiêu xài mãi mãi mà không bao giờ chạm vào số tiền gốc 1 triệu đô ban đầu.
 
 Vậy ngoài số tiền 1tr USD, ta còn có 80k USD/năm, vậy là lợi hơn nhiều 50k USD/năm. Đương nhiên, có chuyện này là vì có lãi suất $p$ hàng năm, đây là bài toán khá thực tế.
 
