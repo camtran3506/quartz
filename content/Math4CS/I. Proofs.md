@@ -12,7 +12,6 @@ Nội dung chủ yếu là giới thiệu về mệnh đề, các tiên đề, c
 **Quy trình chứng minh bằng Well Ordering Principle (WOP)**
 
 Để chứng minh một tính chất $P(n)$ đúng với mọi số nguyên không âm $n \in \mathbb{N}$, bạn thực hiện theo các bước:
-
 - **Bước 1 Định nghĩa tập các "phần tử lỗi" ($C$):** Bạn thiết lập một tập hợp $C$ chứa tất cả các số nguyên $n$ làm cho $P(n)$ bị sai (các trường hợp phản ví dụ).
 - **Bước 2 Phản chứng:** Giả sử tập $C$ này không rỗng (tức là giả sử có tồn tại ít nhất một số $n$ làm cho tính chất $P$ bị sai).
 - **Bước 3 Áp dụng WOP:** Vì $C$ là tập con khác rỗng của các số nguyên không âm, theo nguyên lý WOP, chắc chắn phải tồn tại một phần tử nhỏ nhất trong tập $C$. Ta gọi phần tử này là $n$.
@@ -28,7 +27,6 @@ Nội dung về các phép logic AND, OR, NOT...Tóm lại, là **đại số Bo
 **Bài toán SAT (viết tắt của Satisfiability)** là bài toán xác định xem một mệnh đề logic cho trước có thể True hay không. Tức là liệu có một cách gán các giá trị True hoặc False cho các biến trong công thức logic sao cho toàn bộ công thức đó đạt giá trị True. Cách tiếp cận truyền thống là làm việc với bảng chân trị. Đương nhiên đây không phải là một ý tưởng hay (nếu có quá nhiều biến)
 
 Việc tìm ra một giải pháp hiệu quả cho bài toán SAT có tầm ảnh hưởng sâu rộng đến nhiều lĩnh vực khác nhau:
-
 - **Tối ưu hóa và Công nghệ:** Một giải pháp hiệu quả cho SAT sẽ ngay lập tức mang lại lời giải cho hàng loạt bài toán thực tế về lập lịch (scheduling), định tuyến (routing), phân bổ nguồn lực và xác thực mạch điện.
 - **Ứng dụng đa ngành:** Các lĩnh vực như lập trình, đại số, tài chính và lý thuyết chính trị đều sẽ được hưởng lợi từ việc giải quyết nhanh chóng các bài toán ràng buộc phức tạp.
 - **Xác thực hệ thống:** Các chương trình giải SAT (SAT-solvers) hiện đại đã được ứng dụng thành công trong việc xác thực các mạch kỹ thuật số có hàng triệu biến.
@@ -42,14 +40,12 @@ Mặc dù có vai trò quan trọng, việc giải quyết triệt để bài to
 **B. Nguy cơ đối với an ninh toàn cầu**
 
 Nếu bài toán SAT được giải quyết hiệu quả (nghĩa là P = NP), thế giới có thể rơi vào tình trạng hỗn loạn:
-
 - **Sụp đổ hệ thống bảo mật:** Việc giải mã các thông điệp mật sẽ trở nên dễ dàng.
 - **Mất an toàn tài chính:** Các giao dịch trực tuyến sẽ không còn được bảo mật và các thông tin liên lạc bí mật có thể bị bất kỳ ai đọc được.
 
 **C. Hạn chế của các công cụ hiện tại**
 
 Các chương trình SAT-solvers hiện nay tuy rất mạnh mẽ nhưng vẫn tồn tại những nhược điểm:
-
 - **Khó dự đoán:** Không thể dự đoán được loại công thức nào sẽ phù hợp với các phương pháp của SAT-solver.
 - **Bế tắc với các bài toán không thỏa mãn:** Đối với những công thức không thể đạt giá trị Đúng (unsatisfiable), các chương trình này thường không mang lại kết quả khả quan.
 
@@ -64,7 +60,6 @@ Trình bày rõ hơn về tập hợp, dãy số, tích Cartesian và hàm số.
 > Binary relations define relations between two objects.
 
 Quan hệ hai ngôi thực chất giống hệt định nghĩa về Hàm số, ngoại trừ một điều kiện quan trọng.
-
 - Hàm số ($f: A \to B$): Một phần tử $a \in A$ chỉ có thể liên kết với tối đa một phần tử $b \in B$. Trong đồ thị của hàm số, không bao giờ có hai cặp $(a, b_1)$ và $(a, b_2)$ với $b_1 \neq b_2$.
 - Quan hệ ($R$): Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
 
@@ -101,12 +96,10 @@ Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy ho
 ![[I.01.png]]
 
 Tác giả phân chia máy trạng thái thành hai loại chính
-
 - Máy trạng thái hữu hạn (Finite State Machines - FSM)
 - Máy trạng thái vô hạn (Infinite State Machines)
 
 Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, máy trạng thái thường đi kèm với các nhãn (labels):
-
 - Input/Output: Giá trị đưa vào để chuyển trạng thái và kết quả trả về.
 - Costs/Capacities: Chi phí để thực hiện một bước chuyển hoặc dung lượng tối đa của một trạng thái.
 - Probabilities: Xác suất để một bước chuyển xảy ra (như trong Chuỗi Markov).
