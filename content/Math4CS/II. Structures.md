@@ -915,5 +915,4 @@ Vì mỗi đa giác phải có ít nhất 3 cạnh ($n \ge 3$) và mỗi đỉnh
 
 > [!INFO]
 > (Kuratowski). A graph is not planar if and only if it contains K5 or K(3;3) as a minor
->
 > A minor of a graph G is a graph that can be obtained by repeatedly deleting vertices, deleting edges, and merging adjacent vertices of G.
