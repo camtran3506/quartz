@@ -357,6 +357,7 @@ For example, the less-than order, <, on numbers is a strict partial order.
 > A binary relation, $R$, on a set, $A$, is **asymmetric** iff $(a R b) \implies NOT(b R a)$ for all $a, b \in A$
 
 Quan hệ thứ tự một phần (Strict Partial Order) quan tâm đến việc: "A có đứng trước C hay không?". Nó không quan tâm bạn đi đến đó bằng 1 bước hay 10 bước. Do đó **nhiều DAG có thể tạo ra cùng một quan hệ thứ tự một phần.**
+
 => Tìm một DAG có ít cạnh nhất để biểu diễn một quan hệ thứ tự, bỏ hết các cạnh thừa.
 
 ### 9.6.3 Weak Partial Orders
@@ -422,6 +423,7 @@ Ví dụ về quan hệ tương đương cũng nhiều, nhưng đây là một v
 ![[II.41.png]]
 
 Hai phần tử $a$ và $a'$ có quan hệ với nhau khi và chỉ khi kết quả của chúng qua hàm $f$ là như nhau.
+
 => **Một quan hệ là quan hệ tương đương khi và chỉ khi nó có thể được biểu diễn dưới dạng $\equiv_f$ của một hàm số nào đó.**
 
 ### 9.10.1 Equivalence Classes
@@ -599,12 +601,12 @@ Trong bài toán Nam - Nữ (đồ thị lưỡng phân), toán học chứng mi
 
 Đây là **Thuật toán Gale-Shapley**:
 
-- Bước 1: Lấy một người đàn ông $m$ tự do. Gọi $w$ là người phụ nữ xếp hạng cao nhất trong danh sách của $m$ mà $m$ **chưa từng cầu hôn trước đó**.
-- Bước 2: Nếu $w$ đang tự do: $(m, w)$ trở thành một cặp "đính hôn tạm thời". Nếu $w$ đang đính hôn với $m'$ và $w$ ưu tiên $m$ hơn $m'$ thì $m'$ trở lại trạng thái tự do và $(m, w)$ trở thành cặp đính hôn tạm thời mới. Nếu $w$ ưu tiên $m'$ hơn $m$ thì $m$ vẫn ở trạng thái tự do (bị từ chối).
-- Bước 3: Những người $m$ bị từ chối thì sẽ gạch $w$ đã từ chối họ khỏi danh sách riêng (tức là vòng lặp sau sẽ cầu hôn người khác).
-- Bước 4: Lặp lại thuật toán cho tới khi ghép đủ hết.
+- **Bước 1**: Lấy một người đàn ông $m$ tự do. Gọi $w$ là người phụ nữ xếp hạng cao nhất trong danh sách của $m$ mà $m$ **chưa từng cầu hôn trước đó**.
+- **Bước 2**: Nếu $w$ đang tự do: $(m, w)$ trở thành một cặp "đính hôn tạm thời". Nếu $w$ đang đính hôn với $m'$ và $w$ ưu tiên $m$ hơn $m'$ thì $m'$ trở lại trạng thái tự do và $(m, w)$ trở thành cặp đính hôn tạm thời mới. Nếu $w$ ưu tiên $m'$ hơn $m$ thì $m$ vẫn ở trạng thái tự do (bị từ chối).
+- **Bước 3**: Những người $m$ bị từ chối thì sẽ gạch $w$ đã từ chối họ khỏi danh sách riêng (tức là vòng lặp sau sẽ cầu hôn người khác).
+- **Bước 4**: Lặp lại thuật toán cho tới khi ghép đủ hết.
 
-Kết thúc: Khi không còn người đàn ông nào tự do và có thể cầu hôn, tất cả các cặp đính hôn tạm thời trở thành hôn nhân chính thức.
+**Kết thúc**: Khi không còn người đàn ông nào tự do và có thể cầu hôn, tất cả các cặp đính hôn tạm thời trở thành hôn nhân chính thức.
 
 Một số facts ta cần chứng minh, và sẽ chứng minh lần lượt ở các mục sau:
 
@@ -637,7 +639,7 @@ Mặc dù thuật toán mang lại cảm giác phụ nữ nắm quyền kiểm s
 
 ### 11.6.5 Applications
 
-Trước khi có thuật toán này, việc phân bổ bác sĩ vào bệnh viện gặp phải những "khủng hoảng" nghiêm trọng. Các bệnh viện và sinh viên thường xuyên phá vỡ hợp đồng vì họ tìm thấy những lựa chọn khác tốt hơn. Thuật toán Gale-Shapley đã giải quyết vấn đề này hiệu quả đến mức nó được giữ nguyên gần như không thay đổi trong suốt hàng thập kỷ.
+Trước khi có thuật toán này, việc phân bổ bác sĩ vào bệnh viện gặp phải những "khủng hoảng" nghiêm trọng. Các bệnh viện và sinh viên thường xuyên phá vỡ hợp đồng vì họ tìm thấy những lựa chọn khác tốt hơn. **Thuật toán Gale-Shapley** đã giải quyết vấn đề này hiệu quả đến mức nó được giữ nguyên gần như không thay đổi trong suốt hàng thập kỷ.
 
 Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến tạng, tuyển sinh đại học...
 
@@ -652,7 +654,7 @@ Ngày nay, nó còn được ứng dụng trong Dating Apps, ghép cặp hiến 
 > [!INFO]
 > The minimum value of $k$ for which a graph, G, has a valid coloring is called its chromatic number, $\chi(G)$
 
-Việc xác định $\chi(G)$ là một bài toán kinh điển thuộc nhóm NP-complete. Đặc trưng của bài toán này nằm ở sự bất đối xứng về chi phí tính toán: trong khi việc kiểm tra tính hợp lệ của một phương án tô màu cho trước có thể thực hiện rất nhanh chóng (thời gian đa thức), thì việc tìm ra cách tô màu tối ưu lại cực kỳ khó khăn và hiện chưa có thuật toán giải nhanh nào được biết đến. Do đó, việc tìm ra một thuật toán hiệu quả để giải quyết bài toán này không chỉ mang lại giá trị thực tiễn to lớn trong tối ưu hóa nguồn lực mà còn giúp giải quyết giả thuyết $P$ vs $NP$.
+Việc xác định $\chi(G)$ là một bài toán kinh điển thuộc nhóm **NP-complete**. Đặc trưng của bài toán này nằm ở sự bất đối xứng về chi phí tính toán: trong khi việc kiểm tra tính hợp lệ của một phương án tô màu cho trước có thể thực hiện rất nhanh chóng (thời gian đa thức), thì việc tìm ra cách tô màu tối ưu lại cực kỳ khó khăn và hiện chưa có thuật toán giải nhanh nào được biết đến. Do đó, việc tìm ra một thuật toán hiệu quả để giải quyết bài toán này không chỉ mang lại giá trị thực tiễn to lớn trong tối ưu hóa nguồn lực mà còn giúp giải quyết giả thuyết $P$ vs $NP$.
 
 ### 11.7.2 Some Coloring Bounds
 
@@ -742,6 +744,7 @@ Mặt khác, khi quy nạp trên số cạnh chẳng hạn, ta hay gặp buildup
 
 > [!INFO]
 > Tree: đồ thị liên thông và không có chu trình
+>
 > Forest: đồ thị không có chu trình (gồm nhiều thành phần liên thông hợp thành, mỗi thành phần đó là một tree)
 
 ### 11.10.2 Properties
@@ -778,17 +781,17 @@ Làm sao để tìm và thêm các cạnh mở rộng? Có một phương pháp 
 
 > [!INFO] Phương pháp Solid Coloring
 >
-> - Tô màu khối (Solid Coloring): Tô màu tất cả các đỉnh trong mỗi thành phần liên thông của pre-MST $F$ bằng màu Đen hoặc Trắng. Các đỉnh trong cùng một thành phần phải cùng màu. Phải tồn tại ít nhất một cụm màu Đen và một cụm màu Trắng.
-> - Xác định cạnh xám (Gray Edges): Một cạnh xám là cạnh nối giữa một đỉnh màu trắng và một đỉnh màu đen trong đồ thị gốc $G$.
-> - Áp dụng bổ đề: Một cạnh sẽ là cạnh mở rộng nếu nó có trọng số nhỏ nhất trong số tất cả các cạnh xám của một cách tô màu khối bất kỳ.
+> - **Tô màu khối (Solid Coloring)**: Tô màu tất cả các đỉnh trong mỗi thành phần liên thông của pre-MST $F$ bằng màu Đen hoặc Trắng. Các đỉnh trong cùng một thành phần phải cùng màu. Phải tồn tại ít nhất một cụm màu Đen và một cụm màu Trắng.
+> - **Xác định cạnh xám (Gray Edges)**: Một cạnh xám là cạnh nối giữa một đỉnh màu trắng và một đỉnh màu đen trong đồ thị gốc $G$.
+> - **Áp dụng bổ đề**: Một cạnh sẽ là cạnh mở rộng nếu nó có trọng số nhỏ nhất trong số tất cả các cạnh xám của một cách tô màu khối bất kỳ.
 
 Ví dụ: Nếu bạn có 4 thành phần liên thông $A, B, C, D$. Bạn có thể tô $\{A, B\}$ màu Trắng và $\{C, D\}$ màu Đen. Hoặc chỉ tô $\{A\}$ màu Trắng và $\{B, C, D\}$ màu Đen. Mỗi cách chọn này là một "loại" solid coloring khác nhau.
 
 Mỗi loại solid coloring dẫn đến các thuật toán khác nhau, tiêu biểu như:
 
-- Thuật toán Prim: Thuật toán này duy trì một tập đỉnh đã liên thông $V_{tree}$ và mở rộng nó.
-- Thuật toán Kruskal: Thuật toán này tập trung vào việc chọn các cạnh rẻ nhất trên toàn đồ thị mà không tạo thành chu trình.
-- Thuật toán tổng quát hóa (dùng cùng coloring với Prim): Chính là dựa trên phương pháp solid coloring. Grow a forest one edge at a time by picking any component and adding a minimum weight edge among the edges leaving that component.
+- **Thuật toán Prim**: Thuật toán này duy trì một tập đỉnh đã liên thông $V_{tree}$ và mở rộng nó.
+- **Thuật toán Kruskal**: Thuật toán này tập trung vào việc chọn các cạnh rẻ nhất trên toàn đồ thị mà không tạo thành chu trình.
+- **Thuật toán tổng quát hóa (dùng cùng coloring với Prim)**: Chính là dựa trên phương pháp solid coloring. Grow a forest one edge at a time by picking any component and adding a minimum weight edge among the edges leaving that component.
 
 Khác với thuật toán Prim (bắt buộc phải mọc ra từ một gốc duy nhất), Thuật toán 3 cho phép bạn chọn bất kỳ thành phần liên thông (component) nào để mở rộng. Do đó có thể áp dụng **tính song song**, áp dụng nhiều bộ xử lí song song để hoàn thành công việc. Mặt khác, đối với bài toán MST, **sự tham lam** luôn mang lại kết quả đúng. Các nhà toán học đã chứng minh được rằng chỉ cần bạn cứ chọn cạnh rẻ nhất (thỏa mãn điều kiện), bạn chắc chắn sẽ có được cây khung rẻ nhất toàn cục.
 
@@ -839,17 +842,17 @@ Như hình này thì không định nghĩa dựa trên chu trình được ha ;v
 
 Ý tưởng chính ở đây là sử dụng logic của các mặt (faces):
 
-- Planar Embedding: Một tập hợp các đường đi đóng đại diện cho ranh giới của các mặt.
-- Quy tắc xây dựng không giao cắt: Một cạnh mới có thể được vẽ mà không cắt các cạnh cũ nếu và chỉ nếu hai đầu mút của nó cùng nằm trên ranh giới của cùng một mặt.
-- Cập nhật cạnh: Mỗi khi một cạnh mới được thêm vào, cấu trúc của các mặt sẽ thay đổi (một mặt cũ bị chia đôi thành hai mặt mới), và tập hợp các đường đi đóng này cần được cập nhật lại.
+- **Planar Embedding**: Một tập hợp các đường đi đóng đại diện cho ranh giới của các mặt.
+- **Quy tắc xây dựng không giao cắt**: Một cạnh mới có thể được vẽ mà không cắt các cạnh cũ nếu và chỉ nếu hai đầu mút của nó cùng nằm trên ranh giới của cùng một mặt.
+- **Cập nhật cạnh**: Mỗi khi một cạnh mới được thêm vào, cấu trúc của các mặt sẽ thay đổi (một mặt cũ bị chia đôi thành hai mặt mới), và tập hợp các đường đi đóng này cần được cập nhật lại.
 
 Mặc dù khái niệm tính phẳng áp dụng cho mọi đồ thị, nhưng định nghĩa đệ quy về Planar Embedding thường ưu tiên xét trên đồ thị liên thông để đảm bảo tính nhất quán trong việc xác định ranh giới các mặt. Việc giới hạn này cho phép mô tả quá trình xây dựng đồ thị thông qua các thao tác logic như 'chia mặt' (split a face) hoặc 'thêm cầu' (add a bridge). Đối với các đồ thị không liên thông, Planar Embedding có thể được hiểu là sự kết hợp của các thành phần liên thông riêng lẻ cùng chia sẻ một mặt ngoài vô hạn, đảm bảo rằng cấu trúc tổng thể vẫn tuân thủ các quy tắc.
 
 Đây là định nghĩa chính thức. Một Planar Embedding của đồ thị liên thông là một tập hợp không rỗng các đường đi đóng (closed walks) được gọi là các mặt rời rạc (discrete faces). Cấu trúc này được xây dựng đệ quy thông qua các trường hợp sau:
 
-- Base case: Nếu đồ thị $G$ chỉ gồm một đỉnh duy nhất $v$, Planar Embedding của $G$ có đúng một mặt rời rạc là đường đi đóng có độ dài bằng 0 tại chính đỉnh $v$.
-- Trường hợp chia mặt (Split a face): Áp dụng khi thêm một cạnh mới nối hai đỉnh $a$ và $b$ đã tồn tại nhưng chưa kề nhau, với điều kiện cả hai cùng nằm trên một mặt rời rạc $\gamma$. Giả sử mặt $\gamma$ có dạng $\gamma = \alpha \widehat{} \beta$ (trong đó $\alpha$ là đường đi từ $a$ đến $b$, và $\beta$ là đường đi từ $b$ về $a$). hi thêm cạnh $\langle a—b \rangle$, mặt $\gamma$ sẽ bị thay thế bởi hai mặt rời rạc mới là: $$\alpha \widehat{} \langle b—a \rangle \quad \text{và} \quad \langle a—b \rangle \widehat{} \beta$$
-- Trường hợp thêm cầu (Add a bridge): Áp dụng khi kết nối hai đồ thị liên thông rời rạc $G$ và $H$ bằng một cạnh mới $\langle a—b \rangle$. Giả sử $\gamma$ là một mặt của $G$ chứa đỉnh $a$, và $\delta$ là một mặt của $H$ chứa đỉnh $b$. Khi kết nối $G$ và $H$ bằng cạnh $\langle a—b \rangle$, hai mặt $\gamma$ và $\delta$ sẽ bị thay thế bởi một mặt mới duy nhất được gộp lại theo công thức: $$\gamma \widehat{} \langle a—b \rangle \widehat{} \delta \widehat{} \langle b—a \rangle$$
+- **Base case**: Nếu đồ thị $G$ chỉ gồm một đỉnh duy nhất $v$, Planar Embedding của $G$ có đúng một mặt rời rạc là đường đi đóng có độ dài bằng 0 tại chính đỉnh $v$.
+- **Trường hợp chia mặt (Split a face)**: Áp dụng khi thêm một cạnh mới nối hai đỉnh $a$ và $b$ đã tồn tại nhưng chưa kề nhau, với điều kiện cả hai cùng nằm trên một mặt rời rạc $\gamma$. Giả sử mặt $\gamma$ có dạng $\gamma = \alpha \widehat{} \beta$ (trong đó $\alpha$ là đường đi từ $a$ đến $b$, và $\beta$ là đường đi từ $b$ về $a$). hi thêm cạnh $\langle a—b \rangle$, mặt $\gamma$ sẽ bị thay thế bởi hai mặt rời rạc mới là: $$\alpha \widehat{} \langle b—a \rangle \quad \text{và} \quad \langle a—b \rangle \widehat{} \beta$$
+- **Trường hợp thêm cầu (Add a bridge)**: Áp dụng khi kết nối hai đồ thị liên thông rời rạc $G$ và $H$ bằng một cạnh mới $\langle a—b \rangle$. Giả sử $\gamma$ là một mặt của $G$ chứa đỉnh $a$, và $\delta$ là một mặt của $H$ chứa đỉnh $b$. Khi kết nối $G$ và $H$ bằng cạnh $\langle a—b \rangle$, hai mặt $\gamma$ và $\delta$ sẽ bị thay thế bởi một mặt mới duy nhất được gộp lại theo công thức: $$\gamma \widehat{} \langle a—b \rangle \widehat{} \delta \widehat{} \langle b—a \rangle$$
 
 ![[II.59.png]]
 
@@ -919,14 +922,17 @@ Vì việc nhúng đồ thị trên mặt cầu tương đương với việc nh
 
 Gọi $m$ là số mặt gặp nhau tại mỗi đỉnh (tương ứng với số cạnh đi ra từ mỗi nút trong đồ thị phẳng). $n$ là số cạnh của mỗi mặt.
 
-- Mối quan hệ Đỉnh - Cạnh: Theo bổ đề bắt tay, ta có $mv = 2e$.
-- Mối quan hệ Mặt - Cạnh: Vì mỗi cạnh là biên giới của 2 mặt, ta có $nf = 2e$.
-- Thay vào công thức Euler: Khi đưa các giá trị $v$ và $f$ từ hai phương trình trên vào công thức $v - e + f = 2$, ta rút ra được phương trình giới hạn: $$\frac{1}{m} + \frac{1}{n} = \frac{1}{2} + \frac{1}{e}$$
+- **Mối quan hệ Đỉnh - Cạnh**: Theo bổ đề bắt tay, ta có $mv = 2e$.
+- **Mối quan hệ Mặt - Cạnh**: Vì mỗi cạnh là biên giới của 2 mặt, ta có $nf = 2e$.
+- **Thay vào công thức Euler**: Khi đưa các giá trị $v$ và $f$ từ hai phương trình trên vào công thức $v - e + f = 2$, ta rút ra được phương trình giới hạn: $$\frac{1}{m} + \frac{1}{n} = \frac{1}{2} + \frac{1}{e}$$
 
 Vì mỗi đa giác phải có ít nhất 3 cạnh ($n \ge 3$) và mỗi đỉnh phải là nơi gặp nhau của ít nhất 3 mặt ($m \ge 3$). Nếu cả $m$ và $n$ đều lớn (ví dụ cùng bằng 6), vế trái sẽ bằng $1/2$, khiến $1/e = 0$ (vô lý vì số cạnh $e$ phải là số hữu hạn). Việc thử các giá trị nguyên nhỏ cho $m$ và $n$ chỉ cho ra **đúng 5 bộ nghiệm thỏa mãn**, tương ứng với 5 khối Platonic.
+
+![[II.64.png]]
 
 ## 12.8 Another Characterization for Planar Graphs
 
 > [!INFO]
 > (Kuratowski). A graph is not planar if and only if it contains K5 or K(3;3) as a minor
+>
 > A minor of a graph G is a graph that can be obtained by repeatedly deleting vertices, deleting edges, and merging adjacent vertices of G.
