@@ -68,11 +68,11 @@ Quan hệ hai ngôi thực chất giống hệt định nghĩa về Hàm số, n
 - Hàm số ($f: A \to B$): Một phần tử $a \in A$ chỉ có thể liên kết với tối đa một phần tử $b \in B$. Trong đồ thị của hàm số, không bao giờ có hai cặp $(a, b_1)$ và $(a, b_2)$ với $b_1 \neq b_2$.
 - Quan hệ ($R$): Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
 
-Ví dụ 1: Quan hệ "Nhỏ hơn" ($<$): Trên tập số thực, số $a$ có quan hệ với $b$ khi $a < b$.
+Ví dụ 1 Quan hệ "Nhỏ hơn" ($<$): Trên tập số thực, số $a$ có quan hệ với $b$ khi $a < b$.
 
-Ví dụ 2: Quan hệ "Tập con" ($\subseteq$): Tập hợp $A$ có quan hệ với $B$ khi $A \subseteq B$.
+Ví dụ 2 Quan hệ "Tập con" ($\subseteq$): Tập hợp $A$ có quan hệ với $B$ khi $A \subseteq B$.
 
-Ví dụ 3: Hàm số là trường hợp đặc biệt của quan hệ.
+Ví dụ 3 Hàm số là trường hợp đặc biệt của quan hệ.
 
 # 5. Induction (Quy nạp)
 
@@ -94,7 +94,6 @@ Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy ho
 
 > [!INFO] State machine
 > State machine thực chất chỉ là một Quan hệ hai ngôi (Binary Relation) trên một tập hợp, nhưng được gọi bằng những cái tên chuyên biệt trong ngữ cảnh hệ thống:
->
 > - **Tập hợp (Set)**: Được gọi là tập hợp các Trạng thái (States). Mỗi phần tử trong tập này đại diện cho một "tình huống" mà hệ thống có thể ở đó.
 > - **Quan hệ (Relation)**: Được gọi là Quan hệ chuyển trạng thái (Transition Relation).
 > - **Cặp $(q, r)$**: Được gọi là một Bước chuyển (Transition), ký hiệu là $q \to r$.
