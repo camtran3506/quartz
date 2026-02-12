@@ -12,6 +12,7 @@ Nội dung chủ yếu là giới thiệu về mệnh đề, các tiên đề, c
 **Quy trình chứng minh bằng Well Ordering Principle (WOP)**
 
 Để chứng minh một tính chất $P(n)$ đúng với mọi số nguyên không âm $n \in \mathbb{N}$, bạn thực hiện theo các bước:
+
 - **Bước 1 Định nghĩa tập các "phần tử lỗi" ($C$):** Bạn thiết lập một tập hợp $C$ chứa tất cả các số nguyên $n$ làm cho $P(n)$ bị sai (các trường hợp phản ví dụ).
 - **Bước 2 Phản chứng:** Giả sử tập $C$ này không rỗng (tức là giả sử có tồn tại ít nhất một số $n$ làm cho tính chất $P$ bị sai).
 - **Bước 3 Áp dụng WOP:** Vì $C$ là tập con khác rỗng của các số nguyên không âm, theo nguyên lý WOP, chắc chắn phải tồn tại một phần tử nhỏ nhất trong tập $C$. Ta gọi phần tử này là $n$.
@@ -27,6 +28,7 @@ Nội dung về các phép logic AND, OR, NOT...Tóm lại, là **đại số Bo
 **Bài toán SAT (viết tắt của Satisfiability)** là bài toán xác định xem một mệnh đề logic cho trước có thể True hay không. Tức là liệu có một cách gán các giá trị True hoặc False cho các biến trong công thức logic sao cho toàn bộ công thức đó đạt giá trị True. Cách tiếp cận truyền thống là làm việc với bảng chân trị. Đương nhiên đây không phải là một ý tưởng hay (nếu có quá nhiều biến)
 
 Việc tìm ra một giải pháp hiệu quả cho bài toán SAT có tầm ảnh hưởng sâu rộng đến nhiều lĩnh vực khác nhau:
+
 - **Tối ưu hóa và Công nghệ:** Một giải pháp hiệu quả cho SAT sẽ ngay lập tức mang lại lời giải cho hàng loạt bài toán thực tế về lập lịch (scheduling), định tuyến (routing), phân bổ nguồn lực và xác thực mạch điện.
 - **Ứng dụng đa ngành:** Các lĩnh vực như lập trình, đại số, tài chính và lý thuyết chính trị đều sẽ được hưởng lợi từ việc giải quyết nhanh chóng các bài toán ràng buộc phức tạp.
 - **Xác thực hệ thống:** Các chương trình giải SAT (SAT-solvers) hiện đại đã được ứng dụng thành công trong việc xác thực các mạch kỹ thuật số có hàng triệu biến.
@@ -40,12 +42,14 @@ Mặc dù có vai trò quan trọng, việc giải quyết triệt để bài to
 **B. Nguy cơ đối với an ninh toàn cầu**
 
 Nếu bài toán SAT được giải quyết hiệu quả (nghĩa là P = NP), thế giới có thể rơi vào tình trạng hỗn loạn:
+
 - **Sụp đổ hệ thống bảo mật:** Việc giải mã các thông điệp mật sẽ trở nên dễ dàng.
 - **Mất an toàn tài chính:** Các giao dịch trực tuyến sẽ không còn được bảo mật và các thông tin liên lạc bí mật có thể bị bất kỳ ai đọc được.
 
 **C. Hạn chế của các công cụ hiện tại**
 
 Các chương trình SAT-solvers hiện nay tuy rất mạnh mẽ nhưng vẫn tồn tại những nhược điểm:
+
 - **Khó dự đoán:** Không thể dự đoán được loại công thức nào sẽ phù hợp với các phương pháp của SAT-solver.
 - **Bế tắc với các bài toán không thỏa mãn:** Đối với những công thức không thể đạt giá trị Đúng (unsatisfiable), các chương trình này thường không mang lại kết quả khả quan.
 
@@ -60,6 +64,7 @@ Trình bày rõ hơn về tập hợp, dãy số, tích Cartesian và hàm số.
 > Binary relations define relations between two objects.
 
 Quan hệ hai ngôi thực chất giống hệt định nghĩa về Hàm số, ngoại trừ một điều kiện quan trọng.
+
 - **Hàm số ($f: A \to B$):** Một phần tử $a \in A$ chỉ có thể liên kết với tối đa một phần tử $b \in B$. Trong đồ thị của hàm số, không bao giờ có hai cặp $(a, b_1)$ và $(a, b_2)$ với $b_1 \neq b_2$.
 - **Quan hệ ($R$):** Không có giới hạn này. Một phần tử $a$ có thể liên kết với bao nhiêu phần tử ở tập đích tùy ý, hoặc không liên kết với phần tử nào cả.
 
@@ -89,6 +94,7 @@ Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy ho
 
 > [!INFO] State machine
 > State machine thực chất chỉ là một Quan hệ hai ngôi (Binary Relation) trên một tập hợp, nhưng được gọi bằng những cái tên chuyên biệt trong ngữ cảnh hệ thống:
+>
 > - **Tập hợp (Set)**: Được gọi là tập hợp các Trạng thái (States). Mỗi phần tử trong tập này đại diện cho một "tình huống" mà hệ thống có thể ở đó.
 > - **Quan hệ (Relation)**: Được gọi là Quan hệ chuyển trạng thái (Transition Relation).
 > - **Cặp $(q, r)$**: Được gọi là một Bước chuyển (Transition), ký hiệu là $q \to r$.
@@ -96,10 +102,12 @@ Hãy tưởng tượng một hệ thống (như đèn giao thông, thang máy ho
 ![[I.01.png]]
 
 Tác giả phân chia máy trạng thái thành hai loại chính
+
 - Máy trạng thái hữu hạn (Finite State Machines - FSM)
 - Máy trạng thái vô hạn (Infinite State Machines)
 
 Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, máy trạng thái thường đi kèm với các nhãn (labels):
+
 - **Input/Output:** Giá trị đưa vào để chuyển trạng thái và kết quả trả về.
 - **Costs/Capacities:** Chi phí để thực hiện một bước chuyển hoặc dung lượng tối đa của một trạng thái.
 - **Probabilities:** Xác suất để một bước chuyển xảy ra (như trong Chuỗi Markov).
@@ -110,6 +118,7 @@ Trong các giáo trình khác hoặc trong các ứng dụng chuyên sâu hơn, 
 
 > [!INFO] Execution & Reachability
 > An **execution** of the state machine is a (possibly infinite) sequence of states with the property that it begins with the start state, and if $q$ and $r$ are consecutive states in the sequence, then $q \to r$.
+>
 > A state is called **reachable** if it appears in some execution.
 
 > [!INFO] The Invariant Principle
@@ -154,10 +163,12 @@ Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên g
 
 > [!INFO] Mối liên hệ với Phương pháp đơn biến
 > Phần này nói về việc sử dụng WOP và hàm tiềm năng để chứng minh một chương trình sẽ đạt trạng thái dừng. Trong toán học tổ hợp cũng có một dạng bài toán yêu cầu chứng minh tồn tại trạng thái dừng, gọi là **phương pháp đơn biến**.
+>
 > **Ý tưởng chính**: Tìm một hàm số sao cho giá trị của nó luôn giảm sau mỗi bước, cho đến khi đạt đến một giá trị giới hạn (ví dụ bằng 0).
 
 > [!IMPORTANT] Ứng dụng Invariant Principle (Nguyên lý bất biến)
 > Việc ứng dụng Invariant Principle dùng để tìm ra quy luật không đổi trong mọi trạng thái.
+>
 > - **Mục tiêu**: Chứng minh không tồn tại một trạng thái $T$ nào đó.
 > - **Cách làm**: Chỉ cần chứng minh trạng thái $T$ không thỏa mãn một tính chất bất biến vốn luôn được duy trì trong suốt quá trình thực thi (execution) hoặc giữa các bước chuyển trạng thái (state transitions).
 
@@ -165,9 +176,11 @@ Tác giả mở rộng khái niệm này ra ngoài phạm vi các số nguyên g
 
 > [!INFO] Định nghĩa Đệ quy (Recursive Data Types)
 > Một kiểu dữ liệu được gọi là đệ quy khi nó được xác định dựa trên chính nó. Phần tử ở sau được định nghĩa dựa trên phần tử ở trước.
+>
 > **Lưu ý:** Khái niệm này thực chất chúng ta đã làm quen rất kỹ ở phần dãy số rồi.
 
 Một số ví dụ về kiểu dữ liệu này:
+
 - Strings (Chuỗi ký tự): Một chuỗi là một ký tự đứng trước một chuỗi khác (ví dụ: "abc" là 'a' + "bc").
 - Balanced strings of brackets (Chuỗi ngoặc cân bằng): Các quy tắc để đảm bảo ngoặc mở luôn có ngoặc đóng tương ứng (như (())).
 - Nonnegative integers (Số nguyên không âm): Số $n+1$ được tạo ra từ số $n$.
@@ -178,6 +191,7 @@ Một số ví dụ về kiểu dữ liệu này:
 Ta bắt đầu với kiểu dữ liệu **String**.
 
 Thay vì coi chuỗi là một mảng (array) nằm ngang như cách ta thường viết ($1011$), toán học định nghĩa nó theo cấu trúc "vỏ bọc" (nested):
+
 - **Base case (Trường hợp cơ sở):** Chuỗi rỗng (ký hiệu là $\lambda$) là một chuỗi.
 - **Constructor (Bộ tạo):** Một chuỗi mới được tạo ra bằng cách lấy một ký tự $a$ gắn vào đầu một chuỗi $s$ đã có sẵn: $\langle a, s \rangle$.
 
@@ -186,6 +200,7 @@ Thay vì coi chuỗi là một mảng (array) nằm ngang như cách ta thườn
 Cách này phản ánh đúng cấu trúc Linked List (Danh sách liên kết). Trong Python, nó tương đương với việc phần tử đầu tiên trỏ tới phần còn lại của danh sách. Chuỗi $1011$ thực chất là: 1 kết nối với (0 kết nối với (1 kết nối với (1 kết nối với Rỗng))).
 
 Cấu trúc dữ liệu được định nghĩa thế nào thì các hàm xử lý nó cũng được định nghĩa như thế. Đều có base case và constructor.
+
 - **Độ dài của chuỗi rỗng:** $|\lambda| = 0$.
 - **Độ dài của một chuỗi có ký tự đầu $a$:** $|\langle a, s \rangle| = 1 + |s|$.
 
@@ -195,6 +210,7 @@ Như đã giới thiệu ở trên, đây là định nghĩa của Quy nạp c�
 
 > [!INFO] Structural Induction Proof
 > A **structural induction** proof has two parts corresponding to the recursive definition:
+>
 > - **Base case**: Prove that each base case element has the property.
 > - **Constructor case**: Prove that each constructor case element has the property, khi constructor được áp dụng cho các phần tử đã có tính chất đó.
 
@@ -224,6 +240,7 @@ Sách ghi khá đẹp nên mình chụp vào luôn, khỏi ghi lại
 
 > [!WARNING] Tính nhập nhằng trong kiểu dữ liệu đệ quy
 > Một kiểu dữ liệu đệ quy bị coi là nhập nhằng khi cùng một phần tử dữ liệu có thể được tạo ra bằng nhiều cách khác nhau (nhiều lộ trình đệ quy khác nhau) dựa trên các quy tắc đã cho.
+>
 > **Hệ quả:** Nếu một phần tử có thể được tạo ra theo hai cách, và bạn định nghĩa một hàm $f$ dựa trên cấu trúc đó, thì hàm $f$ có thể trả về hai giá trị khác nhau cho cùng một đầu vào. Khi đó, $f$ vi phạm định nghĩa của một hàm số.
 
 Dưới đây là một ví dụ minh họa.
@@ -261,7 +278,7 @@ Hai phương pháp này là một. Quy nạp cấu trúc là phiên bản tổng
 
 - **Thiếu trường hợp cơ sở (Missing Base Case):** Bạn định nghĩa $f(n) = f(n-1) + 1$ nhưng không nói $f(0)$ bằng bao nhiêu. Lúc này, máy tính sẽ rơi vào vòng lặp vô hạn vì không biết điểm dừng.
 - **Định nghĩa "nhìn về phía trước" (Circular or Forward Reference):** Ví dụ định nghĩa $f(n)$ dựa trên $f(n+1)$. Điều này vi phạm tính đệ quy vì bạn đang cố gắng giải thích cái đơn giản bằng cái phức tạp hơn chưa được tạo ra.
-- **Nhập nhằng (Ambiguity):** Đối với các kiểu dữ liệu phức tạp hơn số nguyên (như chuỗi ngoặc AmbRecMatch bạn vừa xem), nếu có hai cách để tạo ra $n+1$, nhưng hai cách đó lại dẫn đến hai giá trị $f(n+1)$ khác nhau, thì hàm đó không còn là hàm số duy nhất nữa.
+- **Nhập nhằng (Ambiguity):** Đối với các kiểu dữ liệu phức tạp hơn số nguyên (như chuỗi ngoặc **AmbRecMatch** bạn vừa xem), nếu có hai cách để tạo ra $n+1$, nhưng hai cách đó lại dẫn đến hai giá trị $f(n+1)$ khác nhau, thì hàm đó không còn là hàm số duy nhất nữa.
 
 **Giả thuyết Collatz**
 
@@ -271,7 +288,7 @@ Giả thuyết Collatz (hay hàm $f_4$) là một ví dụ điển hình trong t
 
 Mặc dù thực nghiệm đã chứng minh mọi số nguyên lên đến hơn $10^{18}$ đều cuối cùng hội tụ về giá trị 1, nhưng về mặt lý thuyết, chúng ta vẫn chưa thể chứng minh điều này đúng cho mọi số tự nhiên $\mathbb{N}$.
 
-Thách thức chính nằm ở chỗ quy tắc $3n+1$ xác định giá trị của $f_4(n)$ dựa trên một đối số lớn hơn chính nó, điều này vi phạm nguyên tắc cốt lõi của quy nạp cấu trúc trên tập số nguyên: luôn phải xây dựng dựa trên các giá trị nhỏ hơn. Do không thể thiết lập một lộ trình "đi xuống" chắc chắn về trường hợp cơ sở (base case), Giả thuyết Collatz trở thành một minh chứng cho thấy: một quy trình bước-nối-bước đơn giản vẫn có thể chứa đựng những sự phức tạp không thể giải quyết bằng các công cụ logic thông thường. Trong khoa học máy tính, đây là lời nhắc nhở quan trọng về việc kiểm chứng tính hội tụ và tính dừng (termination) của các thuật toán tối ưu hóa.
+Thách thức chính nằm ở chỗ quy tắc $3n+1$ xác định giá trị của $f_4(n)$ dựa trên một đối số lớn hơn chính nó, điều này vi phạm nguyên tắc cốt lõi của quy nạp cấu trúc trên tập số nguyên: luôn phải xây dựng dựa trên các giá trị nhỏ hơn. Mặt khác, không thể thiết lập một lộ trình hội tụ chắc chắn về trường hợp cơ sở (base case).
 
 **Hàm Ackermann**
 
@@ -400,12 +417,12 @@ Phương pháp này thường được minh họa thông qua tập hợp các ch
 
 Chúng ta đã đi qua tính partial correctness, tính termination, giờ ta sẽ chứng minh **tính không thể tính toán (Uncomputability).**
 
-Một thực tế cơ bản trong lập trình: **Các chương trình thường xuyên xử lý các chương trình khác.** Ví dụ, Trình biên dịch (Compilers): Lấy mã nguồn (Java, Python...) làm đầu vào và tạo ra mã máy. Trình thông dịch (Interpreters): Chạy trực tiếp mã nguồn trên một máy ảo. Trình kiểm tra kiểu (Type-checkers): Phân tích mã nguồn để tìm lỗi trước khi chạy.
+Một thực tế cơ bản trong lập trình: **Các chương trình thường xuyên xử lý các chương trình khác.** Ví dụ, Trình biên dịch (Compilers) lấy mã nguồn (Java, Python...) làm đầu vào và tạo ra mã máy. Trình thông dịch (Interpreters) chạy trực tiếp mã nguồn trên một máy ảo. Trình kiểm tra kiểu (Type-checkers) phân tích mã nguồn để tìm lỗi trước khi chạy.
 
 > [!INFO] Giới hạn của tính toán (Limits of Computation)
 > The fundamental thing that just can’t be done by computation is **a perfect job** of type-checking, optimizing, or any kind of analysis of the overall run-time behavior of programs.
 
-Tức là, các task (type-checking, optimizing...) không thể được hoàn thành một cách perfect trên mọi chương trình. Ta minh họa việc này thông qua **The Halting Problem**.
+Tức là, các task (type-checking, optimizing...) không thể được hoàn thành một cách **perfect** trên mọi chương trình. Ta minh họa việc này thông qua **The Halting Problem**.
 
 - **Định nghĩa:** Cho một chương trình bất kỳ, hãy xác định xem nó sẽ chạy mãi mãi hay cuối cùng sẽ dừng lại (halt).
 - **Vấn đề:** Việc nhận biết một chương trình sẽ dừng là rất dễ (chỉ cần chạy nó và đợi), nhưng việc biết chắc chắn một chương trình không bao giờ dừng là bất khả thi. Bạn có thể đợi 100 năm, nhưng không thể biết nó sẽ chạy mãi mãi hay sẽ dừng ở năm thứ 101.
@@ -440,6 +457,7 @@ Chuyện gì sẽ xảy ra nếu chúng ta đưa mã nguồn của chính chươ
 - Nếu $H$ dự đoán $M$ sẽ lặp vô tận: Theo định nghĩa của $M$ ở Bước 3, nó sẽ dừng lại. (Mâu thuẫn: Dự đoán lặp nhưng thực tế dừng).
 
 Tác giả khẳng định rằng việc giải quyết trường hợp đặc biệt (liệu $P_s$ có dừng khi chạy trên chính mã nguồn $s$ không) đã chứng minh một sự thật lớn hơn: **Mọi ngôn ngữ lập trình đều không thể giải quyết được Bài toán dừng tổng quát.**
+
 => Nếu bạn không thể biết một chương trình có dừng hay không, bạn cũng không thể xây dựng một quy trình hoàn hảo để nhận biết bất kỳ thuộc tính thực thi (run-time property) nào.
 
 Tuy nhiên, đây là thực tế:
