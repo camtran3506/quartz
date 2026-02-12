@@ -4,13 +4,16 @@
 
 ### 8.2.2 The Pulverizer
 
-![[II.01.png]]
+> [!INFO]
+> Ước chung lớn nhất của hai số $a$ và $b$ luôn có thể biểu diễn dưới dạng tổ hợp tuyến tính của $a$ và $b$
+> $$\gcd(a, b) = sa + tb$$
 
-![[II.02.png]]
+> [!INFO]
+> An integer is a linear combination of a and b iff it is a multiple of $\gcd(a,b)$
 
 Với iff viết tắt cho "tương đương"
 
-Có một cách thường dùng để tính GCD là thuật toán Euclid. Cùng với nó là Pulverizer, ý tưởng giống Euclid nhưng ghi lại linear combination của a và b ở từng bước.
+Có một cách thường dùng để tính GCD là **thuật toán Euclid**. Cùng với nó là **Pulverizer**, ý tưởng giống Euclid nhưng ghi lại linear combination của a và b ở từng bước.
 
 ![[II.03.png]]
 
@@ -24,7 +27,10 @@ Từ công thức $\pi(x) \approx \frac{x}{\ln x}$, ta có thể suy ra: Nếu b
 
 ## 8.4 The Fundamental Theorem of Arithmetic
 
-![[II.06.png]]
+> [!INFO] Fundamental Theorem of Arithmetic
+> Every positive integer is a product of a unique weakly decreasing sequence of primes.
+>
+> For example, 75237393 is the product of the weakly decreasing sequence of primes 23; 17; 17; 11; 7; 7; 7; 3; and no other weakly decreasing sequence of primes will give 75237393.
 
 ## 8.5 Alan Turing
 
@@ -44,11 +50,11 @@ Trong mã của Turing, thông điệp $m$ phải là một số nguyên tố. N
 
 Câu hỏi đặt ra là: "Làm sao để chắc chắn $m$ và $k$ là số nguyên tố?". Nếu bạn chọn đại một số cực lớn (ví dụ có 500 chữ số), làm sao bạn biết nó là số nguyên tố hay là hợp số?
 
-Tác giả nhấn mạnh rằng việc kiểm tra một số có phải nguyên tố hay không thực ra "dễ" hơn nhiều so với việc phân tích nó. Hiện nay, chúng ta có các thuật toán như Miller-Rabin (thuật toán xác suất cực nhanh) hoặc AKS (thuật toán đa thức chắc chắn).
+Tác giả nhấn mạnh rằng việc kiểm tra một số có phải nguyên tố hay không thực ra "dễ" hơn nhiều so với việc phân tích nó ra thành thừa số. Hiện nay, chúng ta có các thuật toán như **Miller-Rabin (thuật toán xác suất cực nhanh)** hoặc **AKS (thuật toán đa thức chắc chắn)**.
 
 **Tại sao quân Phát xít lại "bó tay"? (Độ an toàn)**
 
-Hệ thống này dựa trên một thứ gọi là Hàm một chiều (One-way function): Bạn có $m$ và $k$ (hai số nguyên tố cực lớn). Việc nhân chúng lại để tạo ra $m_b = m \times k$ là cực kỳ nhanh chóng, ngay cả với máy tính yếu. Kẻ địch chỉ có $m_b$. Để tìm lại thông điệp $m$, chúng buộc phải phân tích thừa số nguyên tố (factorize) số $m_b$.
+Hệ thống này dựa trên một thứ gọi là **Hàm một chiều (One-way function)**: Bạn có $m$ và $k$ (hai số nguyên tố cực lớn). Việc nhân chúng lại để tạo ra $m_b = m \times k$ là cực kỳ nhanh chóng, ngay cả với máy tính yếu. Kẻ địch chỉ có $m_b$. Để tìm lại thông điệp $m$, chúng buộc phải phân tích thừa số nguyên tố (factorize) số $m_b$.
 
 Như đã đề cập ở phần trước, chưa ai tìm ra một thuật toán chạy trong "thời gian đa thức" để phân tích một số là tích của hai số nguyên tố lớn.
 
@@ -76,13 +82,14 @@ Vì m_hat lúc này là một số dư trong khoảng 0 đến n, nên ta không
 
 ### 8.9.1 Relative Primality
 
-![[II.10.png]]
-
-![[II.11.png]]
+> [!INFO]
+> Bổ đề 1: Nếu $k$ thuộc $[0..n)$ và nguyên tố cùng nhau với $n$, thì $k$ luôn có số nghịch đảo trong tập $\mathbb{Z}_n$
+>
+> Bổ đề 2: Nếu $i$ và $j$ đều là số nghịch đảo của $k$ trong $\mathbb{Z}_n$, thì $i = j$
 
 Vành $\mathbb{Z}_n$ là một cấu trúc cơ bản trong toán học, chứa các số dư có thể có khi thực hiện phép chia một số nguyên bất kỳ cho $n$.
 
-Trong vành $\mathbb{Z}_n$ thì dấu = đại diện cho dấu modulo (chia dư) nha. Phần chứng minh Lemma 8.9.1 thì ý tưởng dựa trên gcd(k, n) = linear combination của k và n.
+Trong vành $\mathbb{Z}_n$ thì dấu = đại diện cho dấu modulo (chia dư) nha. Phần chứng minh Bổ đề 1 thì ý tưởng dựa trên $\gcd(k,n)$ = linear combination của k và n.
 
 Khi $p$ là số nguyên tố, vành $\mathbb{Z}_p$ trở thành một Trường (Field). Đặc điểm tuyệt vời nhất của nó là:
 
