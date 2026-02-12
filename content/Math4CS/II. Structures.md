@@ -890,3 +890,30 @@ Dựa trên 2 bổ đề vừa rồi và định lí Euler, ta chứng minh đư
 ![[II.61.png]]
 
 ## 12.7 Classifying Polyhedra
+
+> [!INFO] Khối đa diện đều (Regular Polyhedron)
+> Là các vật thể 3D có tất cả các mặt là các đa giác đều giống hệt nhau và tại mỗi đỉnh, số lượng các mặt gặp nhau là như nhau. Ví dụ: tứ diện (tetrahedron), lập phương (cube), và bát diện (octahedron).
+
+> [!INFO] Phép chiếu lên mặt cầu (Spherical Projection)
+> Đặt một mặt cầu bên trong khối đa diện và "chiếu" ranh giới các mặt của nó lên mặt cầu đó. Hành động này biến các cạnh của vật thể 3D thành các cung tròn trên mặt cầu, tạo thành một đồ thị phẳng.
+
+![[II.62.png]]
+
+![[II.63.png]]
+
+Vì việc nhúng đồ thị trên mặt cầu tương đương với việc nhúng trên mặt phẳng, chúng ta có thể áp dụng công thức $V - E + F = 2$ cho các khối 3D này. Điều này cho phép chúng ta dùng toán học để giới hạn và tìm ra chính xác có bao nhiêu khối đa diện đều tồn tại.
+
+Gọi $m$ là số mặt gặp nhau tại mỗi đỉnh (tương ứng với số cạnh đi ra từ mỗi nút trong đồ thị phẳng). $n$ là số cạnh của mỗi mặt.
+
+- Mối quan hệ Đỉnh - Cạnh: Theo bổ đề bắt tay, ta có $mv = 2e$.
+- Mối quan hệ Mặt - Cạnh: Vì mỗi cạnh là biên giới của 2 mặt, ta có $nf = 2e$.
+- Thay vào công thức Euler: Khi đưa các giá trị $v$ và $f$ từ hai phương trình trên vào công thức $v - e + f = 2$, ta rút ra được phương trình giới hạn: $$\frac{1}{m} + \frac{1}{n} = \frac{1}{2} + \frac{1}{e}$$
+
+Vì mỗi đa giác phải có ít nhất 3 cạnh ($n \ge 3$) và mỗi đỉnh phải là nơi gặp nhau của ít nhất 3 mặt ($m \ge 3$). Nếu cả $m$ và $n$ đều lớn (ví dụ cùng bằng 6), vế trái sẽ bằng $1/2$, khiến $1/e = 0$ (vô lý vì số cạnh $e$ phải là số hữu hạn). Việc thử các giá trị nguyên nhỏ cho $m$ và $n$ chỉ cho ra **đúng 5 bộ nghiệm thỏa mãn**, tương ứng với 5 khối Platonic.
+
+## 12.8 Another Characterization for Planar Graphs
+
+> [!INFO]
+> (Kuratowski). A graph is not planar if and only if it contains K5 or K(3;3) as a minor
+>
+> A minor of a graph G is a graph that can be obtained by repeatedly deleting vertices, deleting edges, and merging adjacent vertices of G.
