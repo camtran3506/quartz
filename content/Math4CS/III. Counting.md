@@ -190,3 +190,27 @@ Ai học qua giải tích ở đại học thì chắc gặp kí hiệu này r�
 Theo định nghĩa, $H_n \sim \ln(n) + C$ với bất kỳ hằng số $C$ nào cũng đều đúng. Tại sao? Vì khi $n \to \infty$, thì $\frac{\ln(n) + C}{\ln(n)}$ luôn tiến về $1$. Hằng số $C$ trở nên quá nhỏ so với sự tăng trưởng của $\ln(n)$.
 
 Nếu bạn muốn khẳng định hằng số Euler $\gamma$ là số hạng quan trọng thứ hai, bạn phải viết: $$(H_n - \ln(n)) \sim \gamma$$ (Nghĩa là sau khi loại bỏ số hạng dẫn đầu, phần còn lại sẽ tương đương tiệm cận với $\gamma$).
+
+## 13.5 Products
+
+Ta không cần xây dựng thêm phương pháp tìm closed form cho tích, vì có thể chuyển một tích sang tổng bằng logarit. Sau khi tìm closed form ở dạng tổng rồi thì ta mũ ngược lại về biểu thức ban đầu.
+
+![[III.06.png]]
+
+### 13.5.1 Stirling’s Formula
+
+![[III.07.png]]
+
+![[III.08.png]]
+
+Ba đặc điểm quan trọng cần lưu ý:
+
+- Vì sai số $\epsilon(n)$ luôn dương, nên giá trị thực của $n!$ luôn lớn hơn biểu thức xấp xỉ cơ bản.
+- Khi $n$ tiến đến vô cùng, tỷ lệ giữa $n!$ và công thức này tiến về 1 ($n! \sim \dots$). Đây là một điều kỳ diệu vì giai thừa (một khái niệm rời rạc) lại liên quan mật thiết đến các hằng số liên tục ($\pi, e$).
+- Ngay cả với $n$ nhỏ, công thức này đã rất chính xác.
+
+## 13.6 Double Trouble
+
+Để tính tổng của một tổng thì, tính bên trong trước (thế closed form trước), rồi tính tổng bên ngoài
+
+![[III.09.png]]
