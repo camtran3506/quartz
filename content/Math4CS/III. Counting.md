@@ -214,3 +214,49 @@ Ba đặc điểm quan trọng cần lưu ý:
 Để tính tổng của một tổng thì, tính bên trong trước (thế closed form trước), rồi tính tổng bên ngoài
 
 ![[III.09.png]]
+
+Nếu tổng bên trong không có closed form, thì ta **đảo thứ tự lấy tổng**. Ví dụ, tổng của $n$ số Harmonic đầu tiên được viết là:
+
+$$\sum_{k=1}^{n} H_k = \sum_{k=1}^{n} \sum_{j=1}^{k} \frac{1}{j}$$
+
+Hãy tưởng tượng các cặp $(k, j)$ này trên một cái bảng. Cột là $j$, dòng là $k$:
+
+- Khi $k=1$: $j$ chạy từ 1 đến 1 $\rightarrow$ ta có ô $(1, 1)$.
+- Khi $k=2$: $j$ chạy từ 1 đến 2 $\rightarrow$ ta có ô $(2, 1), (2, 2)$.
+- Khi $k=3$: $j$ chạy từ 1 đến 3 $\rightarrow$ ta có ô $(3, 1), (3, 2), (3, 3)$.
+
+Các cặp này tạo thành một hình tam giác. Cách tính ban đầu là cộng theo từng hàng rồi mới cộng tổng các hàng lại. Thay vì tính theo hàng, ta sẽ tính theo từng cột $j$ trước:
+
+- Giá trị nhỏ nhất của $j$ là 1.
+- Giá trị lớn nhất của $j$ là $n$.
+- Với một cột $j$ cố định, các giá trị của $k$ sẽ bắt đầu từ đâu? Nhìn vào bảng, ta thấy $k$ luôn lớn hơn hoặc bằng $j$. Vậy $k$ chạy từ $j$ đến $n$.
+
+Lúc này, biểu thức được viết lại thành:
+
+$$\sum_{j=1}^{n} \sum_{k=j}^{n} \frac{1}{j}$$
+
+![[III.10.png]]
+
+Bây giờ việc tính toán trở nên dễ dàng hơn nhiều vì số hạng $\frac{1}{j}$ không phụ thuộc vào biến $k$ của tổng bên trong. Ta đưa $\frac{1}{j}$ ra ngoài tổng trong, sau đó tính tổng bên trong là $\sum_{k=j}^{n} 1$ đơn giản là đếm xem có bao nhiêu số từ $j$ đến $n$. Số lượng đó là: $(n - j + 1)$.
+
+![[III.11.png]]
+
+## 13.7 Asymptotic Notation (Kí hiệu tiệm cận)
+
+Kí hiệu tiệm cận dùng để thể hiện hành vi của một hàm số $f(n)$ khi $n$ trở nên lớn.
+
+### 13.7.1 Little O
+
+![[III.12.png]]
+
+Khi $n$ đủ lớn, $f$ trở nên không đáng kể so với $g$.
+
+Một số bổ đề quen thuộc:
+
+- $x^a = o(x^b)$ với mọi hằng số không âm $a < b$
+- $\log x = o(x^\epsilon)$ với mọi $\epsilon > 0$ (vì $\log x < x$ với mọi $x > 1$)
+- $x^b = o(a^x)$ với bất kỳ $a, b \in \mathbb{R}$ thỏa mãn $a > 1$
+
+### 13.7.2 Big O
+
+![[III.13.png]]
