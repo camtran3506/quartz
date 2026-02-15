@@ -243,7 +243,7 @@ Bây giờ việc tính toán trở nên dễ dàng hơn nhiều vì số hạng
 
 ## 13.7 Asymptotic Notation (Kí hiệu tiệm cận)
 
-Kí hiệu tiệm cận dùng để thể hiện hành vi của một hàm số $f(n)$ khi $n$ trở nên lớn.
+Kí hiệu tiệm cận dùng để thể hiện hành vi của một hàm số $f(n)$ khi $n$ trở nên lớn. Ví dụ, kí hiệu tiệm cận $\sim$ là một quan hệ nhị phân chỉ ra rằng hai hàm số tăng trưởng với tốc độ như nhau. Còn có các kí hiệu khác sẽ được giới thiệu.
 
 ### 13.7.1 Little O
 
@@ -259,4 +259,91 @@ Một số bổ đề quen thuộc:
 
 ### 13.7.2 Big O
 
+Big O là ký hiệu tiệm cận được sử dụng thường xuyên nhất. Nó được dùng để đưa ra một chặn trên (upper bound) về sự tăng trưởng của một hàm số, chẳng hạn như thời gian chạy của một thuật toán. Có một định nghĩa chuẩn về Big O, nhưng chúng ta sẽ bắt đầu với một định nghĩa thay thế giúp làm rõ vài tính chất cơ bản của nó.
+
 ![[III.13.png]]
+
+Ta sử dụng khái niệm giới hạn trên (limit superior - lim sup) thay vì chỉ dùng giới hạn (limit). Giới hạn thông thường và giới hạn trên là như nhau **khi giới hạn đó tồn tại**, và ta cần dùng giới hạn trên cho các trường hợp **không tính được giới hạn**.
+
+Một số bổ đề:
+
+- Nếu $f = o(g)$ hoặc $f \sim g$, thì $f = O(g)$ (điều ngược lại thì không đúng)
+- Nếu $f = o(g)$, thì không thể có chuyện $g = O(f)$
+
+Một cách diễn đạt khác tương đương và phổ biến hơn của Big O mà không đề cập đến lim sup là
+
+![[III.14.png]]
+
+Định nghĩa này nhìn có vẻ khá phức tạp, nhưng ý tưởng lại rất đơn giản: $f(x) = O(g(x))$ có nghĩa là $f(x)$ nhỏ hơn hoặc bằng $g(x)$ khi $x$ đủ lớn.
+
+Big O đặc biệt hữu ích khi mô tả thời gian chạy của một thuật toán, cho phép chúng ta thảo luận về tốc độ của thuật toán mà không cần bận tâm đến các hệ số hằng số hay các số hạng bậc thấp (vốn có thể thay đổi tùy theo từng loại máy tính).
+
+### 13.7.3 Theta
+
+Giúp chúng ta xác định chính xác tốc độ tăng trưởng của một hàm số bằng cách "kẹp" nó ở cả hai đầu (trên và dưới). $\Theta$ mạnh hơn $O$ lớn rất nhiều:
+
+- $O(g)$: Giống như dấu $\le$ (chặn trên). Nếu thuật toán của bạn chạy $O(n^2)$, nó có thể chạy cực nhanh như $O(n)$ cũng được, vì $n$ vẫn nằm dưới $n^2$.
+- $\Theta(g)$: Giống như dấu $\approx$ (xấp xỉ chính xác). Nếu thuật toán là $\Theta(n^2)$, nó chắc chắn tăng trưởng theo bậc bình phương. Nó không thể nhanh hơn như $n$ và cũng không thể chậm hơn như $n^3$.
+
+![[III.15.png]]
+
+Theta làm nổi bật tốc độ tăng trưởng và triệt tiêu các hệ số gây nhiễu cũng như các số hạng bậc thấp. Ví dụ, chỉ cần biết thời gian chạy của một thuật toán là $\Theta(n^3)$ đã là rất hữu ích, bởi vì nếu $n$ tăng gấp đôi, chúng ta có thể dự đoán rằng thời gian chạy nhìn chung sẽ tăng lên tối đa là 8 lần đối với $n$ đủ lớn. Theo cách này, Theta bảo tồn thông tin về khả năng mở rộng (scalability) của một thuật toán hoặc hệ thống.
+
+### 13.7.4 Pitfalls with Asymptotic Notation
+
+Một số sai lầm thường gặp.
+
+**The Exponential Fiasco (Thảm họa hàm mũ)**
+
+Đây là nhận định sai: $4^x = O(2^x)$. Nó tăng trưởng theo bình phương của $2^x$, chứ không phải gấp đôi. **Trong hàm mũ, một sự thay đổi nhỏ ở cơ số sẽ dẫn đến sự bùng nổ khổng lồ ở kết quả**. Vậy nên, nhận định đúng là $4^x = (2^2)^x = (2^x)^2$.
+
+**Constant Confusion (Nhầm lẫn về hằng số)**
+
+Mọi hằng số đều là $O(1)$. Nhưng sai lầm xuất hiện khi ta áp dụng điều này vào một tổng. Đây là nhận định sai: $\sum_{i=1}^{n} i = O(n)$. Ở đây lập luận là: Vì mỗi số $i$ là $O(1)$, nên tổng của $n$ số $O(1)$ là $O(n)$.
+
+Trong tổng này, $i$ không phải là hằng số. Nó chạy từ $1$ đến $n$. Khi $n$ tiến tới vô cùng, $i$ cũng tăng theo. Thực tế, tổng này là $n(n+1)/2$, tức là $\Theta(n^2)$, chứ không phải $O(n)$. **Bài học là đừng bao giờ cộng các $O(1)$ như thể chúng là những con số cố định.**
+
+**Equality Blunder (Sai lầm về dấu bằng)**
+
+Đây là lỗi phổ biến nhất. Ký hiệu $f = O(g)$ thực chất là một quan hệ một chiều, không phải là sự bằng nhau. Không bao giờ được viết ngược lại kiểu $O(f) = g$. Hãy coi dấu "=" ở đây như là "thuộc về" hoặc "là một".
+
+Ví dụ: $$H_n = \ln(n) + \gamma + O\left(\frac{1}{n}\right)$$
+
+Ý nghĩa đúng của nó là:
+
+- Tồn tại một hàm số ẩn $f(n)$ nào đó sao cho $H_n = \ln(n) + \gamma + f(n)$.
+- Và hàm số ẩn này thỏa mãn điều kiện $f(n) = O(1/n)$.
+
+Nói cách khác, phần $O(1/n)$ chứa các sai số nhỏ mà chúng ta không cần viết chi tiết ra. Chúng ta chỉ cần biết rằng khi $n$ cực lớn, cái "sai số" này sẽ thu nhỏ lại với tốc độ ít nhất là bằng $1/n$.
+
+**Operator Application Blunder (Lỗi áp dụng toán tử)**
+
+Đừng mặc định rằng nếu $f$ tương đương với $g$ thì khi áp dụng bất kỳ hàm nào lên chúng, kết quả vẫn tương đương.
+
+Ví dụ: $f \sim g$ không có nghĩa là $3^f = \Theta(3^g)$.
+
+Nhưng có ngoại lệ: Nếu $f = \Theta(g)$ thì $\ln f \sim \ln g$ (trong những điều kiện nhất định).
+
+### 13.7.5 Omega (Optional)
+
+Đôi khi mọi người sử dụng sai ký hiệu Big O trong ngữ cảnh của một giới hạn dưới. Ví dụ, họ có thể nói: 'Thời gian chạy, $T(n)$, ít nhất là $O(n^2)$'. Đây là một sai lầm khác! Big O chỉ có thể được sử dụng cho các giới hạn trên. Cách đúng để diễn đạt giới hạn dưới sẽ là:$$n^2 = O(T(n))$$.
+
+Giới hạn dưới cũng có thể được mô tả bằng một ký hiệu đặc biệt khác là 'Big Omega' ($\Omega$).
+
+![[III.16.png]]
+
+![[III.17.png]]
+
+### Bảng Tổng Hợp Ký Hiệu Tiệm Cận
+
+| Ký hiệu         | Ý nghĩa thực tế                                      | So sánh tương đương |
+| :-------------- | :--------------------------------------------------- | :------------------ |
+| $f = o(g)$      | $f$ tăng trưởng **chậm hơn hẳn** $g$.                | $f < g$             |
+| $f = O(g)$      | $f$ tăng trưởng **không nhanh hơn** $g$ (Chặn trên). | $f \le g$           |
+| $f = \Theta(g)$ | $f$ và $g$ tăng trưởng **cùng bậc** (Chặn chặt).     | $f \approx g$       |
+| $f = \Omega(g)$ | $f$ tăng trưởng **không chậm hơn** $g$ (Chặn dưới).  | $f \ge g$           |
+| $f = \omega(g)$ | $f$ tăng trưởng **nhanh hơn hẳn** $g$.               | $f > g$             |
+
+# 14. Cardinality Rules
+
+## 14.1 Counting One Thing by Counting Another
