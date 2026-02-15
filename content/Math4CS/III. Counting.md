@@ -347,3 +347,19 @@ Giới hạn dưới cũng có thể được mô tả bằng một ký hiệu �
 # 14. Cardinality Rules
 
 ## 14.1 Counting One Thing by Counting Another
+
+Cách trực tiếp nhất để đếm một tập hợp bằng cách đếm một tập hợp khác là tìm ra một song ánh (bijection) giữa chúng, bởi vì nếu tồn tại một song ánh giữa hai tập hợp, thì hai tập hợp đó có cùng kích thước. Đây là **Quy tắc Song ánh**.
+
+## 14.2 Counting Sequences
+
+Quy tắc Song ánh cho phép chúng ta đếm một thứ thông qua việc đếm một thứ khác. Điều này gợi ý một chiến thuật tổng quát: hãy thật giỏi trong việc đếm chỉ một vài thứ nhất định, sau đó sử dụng song ánh để đếm tất cả những thứ còn lại! Cụ thể, chúng ta sẽ rèn luyện để thật giỏi trong việc đếm các dãy (sequences). Khi chúng ta muốn xác định kích thước của một tập hợp $T$ nào đó, chúng ta sẽ tìm một song ánh từ $T$ đến một tập hợp các dãy $S$. Sau đó, chúng ta sẽ sử dụng kỹ năng đếm dãy 'siêu cấp ninja' của mình để xác định $|S|$, điều này lập tức cho ta biết $|T|$.
+
+## 14.4 The Division Rule
+
+Một hàm số $k$-đối-1 ($k$-to-1 function) ánh xạ chính xác $k$ phần tử của tập miền xác định (domain) vào mỗi phần tử của tập đích (codomain). Ví dụ, hàm số ánh xạ mỗi chiếc tai với chủ sở hữu của nó là hàm 2-đối-1. Tương tự, hàm số ánh xạ mỗi ngón tay với chủ sở hữu là hàm 10-đối-1.
+
+Quy tắc tổng quát là: Nếu $f: A \to B$ là một hàm số $k$-đối-1, thì $|A| = k \cdot |B|$."
+
+Thay vì đếm trực tiếp tập hợp $A$ (thường là tập hợp rất lớn và khó đếm), chúng ta đếm tập hợp $B$ (nhỏ hơn và dễ kiểm soát hơn), sau đó nhân với hệ số $k$.
+
+## 14.5 Counting Subsets
