@@ -363,3 +363,11 @@ Quy tắc tổng quát là: Nếu $f: A \to B$ là một hàm số $k$-đối-1,
 Thay vì đếm trực tiếp tập hợp $A$ (thường là tập hợp rất lớn và khó đếm), chúng ta đếm tập hợp $B$ (nhỏ hơn và dễ kiểm soát hơn), sau đó nhân với hệ số $k$.
 
 ## 14.5 Counting Subsets
+
+Nhắc lại tổ hợp chập $k$ của $n$ và bài toán chia kẹo Euler.
+
+## 14.6 Sequences with Repetitions
+
+Nhắc lại tổ hợp lặp và nhị thức Newton.
+
+## 14.8 The Pigeonhole Principle
