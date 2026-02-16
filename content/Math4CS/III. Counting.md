@@ -371,3 +371,34 @@ Nhắc lại tổ hợp chập $k$ của $n$ và bài toán chia kẹo Euler.
 Nhắc lại tổ hợp lặp và nhị thức Newton.
 
 ## 14.8 The Pigeonhole Principle
+
+Một định nghĩa khá hàn lâm, nhưng đầy đủ.
+
+![[III.18.png]]
+
+Ở phần này có một ví dụ,, bài toán khá hay là **A Magic Trick**, mọi người có thể lướt đến trang đó tìm hiểu thêm.
+
+## 14.9 Inclusion-Exclusion
+
+![[III.19.png]]
+
+## 14.10 Combinatorial Proofs
+
+### 14.10.2 Giving a Combinatorial Proof
+
+> [!INFO] Basic outline for Combinatorial Proof
+>
+> - Định nghĩa tập hợp $S$: Xác định một nhóm các đối tượng cụ thể mà bạn muốn đếm
+> - Đếm theo cách thứ nhất: Chứng minh rằng kích thước của tập hợp $S$ (ký hiệu là $|S|$) bằng $n$.
+> - Đếm theo cách thứ hai: Chứng minh rằng cũng chính tập hợp $S$ đó, nếu nhìn dưới một góc độ khác, sẽ có kích thước bằng $m$.
+> - Kết luận: Vì cả hai cách đều đếm cùng một tập hợp $S$, nên ta khẳng định $n = m$.
+
+**Checking a Combinatorial Proof**
+
+Trong trường hợp lập luận tổ hợp gây mơ hồ, ta có thể sử dụng thiết lập song ánh (bijection) để chứng minh sự tương ứng 1-1 giữa hai tập hợp khác nhau, hoặc quy đổi về đếm chuỗi (sequence counting) để đảm bảo tính chính xác và hệ thống cho chứng minh.
+
+### 14.10.3 A Colorful Combinatorial Proof
+
+Thay vì xây dựng những giả định phức tạp, các chứng minh tổ hợp hiệu quả thường tập trung vào việc định nghĩa tập hợp $S$ dựa trên các cấu trúc toán học cơ bản như chuỗi (sequences) hoặc tập hợp con (sets). Chìa khóa nằm ở khả năng lựa chọn tập hợp $S$ một cách khôn ngoan, trong đó vế đơn giản hơn của đẳng thức thường đóng vai trò là "kim chỉ nam" định hình bản chất của đối tượng cần đếm. Điểm ưu việt của phương pháp này là không cần đến các phép biến đổi đại số nặng nề.
+
+# 15. Generating Functions
