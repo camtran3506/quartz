@@ -402,3 +402,19 @@ Trong trường hợp lập luận tổ hợp gây mơ hồ, ta có thể sử d
 Thay vì xây dựng những giả định phức tạp, các chứng minh tổ hợp hiệu quả thường tập trung vào việc định nghĩa tập hợp $S$ dựa trên các cấu trúc toán học cơ bản như chuỗi (sequences) hoặc tập hợp con (sets). Chìa khóa nằm ở khả năng lựa chọn tập hợp $S$ một cách khôn ngoan, trong đó vế đơn giản hơn của đẳng thức thường đóng vai trò là "kim chỉ nam" định hình bản chất của đối tượng cần đếm. Điểm ưu việt của phương pháp này là không cần đến các phép biến đổi đại số nặng nề.
 
 # 15. Generating Functions
+
+Hàm sinh biến đổi các bài toán về dãy số thành các bài toán về đại số. Ta có thể đơn giản hóa các bài toán về dãy số thành việc kiểm tra các tính chất của biểu thức đại số
+
+=> Sử dụng hàm sinh để giải quyết tất cả các loại bài toán đếm.
+
+Một vài "biến thể" của hàm sinh như hàm sinh thường (ordinary), hàm sinh mũ (exponential) và hàm sinh Dirichlet thường xuyên xuất hiện trong toán học tổ hợp. Ngoài ra, biến đổi Z (Z-transforms) – vốn có mối liên hệ chặt chẽ với hàm sinh thường – cũng đóng vai trò quan trọng trong lý thuyết điều khiển và xử lý tín hiệu.
+
+Đây là link tài liệu đọc thêm về ứng dụng hàm sinh trong các chủ đề khác: https://drive.google.com/file/d/1RGivly_12c29GQBxPk2AQhGSwed6_tSF/view?usp=sharing
+
+## 15.1 Infinite Series
+
+![[III.20.png]]
+
+Từ một dãy số, ta biến đổi các số hạng trong dãy thành hệ số của đa thức. Hàm sinh có thể tạo ra những hiểu biết sâu sắc đáng chú ý ngay cả khi dãy các hệ số là tầm thường.
+
+Ví dụ: dãy vô hạn các số 1. Khi chuyển sang hàm sinh thì nó có dạng:
