@@ -365,7 +365,7 @@ Tức là sẽ vận dụng **Mapping Theorem**, 2 tập được gọi là lớ
 
 ### 7.1.2 Countable Sets
 
-Một tập hợp được gọi là đếm được nếu nó finite và nếu nó countably infinite. Countably infinite nghĩa là vô hạn đếm được.
+Một tập hợp được gọi là đếm được nếu nó finite hoặc nếu nó countably infinite. Countably infinite nghĩa là vô hạn đếm được.
 
 > [!INFO] Tập hợp vô hạn đếm được (Countably Infinite)
 > Giả sử có một tập $A$. $A$ được gọi là **countably infinite** khi có một song ánh từ $\mathbb{N}$ đến $A$.
