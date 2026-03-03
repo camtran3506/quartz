@@ -418,3 +418,64 @@ Một vài "biến thể" của hàm sinh như hàm sinh thường (ordinary), h
 Từ một dãy số, ta biến đổi các số hạng trong dãy thành hệ số của đa thức. Hàm sinh có thể tạo ra những hiểu biết sâu sắc đáng chú ý ngay cả khi dãy các hệ số là tầm thường.
 
 Ví dụ: dãy vô hạn các số 1. Khi chuyển sang hàm sinh thì nó có dạng:
+
+$$G(x) ::= 1 + x + x^2 + \cdots + x^n + \cdots .$$
+
+Ta có thể tìm closed form của $G(x)$, sau đó dùng nó kèm với kí hiệu sau để trông gọn hơn. Ký hiệu $[x^n] F(x)$ được đọc là "hệ số của $x^n$ trong khai triển của hàm $F(x)$".
+
+$[x^n] \left( \frac{1}{1-x} \right) = 1$ nghĩa là trong chuỗi $1 + x + x^2 + \dots$, hệ số đứng trước mỗi $x^n$ luôn luôn là $1$.
+
+Tương tự: $[x^n] \left( \frac{1}{(1-x)^2} \right) = n+1$ nghĩa là nếu bạn khai triển phân thức này thành chuỗi, số hạng thứ $n$ sẽ có dạng $(n+1)x^n$
+
+Trong lý thuyết hàm sinh, các chuỗi vô hạn được xem là những đối tượng đại số hình thức thay vì các hàm số giải tích thông thường. Điều này có nghĩa là biến $x$ chỉ đóng vai trò là một 'vật chứa' để mã hóa các hệ số của dãy số và ta không thay giá trị nào vào $x$ để tính toán.
+
+## 15.2 Counting with Generating Functions
+
+Ta có thể dùng hàm sinh để giải các bài toán đếm. Sau đây là một ví dụ. Giả sử đi mua bánh Choco và Vani.
+
+Giả sử bạn chỉ đi mua bánh Choco:
+
+- Nếu chọn 0 cái: ta ký hiệu là $x^0$ (tức là $1$).
+- Nếu chọn 1 cái: ta ký hiệu là $x^1$.
+- Nếu chọn 2 cái: ta ký hiệu là $x^2$.
+
+Tập hợp tất cả các khả năng chọn bánh Choco là một dãy vô hạn: $$1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}$$
+
+Tương tự cho Vani, tập hợp tất cả các khả năng chọn Vani cũng là dãy trên. Để tìm tổng số cách kết hợp, ta nhân hai dãy này với nhau. Tức là, đây là số cách chọn ra $n$ bánh bao gồm cả 2 loại Choco và Vani.
+
+$$D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}$$
+
+$$D(x) = (1 + x + x^2 + \dots) \times (1 + x + x^2 + \dots)$$
+
+$$D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}$$
+
+Tại sao phép nhân đa thức lại biến thành phép đếm? Câu trả lời nằm ở quy tắc cộng số mũ: $x^a \cdot x^b = x^{a+b}$.
+
+- Số mũ ($n$): Đại diện cho số lượng bánh bạn chọn. ($x^3$ nghĩa là chọn được 3 cái).
+- Hệ số (con số đứng trước $x^n$): Đại diện cho số cách để có được số lượng đó.
+
+### 15.2.2 Products of Generating Functions
+
+Tổng quát, khi bạn nhân hai hàm sinh $A(x)$ và $B(x)$, bản chất là bạn đang lấy mọi số hạng của chuỗi này nhân với mọi số hạng của chuỗi kia.
+
+- Để có được $x^n$ trong kết quả, chúng ta cần chọn $a_i x^i$ từ $A(x)$ và $b_j x^j$ từ $B(x)$ sao cho $i + j = n$.
+- Các cặp $(i, j)$ thỏa mãn sẽ là: $(0, n), (1, n-1), (2, n-2), \dots, (n, 0)$.
+
+Tổng các tích này: $a_0b_n + a_1b_{n-1} + \dots + a_nb_0$ được gọi là Tích chập (Convolution) của $(a_0, a_1, a_2,...a_n)$ với $(b_0, b_1, b_2,...b_n)$
+
+> [!INFO]
+> Nếu bạn đã từng học về CNN, thì đây chính là nguyên lý toán học nền tảng của nó. Trong xử lý tín hiệu, phép toán này cực kỳ phổ biến.
+
+**Tại sao $\frac{1}{1-x} = 1 + x + x^2 + \dots$ mà không cần quan tâm hội tụ?**
+
+Trong giải tích, bạn coi $A(x)$ là một hàm số. Bạn muốn nhét một con số (ví dụ $x = 2$) vào và mong đợi nhận lại một giá trị cụ thể. Trong thế giới của hàm sinh, chúng ta coi chuỗi là một đối tượng đại số hình thức, như đã note ở trên. Khi bạn viết $\frac{1}{1-x} = 1 + x + x^2 + \dots$, bạn không quan tâm đến việc "tổng này bằng bao nhiêu". Bạn thực chất đang nói rằng: "Tôi có một cấu trúc dữ liệu mà tại mọi vị trí $n$, giá trị đều bằng 1".
+
+Hãy xem xét phép nhân: $(1-x) \cdot (1 + x + x^2 + \dots)$. Nếu bạn thực hiện phép nhân đa thức theo quy tắc thông thường (nhân phân phối). Tất cả các số hạng đều triệt tiêu nhau, chỉ còn lại 1. Kết quả này là đúng về mặt đại số bất kể $x$ là gì. Vì phép toán trên hệ số (cộng, nhân) diễn ra độc lập với giá trị của $x$, nên chúng ta **không lo lắng về việc chuỗi có phân kì hay hội tụ hay không**. Chúng ta chỉ đang thao tác trên các dãy hệ số.
+
+**Tại sao lại tìm closed form của hàm sinh?**
+
+Lúc đọc phần này mình có thắc mắc, vì số mũ và hệ số của hàm sinh trong bài toán đếm thể hiện một số tính chất quan trọng. Nếu dùng closed form thì ta mất đi các con số này. Thực tế, closed form không làm mất đi thông tin, mà nó "nén" thông tin lại để chúng ta thực hiện những thao tác phức tạp mà khó có thể làm ở dạng chuỗi vô hạn. Chủ yếu để làm các phép biến đổi đại số sau này.
+
+![[III.21.png]]
+
+### 15.2.5 The Binomial Theorem from the Convolution Rule
