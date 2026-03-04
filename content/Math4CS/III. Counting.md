@@ -492,3 +492,13 @@ Chúng ta đã biết từ định nghĩa của tổ hợp rằng: Số cách ch
 > Hàm sinh giúp giải các bài toán đếm bằng biến đổi đại số, và ngược lại, dùng kỹ thuật đếm để chứng minh các đồng nhất thức đại số.
 
 ## 15.3 Partial Fractions
+
+Để giải quyết các bài toán tổng quát hơn bằng hàm sinh, ta cần các phương pháp tìm hệ số của chuỗi lũy thừa cho các hàm sinh được cho dưới dạng công thức. Định lý Maclaurin là một cách rất tổng quát, nhưng nó chỉ khả thi khi chúng ta tìm được công thức cho các đạo hàm cấp cao liên tiếp. Tuy nhiên, có một cách "tự động" để tìm các hệ số chuỗi lũy thừa cho bất kỳ công thức nào là **thương của hai đa thức**, đó chính là **phương pháp phân thức đơn giản (partial fractions)** từ giải tích sơ cấp.
+
+Thương của các đa thức có thể được biểu diễn dưới dạng tổng của các số hạng mà **hệ số chuỗi lũy thừa** của chúng có công thức rất "đẹp"
+
+![[III.22.png]]
+
+Sau khi đưa về vế phải, để ý rằng mỗi phân thức đều có công thức đưa về chuỗi tương ứng. Từ đó ta tìm được hệ số.
+
+## 15.4 Solving Linear Recurrences
