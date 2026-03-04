@@ -427,7 +427,7 @@ $[x^n] \left( \frac{1}{1-x} \right) = 1$ nghĩa là trong chuỗi $1 + x + x^2 +
 
 Tương tự: $[x^n] \left( \frac{1}{(1-x)^2} \right) = n+1$ nghĩa là nếu bạn khai triển phân thức này thành chuỗi, số hạng thứ $n$ sẽ có dạng $(n+1)x^n$
 
-Trong lý thuyết hàm sinh, các chuỗi vô hạn được xem là những đối tượng đại số hình thức thay vì các hàm số giải tích thông thường. Điều này có nghĩa là biến $x$ chỉ đóng vai trò là một 'vật chứa' để mã hóa các hệ số của dãy số và ta không thay giá trị nào vào $x$ để tính toán.
+Trong lý thuyết hàm sinh, các chuỗi vô hạn được xem là những đối tượng đại số hình thức thay vì các hàm số giải tích thông thường. Điều này có nghĩa là biến $x$ chỉ đóng vai trò là một 'móc treo' để mã hóa các hệ số của dãy số và ta không thay giá trị nào vào $x$ để tính toán.
 
 ## 15.2 Counting with Generating Functions
 
@@ -502,3 +502,43 @@ Thương của các đa thức có thể được biểu diễn dưới dạng t
 Sau khi đưa về vế phải, để ý rằng mỗi phân thức đều có công thức đưa về chuỗi tương ứng. Từ đó ta tìm được hệ số.
 
 ## 15.4 Solving Linear Recurrences
+
+### 15.4.2 The Towers of Hanoi
+
+Đây là bài toán nổi tiếng. Mỗi lần chỉ được di chuyển một đĩa ở trên cùng, đĩa lớn hơn phải ở dưới đĩa nhỏ. Để di chuyển $n$ đĩa từ cọc 1 sang cọc 3, ta tuân theo một quy trình đệ quy cực kỳ chặt chẽ:
+
+- Bước 1: Di chuyển $n-1$ đĩa nhỏ hơn từ cọc 1 sang cọc 2 (cọc trung gian).
+- Bước 2: Di chuyển đĩa lớn nhất (đĩa thứ $n$) từ cọc 1 sang cọc 3.
+- Bước 3: Di chuyển $n-1$ đĩa từ cọc 2 sang cọc 3 (đè lên đĩa lớn nhất).
+
+![[III.23.png]]
+
+Vậy ta có hệ thức truy hồi: $$T_n = 2T_{n-1} + 1$$. Với $T_{n-1}$ là **số lượt di chuyển tối thiểu** cho $n-1$ đĩa.
+
+**Giải bằng hàm sinh**
+
+Gọi $T(x) = \sum_{n=0}^{\infty} t_n x^n$ là hàm sinh, suy ra từ công thức truy hồi trên.
+
+![[III.24.png]]
+
+Đến đây ta đưa về chuỗi tương ứng và hệ số tại $x_n$ của chuỗi đó là kết quả.
+
+### 15.4.3 Solving General Linear Recurrences
+
+Một phương trình có dạng:
+
+$$f(n) = c_1 f(n-1) + c_2 f(n-2) + \dots + c_d f(n-d) + h(n)$$
+
+được gọi là hệ thức truy hồi tuyến tính bậc $d$ với số hạng không thuần nhất $h(n)$.
+
+Phương pháp dùng hàm sinh có thể giải quyết loại hệ thức này nếu bản thân $h(n)$ cũng có một hàm sinh dạng thương của các đa thức (phân thức hữu tỷ). Khi đó, ta có thể tìm được công thức cho $f(n)$ bằng cách phân tích phân thức đơn giản.
+
+## 15.5 Formal Power Series
+
+### 15.5.2 The Ring of Power Series
+
+Trong thế giới hàm sinh, $G(x) = \sum_{n=0}^{\infty} g_n x^n$ thực chất chỉ là một cách viết khác của một dãy số vô hạn: $$G = (g_0, g_1, g_2, \dots)$$ Ở đây, biến số $x$ không mang giá trị số học nào cả. Nó chỉ đơn thuần là một "móc treo". Tập hợp tất cả các dãy số vô hạn này lại và trang bị cho chúng hai phép toán Cộng (cộng theo từng vị trí) và Nhân (theo quy tắc tích chập), chúng ta tạo nên một Vành (Ring).
+
+Trong "Vành" này, phương trình kinh điển: $$\frac{1}{1-x} = 1 + x + x^2 + x^3 + \dots$$ không còn là một công thức về sự hội tụ của cấp số nhân. Nó đơn giản là một phát biểu đại số rằng: Dãy $(1, -1, 0, 0, \dots)$ và dãy $(1, 1, 1, 1, \dots)$ là nghịch đảo của nhau qua phép nhân tích chập.
+
+Vì chúng ta coi **hàm sinh là các đối tượng ký hiệu trong một Vành đại số**, khái niệm về giá trị của $x$ hay sự hội tụ trở nên vô nghĩa.
