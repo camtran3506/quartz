@@ -479,3 +479,16 @@ Lúc đọc phần này mình có thắc mắc, vì số mũ và hệ số của
 ![[III.21.png]]
 
 ### 15.2.5 The Binomial Theorem from the Convolution Rule
+
+Ta có thể dùng hàm sinh để chứng minh Định lí Nhị thức. Với mỗi phần tử $x$, ta chỉ có 2 cách (không chọn $x$ hoặc chọn $x$). Vậy hàm sinh cho tập ${x}$ này là: $$P(x) = 1 \cdot x^0 + 1 \cdot x^1 + 0 \cdot x^2 + \dots = 1 + x$$
+
+Bây giờ, thay vì 1 phần tử, bạn có $m$ phần tử khác nhau: $\{a_1, a_2, \dots, a_m\}$. Việc chọn một tập con $n$ phần tử từ tập này tương đương với: Chọn $a_1$ hoặc không, chọn $a_2$ hoặc không...Vì mỗi phần tử đều có hàm sinh là $(1 + x)$, nên hàm sinh cho việc chọn từ cả $m$ phần tử là: $$(1 + x) \cdot (1 + x) \cdot \dots \cdot (1 + x) = (1 + x)^m$$
+
+Chúng ta đã biết từ định nghĩa của tổ hợp rằng: Số cách chọn $n$ phần tử từ $m$ phần tử phân biệt chính là $\binom{m}{n}$ (thường ký hiệu là $C^n_m$). Do đó: $$[x^n](1 + x)^m = \binom{m}{n}$$
+
+Đây cũng chính là nội dung Định lí Nhị thức.
+
+> [!INFO]
+> Hàm sinh giúp giải các bài toán đếm bằng biến đổi đại số, và ngược lại, dùng kỹ thuật đếm để chứng minh các đồng nhất thức đại số.
+
+## 15.3 Partial Fractions
