@@ -8,9 +8,7 @@ Có một nghịch lí khác: A dễ thắng B hơn trong một lần tung, như
 
 ## 16.4 The Birthday Principle
 
-Có 95 học sinh trong một lớp học. Xác suất để có ít nhất hai người trùng ngày sinh là bao nhiêu? So sánh 95 học sinh với 365 ngày trong năm, bạn có thể đoán xác suất nằm đâu đó khoảng $1/4$ — nhưng bạn đã nhầm: xác suất thực tế là hơn $0.9999$.
-
-Trực giác của chúng ta thường sai vì chúng ta chỉ nghĩ đến việc so sánh bản thân mình với người khác (chỉ có 94 cơ hội trùng). Nhưng toán học lại tính tất cả các cặp đôi có thể có trong lớp. Với 95 người, số cặp đôi có thể được tạo ra là $\binom{95}{2} = \frac{95 \times 94}{2} = 4,465$ cặp. Khi bạn có tới hơn 4,000 cơ hội, việc ít nhất một cặp trùng nhau trở nên gần như chắc chắn.
+Có 95 học sinh trong một lớp học. Xác suất để có ít nhất hai người trùng ngày sinh là bao nhiêu? So sánh 95 học sinh với 365 ngày trong năm, bạn có thể đoán xác suất nằm đâu đó khoảng $1/4$ — nhưng bạn đã nhầm: xác suất thực tế là hơn $0.9999$. Khi nghe câu hỏi "Xác suất để có người trùng ngày sinh", bộ não chúng ta thường vô thức tự đóng vai nhân vật chính. Bạn sẽ nghĩ: "Xác suất để có ai đó trùng ngày sinh với TÔI là bao nhiêu?". Nhưng vấn đề là đề bài hỏi "bất kỳ ai trùng với bất kỳ ai", chứ không phải "trùng với bạn". 
 
 > [!INFO]
 > Nếu có $d$ ngày và $n \approx \sqrt{2d}$ người, xác suất trùng là khoảng 0.632 (63.2%).
