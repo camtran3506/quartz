@@ -167,7 +167,7 @@ trong đó $\lambda_i$ là nhân tử cho bất đẳng thức, $\mu_j$ là nhâ
 Nếu $x^*$ là nghiệm tối ưu và thỏa điều kiện thì tồn tại $\lambda^*, \mu^*$ sao cho
 
 1. $$\nabla_xL(x^*, \lambda^*, \mu^*) = 0$$
-2. $$ g_i(x^_) \leq 0 \\ h_j(x^_) = 0$$
+2. $$ g*i(x^*) \leq 0 \\ h*j(x^*) = 0$$
 3. $$\lambda_i^* \geq 0$$
 4. $$\lambda_i^*g_i(x^*) = 0$$
    Đọc thêm: [KKT](https://www.cs.cmu.edu/~ggordon/10725-F12/slides/16-kkt.pdf) [KKT 2012](https://www.math.ntnu.no/emner/TMA4180/2013v/HEKnotes/kkttheoremv2012.pdf)

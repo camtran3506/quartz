@@ -37,3 +37,17 @@ $$
 Việc tung đồng xu ra mặt sấp mãi mãi là có thể, nhưng xác suất của nó là 0 vì khi số lần tung $n$ tiến tới vô cùng, $(1/2)^n$ tiến tới 0. Trong các không gian xác suất đếm được, các kết quả có xác suất bằng 0 không ảnh hưởng đến tính toán và thường bị bỏ qua.
 
 # 17. Conditional Probability
+
+## 17.4 Why Tree Diagrams Work?
+
+### 17.4.5 Philosophy of Probability
+
+Mục này thảo luận về một trong những chủ đề thú vị và gây tranh cãi nhất trong toán học: **Bản chất của xác suất là gì?** Ta sẽ thảo luận về 3 góc nhìn
+
+1. Góc nhìn "Tất yếu" (Deterministic): Xác suất chỉ áp dụng cho những thứ có tính ngẫu nhiên. Ví dụ, một số cụ thể hoặc là số nguyên tố, hoặc là hợp số. Không có sự ngẫu nhiên nào ở đây cả. Gán một xác suất (ví dụ 0.5 hay 10%) cho việc một số có phải là số nguyên tố hay không là vô nghĩa. Nó giống như việc hỏi "Xác suất để $2+2=4$ là bao nhiêu?".
+
+2. Góc nhìn Bayes (Bayesianism): Xác suất không phải là đặc tính của vật thể, mà là mức độ tin tưởng của một cá nhân dựa trên thông tin họ có. Ví dụ, nếu bạn không biết số $N$ là gì, dựa trên Định lý Số nguyên tố, bạn tin là $1/5.000.000$. Nhưng nếu bạn biết tác giả cố tình chọn một số nguyên tố để làm ví dụ, bạn có thể tin là $50/50$. Điểm mạnh là cho phép cập nhật niềm tin khi có dữ liệu mới. Điểm yếu là mang tính chủ quan, mỗi người có một mức độ tin tưởng riêng.
+
+3. Góc nhìn Tần suất (Frequentism): Xác suất chỉ có ý nghĩa khi ta nói về một quá trình có thể lặp lại nhiều lần (như tung đồng xu). Xác suất là tỉ lệ số lần sự kiện xảy ra trên tổng số lần thử khi số lần thử tiến đến vô hạn. Một người theo trường phái tần suất sẽ không nói "Xác suất số $N$ là số nguyên tố là 99%". Thay vào đó, họ sẽ nói: "Tôi đã dùng một thuật toán kiểm tra. Thuật toán này có đặc điểm là: nếu số đó là hợp số, nó sẽ phát hiện ra với tỉ lệ 75%. Sau 1000 lần thử mà nó vẫn không bảo là hợp số, thì khả năng thuật toán này sai là cực kỳ thấp ($1/4^{1000}$)." (Chỗ này t không hiểu lắm ;v giống mấy bài tính xác suất có điều kiện hay gặp ở THPT)
+
+## 17.5 The Law of Total Probability
