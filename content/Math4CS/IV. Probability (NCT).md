@@ -50,4 +50,21 @@ Mục này thảo luận về một trong những chủ đề thú vị và gây
 
 3. Góc nhìn Tần suất (Frequentism): Xác suất chỉ có ý nghĩa khi ta nói về một quá trình có thể lặp lại nhiều lần (như tung đồng xu). Xác suất là tỉ lệ số lần sự kiện xảy ra trên tổng số lần thử khi số lần thử tiến đến vô hạn. Một người theo trường phái tần suất sẽ không nói "Xác suất số $N$ là số nguyên tố là 99%". Thay vào đó, họ sẽ nói: "Tôi đã dùng một thuật toán kiểm tra. Thuật toán này có đặc điểm là: nếu số đó là hợp số, nó sẽ phát hiện ra với tỉ lệ 75%. Sau 1000 lần thử mà nó vẫn không bảo là hợp số, thì khả năng thuật toán này sai là cực kỳ thấp ($1/4^{1000}$)." (Chỗ này t không hiểu lắm ;v giống mấy bài tính xác suất có điều kiện hay gặp ở THPT)
 
-## 17.5 The Law of Total Probability
+> [!INFO] Simpson's Paradox
+> Đừng bao giờ giả định rằng sự tương quan (correlation) giữa hai sự việc đồng nghĩa với việc cái này gây ra cái kia (causation).
+
+## 17.8 Mutual Independence
+
+> [!INFO]
+> Một tập hợp các biến cố $A_1, A_2, \dots, A_n$ được gọi là độc lập tương hỗ (mutually independent) nếu với mọi tập con của các biến cố này, xác suất của giao các biến cố đó bằng tích các xác suất của từng biến cố riêng lẻ.
+
+![[IV.01.png]]
+
+### 17.8.1 Pairwise Independence
+
+> [!INFO]
+> A set A1, A2, . . . , of events is k-way independent iff every set of k of these events is mutually independent. The set is pairwise independent iff it is 2-way independent.
+
+# 18. Random Variables
+
+## 18.3 Distribution
