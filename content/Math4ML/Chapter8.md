@@ -35,7 +35,7 @@ Thay vì chỉ xem bộ dự đoán là một hàm số đơn lẻ, ta có thể
 
 ## Learning is Finding Parameters
 
-Mục tiêu cốt lõi của việc học là tìm ra một mô hình và *các* tham số của nó sao cho bộ dự đoán hoạt động tốt trên dữ liệu chưa từng thấy. Quá trình này được chia thành 3 giai đoạn thuật toán phân biệt:
+Mục tiêu cốt lõi của việc học là tìm ra một mô hình và các tham số của nó sao cho bộ dự đoán hoạt động tốt trên dữ liệu chưa từng thấy. Quá trình này được chia thành 3 giai đoạn thuật toán phân biệt:
 
 ### 1. Dự đoán hoặc suy luận (Prediction or inference)
 
