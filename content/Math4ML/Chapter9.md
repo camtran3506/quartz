@@ -313,17 +313,17 @@ $$
 1. Xác định dạng của phân phối (Marginal Likelihood là phân phối Gauss).
 2. Tính Trung bình (Mean) và Ma trận Hiệp phương sai (Covariance)
    Phương trình tạo ra dữ liệu: $y = X\theta + \epsilon$ với $\epsilon \sim \mathcal{N}(0, \sigma^2 I)$ là vector nhiễu độc lập.
-   _ Tính mean
+   \_ Tính mean
    $$
         \mathbb{E}[\mathcal{Y} | \mathcal{X}] = \mathbb{E}_{\theta, \epsilon}[X\theta + \epsilon] = X\mathbb{E}[\theta] = Xm_0
-    $$
-   _ Tính covariance
+   $$
+   \_ Tính covariance
    $$
     \begin{align}
         Cov[\mathcal{Y} | \mathcal{X}] &= Cov_{\theta, \epsilon}[X\theta + \epsilon] = Cov_{\theta}[X\theta] + \sigma^2 I \\
         &= XCov_{\theta}[\theta]X^{\top} + \sigma^2 I = XS_0X^{\top} + \sigma^2 I
     \end{align}
-    $$
+   $$
 
 Kết hợp 2 điều trên, ta được công thức dạng đóng cho Marginal Likelihood:
 

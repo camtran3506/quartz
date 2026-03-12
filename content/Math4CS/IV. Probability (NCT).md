@@ -67,4 +67,85 @@ Mục này thảo luận về một trong những chủ đề thú vị và gây
 
 # 18. Random Variables
 
-## 18.3 Distribution
+## 18.3 Distribution Functions
+
+### 18.3.3 The Numbers Game
+
+Bài toán: Tìm cách thắng với xác suất > 50% trong trò chơi đoán phong bì nào chứa số lớn hơn (chứa số nguyên $L, H$ phân biệt từ 0-100), khi chỉ được xem trước một phong bì.
+
+Giải pháp: Chọn một "ngưỡng" ngẫu nhiên $x$. Nếu số trong phong bì $> x$, đoán đó là số lớn; nếu $< x$, đoán số còn lại lớn hơn.
+
+- Nếu $x$ rơi vào giữa $L$ và $H$: Thắng 100%.
+- Nếu $x$ nằm ngoài: Thắng 50%.
+
+Do luôn có xác suất $x$ nằm giữa $L$ và $H$, tỉ lệ thắng cuối cùng sẽ là $50\% + \epsilon$ (luôn lớn hơn 50%).
+
+## 18.4 Great Expectations
+
+### 18.4.6 Mean Time to Failure
+
+Bài toán: Tính thời gian (số giờ) trung bình (kỳ vọng) cho đến khi một hệ thống gặp sự cố, biết rằng tại mỗi giờ, hệ thống có xác suất hỏng cố định là $p$.
+
+Sau 1 giờ đầu tiên, có hai kịch bản:
+
+- Sập luôn (Xác suất $p$): Bạn mất đúng 1 giờ.
+- Không sập (Xác suất $1-p$): Bạn đã tiêu tốn 1 giờ, nhưng vì xác suất sập ở mỗi giờ là như nhau, nên tại thời điểm này, chương trình của bạn "như mới". Thời gian bạn cần chờ tiếp theo tính từ lúc này chính bằng thời gian kỳ vọng ban đầu ($Ex[C]$). Vậy tổng thời gian là $1 + Ex[C]$.
+
+Phép toán $Ex[C] = p(1) + (1-p)(1 + Ex[C])$ thực chất là việc gom tất cả các khả năng vô hạn (sập ở giờ thứ 1, thứ 2, thứ 3... đến vô tận) vào một công thức đệ quy duy nhất. Kết quả cuối cùng là $Ex[C] = 1/p$.
+
+> [!INFO]
+> Nếu một sự cố có xác suất xảy ra là $p$ mỗi giờ, thì trung bình bạn sẽ phải đợi $1/p$ giờ để thấy nó xảy ra.
+
+Đây còn được gọi là Geometric Distribution.
+
+### 18.4.7 Expected Returns in Gambling Games
+
+Bài toán: Phân tích lý do một trò chơi cá cược có vẻ công bằng ($Ex=0$) lại khiến người chơi thua lỗ nặng nề trong thực tế.
+
+Tóm lược giải pháp: Sự sai lệch nằm ở giả định về tính độc lập của các lựa chọn. Khi hai đối thủ cấu kết để luôn đưa ra các dự đoán trái ngược nhau, họ đã triệt tiêu kịch bản "người chơi thắng trọn giải thưởng" và đảm bảo rằng luôn có ít nhất một người trong nhóm của họ được chia phần. Sự thay đổi trong cấu trúc xác suất này biến một trò chơi hòa vốn thành một trò chơi có kỳ vọng âm ($-0.5\$$ mỗi ván). Do đó người chơi còn lại bị lỗ.
+
+Bài toán: Làm thế nào để có lợi nhuận dương trong một trò chơi xổ số mà nhà cái đã lấy mất 50% tiền cược?
+
+Tóm lược giải pháp: Giáo sư Chernoff nhận ra rằng tâm lý đám đông khiến nhiều người chọn trùng các dãy số giống nhau (như ngày tháng), dẫn đến việc giải thưởng bị chia nhỏ khi trúng. Bằng cách áp dụng Phân phối đều (Uniform Distribution) để chọn những dãy số mà con người ít khi nghĩ tới, Chernoff đảm bảo rằng nếu ông thắng, ông sẽ không phải chia sẻ giải thưởng với ai. Điều này làm thay đổi giá trị kỳ vọng từ lỗ 50% thành lãi 7%, biến một trò chơi may rủi thành một cơ hội đầu tư có lãi dựa trên việc khai thác sai lầm trong hành vi của đám đông.
+
+## 18.5 Linearity of Expectation
+
+Thông thường trong xác suất, hầu hết các phép toán đều trở nên cực kỳ rắc rối nếu các biến phụ thuộc lẫn nhau. Nhưng với Kỳ vọng (Expectation), công thức sau luôn luôn đúng:
+
+$$
+Ex[X_1 + X_2 + \dots + X_n] = Ex[X_1] + Ex[X_2] + \dots + Ex[X_n]
+$$
+
+Dù cho $X_1$ có ảnh hưởng đến $X_2$, hay chúng có mối quan hệ lắt léo đến thế nào, bạn chỉ cần tính kỳ vọng của từng cái rồi cộng lại là xong.
+
+### 18.5.2 Sums of Indicator Random Variables
+
+![[IV.02.png]]
+
+Để chứng minh định lý này, các nhà toán học dùng một thủ thuật:
+
+1. Đặt $X_i$ là biến chỉ thị cho biến cố $A_i$ ($X_i=1$ nếu $A_i$ xảy ra, ngược lại $X_i=0$).
+2. Tổng số biến cố xảy ra chính là $X = X_1 + X_2 + \dots + X_n$.
+3. Theo tính chất tuyến tính của kỳ vọng: $$Ex[X] = Ex[X_1] + Ex[X_2] + \dots + Ex[X_n]$$
+4. Mà ta đã biết $Ex[X_i] = Pr[A_i]$. Vậy nên $Ex[X] = \sum Pr[A_i]$.
+
+### 18.5.4 The Coupon Collector Problem
+
+Bài toán: Tính số lần thử trung bình (kỳ vọng) để thu thập đủ $n$ loại vật phẩm khác nhau khi mỗi lần thử cho ra một kết quả ngẫu nhiên đồng nhất.
+
+Bí quyết để giải bài toán này không phải là nhìn vào toàn bộ quá trình thu thập, mà là chia nó thành các giai đoạn (stages) dựa trên số lượng sản phẩm bạn đang sở hữu:
+
+1. Giai đoạn $X_k$: Là số bữa ăn bạn phải mua để có thêm được chiếc xe mới thứ $k+1$, khi bạn đã có sẵn $k$ loại xe khác nhau.
+2. Xác suất thành công: Khi đã có $k$ loại, xác suất để lần mua tới trúng một loại xe mới là $p = \frac{n-k}{n}$ (vì còn $n-k$ loại bạn chưa có).
+3. Kỳ vọng của mỗi giai đoạn: Theo quy tắc "Thời gian trung bình đến khi hỏng" ($1/p$) mà bạn đã học ở phần trước, số bữa ăn trung bình cần ở giai đoạn này là $Ex[X_k] = \frac{n}{n-k}$.
+4. Tổng hợp: Nhờ tính tuyến tính, ta chỉ cần cộng kỳ vọng của tất cả các giai đoạn lại.
+
+### 18.5.6 A Gambling Paradox
+
+Bài toán: Trong trò Roulette, do có các ô màu xanh, xác suất thắng cược (Đỏ/Đen) luôn nhỏ hơn $1/2$, dẫn đến giá trị kỳ vọng ($Ex$) của mỗi ván cược luôn là một số âm (người chơi lỗ).
+
+Giải pháp ban đầu: Người chơi sử dụng chiến thuật Martingale – gấp đôi mức cược sau mỗi lần thua. Lý thuyết cho rằng vì sớm muộn gì bạn cũng sẽ thắng một ván, nên bạn chắc chắn sẽ thu về lợi nhuận ròng (ví dụ $10$). Điều này tạo ra một kỳ vọng dương ($Ex = +10$), trái ngược với bản chất của trò chơi.
+
+Nghịch lý và Sự thật: Nghịch lý xuất hiện do việc **áp dụng sai tính tuyến tính của kỳ vọng cho một chuỗi vô hạn mà không thỏa mãn điều kiện hội tụ tuyệt đối** (vì mức cược tăng quá nhanh theo cấp số nhân). Thực tế, chiến thuật này chỉ thành công nếu bạn có nguồn vốn vô hạn. Với nguồn vốn hữu hạn và giới hạn bàn chơi, bạn sẽ đối mặt với rủi ro phá sản cực lớn chỉ để đổi lấy một khoản thắng nhỏ nhoi.
+
+# 19. Deviation from the Mean
