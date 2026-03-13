@@ -149,3 +149,72 @@ Giải pháp ban đầu: Người chơi sử dụng chiến thuật Martingale �
 Nghịch lý và Sự thật: Nghịch lý xuất hiện do việc **áp dụng sai tính tuyến tính của kỳ vọng cho một chuỗi vô hạn mà không thỏa mãn điều kiện hội tụ tuyệt đối** (vì mức cược tăng quá nhanh theo cấp số nhân). Thực tế, chiến thuật này chỉ thành công nếu bạn có nguồn vốn vô hạn. Với nguồn vốn hữu hạn và giới hạn bàn chơi, bạn sẽ đối mặt với rủi ro phá sản cực lớn chỉ để đổi lấy một khoản thắng nhỏ nhoi.
 
 # 19. Deviation from the Mean
+
+## 19.1 Markov’s Theorem
+
+Định lý Markov đưa ra một ước lượng nhìn chung là 'thô' về xác suất một biến ngẫu nhiên nhận giá trị lớn hơn nhiều so với giá trị trung bình của nó.
+
+![[IV.03.png]]
+
+**Tại sao lại gọi là "Ước lượng thô" (Coarse estimate)?**
+
+Ý tưởng đằng sau Định lý Markov có thể được giải thích bằng cách xem xét chỉ số thông minh (IQ). IQ được thiết kế để phép đo trung bình là 100. Điều này ngay lập tức ngụ ý rằng tối đa $1/3$ dân số có thể có IQ từ 300 trở lên, bởi vì nếu hơn một phần ba dân số có IQ 300, thì điểm trung bình sẽ phải lớn hơn $1/3 \times 300 = 100$. Vì vậy, xác suất để một người được chọn ngẫu nhiên có IQ từ 300 trở lên tối đa là $1/3$.
+
+Cùng một logic đó, định lý Markov bảo: Tối đa 66.6% dân số có IQ trên 150. Nhưng thực tế chỉ có khoảng 0.1% dân số có IQ trên 150. Con số 66.6% "thô" đến mức gần như vô dụng trong đời sống hàng ngày. Tuy nhiên, nó lại cực kỳ giá trị trong toán học và lập trình vì nó luôn đúng cho mọi loại phân phối, miễn là biến số đó không âm.
+
+Ta hiểu định lí Markov cho ta một chặn trên, nhưng không quá chặt.
+
+### 19.1.2 Markov’s Theorem for Bounded Variables
+
+Định lý Markov gốc yêu cầu biến số phải không âm ($X \ge 0$). Nhưng trong thực tế, nhiều biến số có một "sàn" (cận dưới) cao hơn 0 rất nhiều. Nếu bạn biết chắc chắn $R$ không bao giờ nhỏ hơn $b$, bạn có thể tạo ra một biến mới: $T = R - b$.
+
+- Vì $R \ge b$ nên $T \ge 0$ $\rightarrow$ Thỏa mãn điều kiện của Markov.
+- Kỳ vọng của biến mới là: $Ex[T] = Ex[R] - b$.
+- Kết quả: Ngưỡng chặn mới sẽ "chặt" hơn (nhỏ hơn), giúp bạn có một ước lượng chính xác hơn về các giá trị cực lớn.
+
+![[IV.04.png]]
+
+## 19.2 Chebyshev’s Theorem
+
+Đoạn văn bắt đầu bằng một mẹo cực kỳ thông minh: Thay vì áp dụng Markov trực tiếp cho biến $R$, hãy áp dụng nó cho $|R|^z$. Vì $|R|^z$ luôn không âm với mọi số thực $z$, thỏa mãn điều kiện tiên quyết của Markov. Mặt khác, $[|R|^z \ge x^z]$ tương đương với $[|R| \ge x]
+
+**Tại sao $[|R|^z \ge x^z]$ lại tương đương với $[|R| \ge x]$?**
+
+Với $x > 0$ và $z > 0$, hàm số $f(t) = t^z$ là một hàm số luôn tăng khi $t \ge 0$. Vì $|R|$ và $x$ đều là các số không âm, nên nếu $|R|$ lớn hơn $x$, thì chắc chắn $|R|^z$ cũng sẽ lớn hơn $x^z$, và ngược lại. Hai sự kiện này là một, chúng xảy ra cùng lúc và có cùng xác suất.
+
+Từ đó ta có bổ đề sau:
+
+![[IV.05.png]]
+
+Khi ta chọn $z = 2$ trong công thức trên, chúng ta có một đại lượng quan trọng nhất nhì trong thống kê: Phương sai ($\text{Var}[R]$). Định nghĩa: $\text{Var}[R] = Ex[(R - Ex[R])^2]$
+
+Sử dụng Phương sai, Định lý Chebyshev cho ta một ngưỡng chặn cực kỳ mạnh mẽ:
+
+$$
+Pr[|R - Ex[R]| \geq x] \leq \frac{\text{Var}[R]}{x^2}
+$$
+
+Nghĩa là: Xác suất để một giá trị nằm cách xa trung bình một khoảng $x$ sẽ tỉ lệ nghịch với bình phương của $x$. Nếu Phương sai nhỏ (dữ liệu tập trung), xác suất "văng xa" sẽ cực kỳ thấp.
+
+### 19.2.1 Variance in Two Gambling Games
+
+Chúng ta có hai trò chơi với cùng kỳ vọng là $1$ nhưng khác phương sai ($2$ và $2,004,002$). Sau 10 ván chơi A, bạn kỳ vọng lãi $10$ USD. Trường hợp đen đủi nhất, bạn chỉ mất khoảng $10$ USD. Sau 10 ván chơi B, bạn cũng kỳ vọng lãi $10$ USD. Nhưng nếu rơi vào chuỗi đen đủi (phần đuôi của phân phối), bạn có thể bay sạch hơn $20,000$ USD! (vì phương sai lớn).
+
+Phương sai chính là thước đo của độ bất định. Cùng một mức lợi nhuận trung bình, nhưng hệ thống nào có phương sai cao hơn thì hệ thống đó "nguy hiểm" hơn. Điều này chứng minh rằng Giá trị kỳ vọng chỉ cho thấy cái nhìn dài hạn, còn Phương sai mới là thứ phản ánh rủi ro ngắn hạn và mức độ sai lệch thực tế.
+
+### 19.2.2 Standard Deviation
+
+Đoạn văn đưa ra một hệ quả cực kỳ quan trọng (Corollary 19.2.6). Nếu chúng ta đặt khoảng cách $x$ bằng $c$ lần độ lệch chuẩn ($x = c\sigma_R$), ta có:
+
+$$Pr(|R - Ex[R]| \geq c\sigma_R) \leq \frac{1}{c^2}$$
+
+Nó cho bạn biết xác suất dữ liệu "văng" ra ngoài phạm vi $c$ bước chân (mỗi bước dài $\sigma$):
+
+- Nếu đi xa 2 bước ($\sigma$): Xác suất nằm ngoài vùng này tối đa là $1/2^2 = 25\%$.
+- Nếu đi xa 3 bước ($\sigma$): Xác suất nằm ngoài vùng này tối đa là $1/3^2 \approx 11\%$.
+
+Điều này khẳng định rằng: Dữ liệu hầu như luôn "túm tụm" lại trong một vùng có kích thước tỉ lệ với $\sigma$ quanh giá trị trung bình. $\sigma$ càng nhỏ, dữ liệu càng tập trung; $\sigma$ càng lớn, dữ liệu càng loãng.
+
+![[IV.06.png]]
+
+## 19.3 Properties of Variance
