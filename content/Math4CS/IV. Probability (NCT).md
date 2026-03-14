@@ -278,3 +278,5 @@ Nếu ai đã coi Interstellar thì định luật Murphy có được nhắc xu
 - Ứng dụng trong kỹ thuật: "Nếu nó có thể sai, nó sẽ sai". Có hàng ngàn linh kiện nhỏ có thể hỏng độc lập. Dù xác suất hỏng của mỗi cái là cực thấp, nhưng vì số lượng linh kiện quá lớn, tổng kỳ vọng lỗi $E[T]$ sẽ trở nên lớn hơn 1. Một cái gì đó chắc chắn sẽ hỏng.
 
 # 20. Random Walks
+
+
