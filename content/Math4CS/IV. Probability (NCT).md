@@ -217,4 +217,64 @@ Nó cho bạn biết xác suất dữ liệu "văng" ra ngoài phạm vi $c$ bư
 
 ![[IV.06.png]]
 
-## 19.3 Properties of Variance
+## 19.4 Estimation by Random Sampling
+
+### 19.4.3 Pairwise Independent Sampling
+
+![[IV.07.png]]
+
+Định lý này tập trung vào việc: Giá trị trung bình mẫu này cách xa giá trị thực ($\mu$) bao nhiêu?
+
+Hãy để ý biến $n$ nằm ở dưới mẫu số của vế phải. Điều này có nghĩa là: Khi bạn tăng số lượng mẫu $n$ lên thật lớn, vế phải sẽ tiến dần về 0. Nói cách khác, xác suất để trung bình mẫu bị sai lệch so với thực tế sẽ biến mất khi mẫu đủ lớn.
+
+Hãy nhìn vào cụm $(\frac{\sigma}{x})^2$. Vì $x$ nằm ở mẫu số và lại còn bị bình phương: Nếu bạn muốn giảm sai số đi 2 lần (ví dụ từ $0.04$ xuống $0.02$), bạn phải tăng cỡ mẫu $n$ lên 4 lần. Điều này giải thích tại sao trong thực tế, để có kết quả cực kỳ chính xác, chi phí lấy mẫu thường tăng rất nhanh.
+
+![[IV.08.png]]
+
+## 19.5 Confidence versus Probability
+
+$p$ (Tỉ lệ thực) là một con số thực tế, cố định trong thế giới thực. Dù chúng ta không biết nó là bao nhiêu, nhưng nó không thay đổi. Nếu bạn nói "Xác suất $p$ nằm trong khoảng $[0.36, 0.44]$ là 95%", điều đó có nghĩa là con số $p$ có thể nhảy tới nhảy lui. Thực tế, $p$ chỉ có thể nằm trong khoảng đó hoặc nằm ngoài khoảng đó.
+
+Khi chúng ta nói "Độ tin cậy 95%", chúng ta đang khen ngợi phương pháp làm việc của mình, chứ không phải khẳng định về con số cụ thể sau khi đã tính toán xong. Trước khi đi hỏi cử tri, bạn có thể tự tin nói: "Tôi chuẩn bị dùng một quy trình mà 95% số lần thực hiện nó sẽ cho ra một khoảng bao phủ được con số thực tế."
+
+Thay vì nói "Tôi chắc chắn 95% rằng...", các nhà thống kê dùng cụm từ: Ở mức độ tin cậy 95%.
+
+# 19.6 Sums of Random Variables
+
+Bất đẳng thức Chebyshev giống như một chiếc áo khoác "one-size-fits-all" (một size cho tất cả). Nó chỉ yêu cầu bạn biết Kỳ vọng ($\mu$) và Phương sai ($\sigma^2$). Nó không quan tâm biến đó là Nhị thức, Chuẩn, hay một phân phối kỳ quái nào đó. Vì nó quá tổng quát, nên cái "cận" (bound) mà nó đưa ra rất lỏng lẻo. Sai số giảm theo kiểu đa thức ($1/c^2$). Nếu bạn muốn sai số nhỏ đi 10 lần, bạn phải tăng dữ liệu lên 100 lần.
+
+Khi bạn biết thêm rằng biến ngẫu nhiên $T$ là tổng của các biến $T_i$ độc lập hoàn toàn và bị chặn (ví dụ $0 \leq T_i \leq 1$), toán học cho phép chúng ta dùng những công cụ hiệu quả hơn.
+
+### 19.6.2 The Chernoff Bound
+
+Khi bạn có một giá trị kỳ vọng (trung bình), hầu hết các kết quả sẽ nằm quanh đó. Những kết quả nằm rất xa trung bình được gọi là "phần đuôi" (tail). Đôi khi phần đuôi này đại diện cho thảm họa (server sập, cháy túi, lỗi hệ thống). Vì ta thường không biết chính xác hình dạng của hàm phân phối, ta cần các công cụ toán học để "chặn" (bound) cái đuôi này lại, đảm bảo nó không vượt quá một ngưỡng an toàn.
+
+Tổng kết lại, cả ba bất đẳng thức này đều là những công cụ giúp chúng ta trả lời câu hỏi: "Xác suất để một biến ngẫu nhiên đi chệch khỏi giá trị trung bình (kỳ vọng) của nó là bao nhiêu?". Markov & Chebyshev đưa ra các cận kiểu đa thức ($1/n, 1/n^2$). Chernoff đưa ra cận kiểu hàm mũ ($e^{-n}$). Đây là phát biểu của cận Chernoff.
+
+Cho $T_1, T_2, \dots, T_n$ là các biến ngẫu nhiên độc lập tương hỗ (mutually independent) thỏa mãn điều kiện $0 \le T_i \le 1$ với mọi $i$.
+
+Gọi $T$ là tổng của các biến này:
+
+$$T = \sum_{i=1}^n T_i$$
+
+Với mọi hằng số $c > 1$, xác suất để tổng $T$ vượt quá kỳ vọng $E[T]$ một hệ số $c$ lần được chặn bởi:
+
+$$P(T \ge c \cdot E[T]) \le e^{-\beta(c) E[T]}$$
+
+Trong đó, hàm số $\beta(c)$ được định nghĩa là: $$\beta(c) = c \ln(c) - c + 1$$
+
+Vấn đề mà cả ba tập trung vào chính là: **Sự tập trung của xác suất (Concentration of Measure)**. Chúng cho chúng ta biết rằng khi có đủ thông tin và dữ liệu đủ lớn, thế giới ngẫu nhiên này thực ra lại rất "ngăn nắp" và dễ đoán quanh giá trị trung bình.
+
+### 19.6.8 Murphy’s Law
+
+Nếu ai đã coi Interstellar thì định luật Murphy có được nhắc xuyên suốt trong phim.
+
+![[IV.09.png]]
+
+Định luật Murphy chứng minh rằng: Nếu có quá nhiều cơ hội để điều gì đó xảy ra, thì chắc chắn nó sẽ xảy ra. Định luật này giải thích một cách khoa học tại sao những chuyện "không tưởng" vẫn xảy ra hàng ngày:
+
+- Trúng số độc đắc: Xác suất một người cụ thể trúng số là 1 phần triệu. Nhưng nếu có 100 triệu người mua vé, thì kỳ vọng $E[T] = 100$. Theo định luật Murphy, xác suất để không có ai trúng là $e^{-100}$ (một con số nhỏ đến mức không thể viết ra hết các số 0). Vậy nên, việc có người trúng số không phải là phép màu, đó là xác suất tất yếu.
+- Sự trùng hợp kỳ lạ: Có hàng triệu sự kiện "một phần triệu" có thể xảy ra với bạn mỗi ngày (gặp lại bạn cũ ở nước ngoài, đoán đúng số điện thoại...). Vì có quá nhiều sự kiện hiếm gặp như vậy, nên tổng kỳ vọng của chúng cộng lại sẽ lớn hơn 1. Do đó, chắc chắn một vài sự trùng hợp "kỳ lạ" sẽ xảy ra với bạn.
+- Ứng dụng trong kỹ thuật: "Nếu nó có thể sai, nó sẽ sai". Có hàng ngàn linh kiện nhỏ có thể hỏng độc lập. Dù xác suất hỏng của mỗi cái là cực thấp, nhưng vì số lượng linh kiện quá lớn, tổng kỳ vọng lỗi $E[T]$ sẽ trở nên lớn hơn 1. Một cái gì đó chắc chắn sẽ hỏng.
+
+# 20. Random Walks
