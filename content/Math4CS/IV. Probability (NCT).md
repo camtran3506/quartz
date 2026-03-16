@@ -325,9 +325,45 @@ Từ đó, ông tìm ra xác suất thắng thực sự của bạn: $$w_n = \fr
 
 Phần chứng minh theo đệ quy thì Duc Cao có viết ở phần trên. Giả sử bạn đang có $n$ đô la. Ván cược đầu tiên có 2 kịch bản:
 
-- Kịch bản 1 (Thắng): Bạn thắng $1\$$ (xác suất $p$). Bây giờ bạn có $n+1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n+1}$.
-- Kịch bản 2 (Thua): Bạn thua $1\$$ (xác suất $q$). Bây giờ bạn có $n-1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n-1}$.
+- Kịch bản 1 (Thắng): Bạn thắng $1$ đô (xác suất $p$). Bây giờ bạn có $n+1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n+1}$.
+- Kịch bản 2 (Thua): Bạn thua $1$ đô (xác suất $q$). Bây giờ bạn có $n-1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n-1}$.
 
 Vậy, xác suất thắng hiện tại là trung bình có trọng số của hai kịch bản đó: $$w_n = p \cdot w_{n+1} + q \cdot w_{n-1}$$. Từ đây ta đi giải hệ thức truy hồi này để tìm $w_n$.
 
 ### 20.1.3 A simpler expression for the biased case
+
+Khi trò chơi không công bằng ($p < 1/2$), tỉ lệ $r = q/p$ sẽ lớn hơn $1$. Khi đó, xác suất thắng $w_n$ luôn nhỏ hơn một con số cụ thể: $$w_n < \left( \frac{1}{r} \right)^{T-n}$$
+
+Và công thức này không phụ thuộc vào $n$, nhỏ hay lớn gì nó cũng bị chặn trên như vậy.
+
+**Về khía cạnh trực giác**
+
+Khi bạn cược $k$ ván, mỗi ván có xác suất thắng $p$. Số trận thắng $W$ của bạn sẽ tuân theo phân phối nhị thức $B(k, p)$. Số trận thắng trung bình: $E[W] = k \cdot p$. Số trận thua trung bình: $k(1-p)$. Lợi nhuận kỳ vọng mỗi ván: $p(1) + (1-p)(-1) = 2p - 1$.
+(Vì $p < 0.5$, nên $2p - 1$ là một số âm. Ví dụ với Roulette, nó là $-0.05$.)
+
+Sau $k$ ván, số tiền bạn dự kiến có là: $$\text{Vốn ban đầu} + k \times (\text{Lợi nhuận mỗi ván}) = n + k(2p - 1)$$.
+
+Mục tiêu của bạn là đạt mức vốn $n + m$ (thắng thêm $m$ đô). Để thắng, phải bù đắp được khoảng lợi nhuận $m$ và phải cứu những khoảng thua. Do đó tổng cộng khoảng cách cần bù đắp: $m + k(1-2p)$. Trong thống kê, sự biến động quanh giá trị kỳ vọng được đo bằng Độ lệch chuẩn ($\sigma$). Với phân phối nhị thức:
+
+$$
+\sigma = \sqrt{k \cdot p \cdot (1-p)}
+$$
+
+Để người chơi có thể giành chiến thắng, số ván thắng của anh ta cần phải lệch khỏi giá trị kỳ vọng một khoảng bằng:: $$\frac{\text{Khoảng cách cần bù}}{\text{Độ lệch chuẩn}} = \frac{m + k(1-2p)}{\sqrt{kp(1-p)}}$$ lần độ lệch chuẩn của nó. Trong phần nghiên cứu về tail của phân phối nhị thức (những sự kiện cực hiếm), chúng ta đã thấy rằng điều này là cực kỳ khó xảy ra. Vậy nên bớt tài xỉu lại, sẽ thua đấy.
+
+### 20.1.4 How Long a Walk?
+
+Ở đoạn này, ta đi tìm số ván cược trung bình ($e_n$) cho đến khi trò chơi kết thúc. Đây là các kí hiệu:
+
+- $e_n$: số ván cược trung bình mà bạn sẽ thực hiện nếu hiện tại đang có $n$ đô la.
+- Nếu bạn có $0$ đô: Trò chơi kết thúc ngay lập tức. Bạn không phải cược thêm ván nào nữa. Vậy $e_0 = 0$.
+- Nếu bạn đạt mục tiêu $T$ đô: Bạn thắng và dừng lại ngay. Số ván cược thêm cũng bằng 0. Vậy $e_T = 0$.
+
+Khi tính số ván cược, cứ mỗi lần bạn tung đồng xu, bạn đã tiêu tốn mất 1 ván. Bạn chắc chắn phải thực hiện ván cược đầu tiên. Sau ván cược đó, có 2 trường hợp:
+
+- Thắng (xác suất $p$): Bạn có $n+1$ đô. Từ đây, bạn cần thêm trung bình $e_{n+1}$ ván nữa để kết thúc. Tổng cộng là $1 + e_{n+1}$.
+- Thua (xác suất $q$): Bạn có $n-1$ đô. Từ đây, bạn cần thêm trung bình $e_{n-1}$ ván nữa để kết thúc. Tổng cộng là $1 + e_{n-1}$.
+
+Phương trình kỳ vọng toàn phần: $$e_n = p \times (1 + e_{n+1}) + q \times (1 + e_{n-1})$$. Từ đó ta đi giải hệ thức truy hồi này và tìm ra đáp án.
+
+### 20.1.5 Quit While You Are Ahead
