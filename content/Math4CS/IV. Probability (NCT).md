@@ -279,4 +279,55 @@ Nếu ai đã coi Interstellar thì định luật Murphy có được nhắc xu
 
 # 20. Random Walks
 
+Hãy tưởng tượng bạn đứng ở một điểm, tung một đồng xu, nếu mặt ngửa thì tiến một bước, mặt xấp thì lùi một bước. Đó chính là một "random walk". Mặt khác, còn có ứng dụng của nó vào trong search engine. Google coi internet là một mạng lưới khổng lồ (đồ thị). Thuật toán của họ giả lập một "người lướt web ngẫu nhiên" bấm vào các đường link. Trang web nào được "người" này ghé thăm nhiều nhất thì trang đó được coi là quan trọng và xuất hiện ở đầu kết quả tìm kiếm.
 
+## 20.1 Gambler’s Ruin
+
+Mô hình hóa: Số tiền của người chơi được coi là vị trí trên một đường thẳng.
+
+- Thắng 1 ván: Tiến 1 bước sang phải ($+1$).
+- Thua 1 ván: Lùi 1 bước sang trái ($-1$).
+
+Trò chơi kết thúc khi người chơi chạm vào một trong hai cột mốc: Mốc 0 (phá sản) hoặc Mốc $T$ (Đạt được mục tiêu lợi nhuận). Nếu khả năng thắng/thua mỗi ván là như nhau thì đó là trò chơi công bằng. Nếu khả năng thắng $<50%$ thì là trò chơi không công bằng.
+
+### 20.1.1 The Probability of Avoiding Ruin
+
+Sau đây trình bày phương pháp của Pascal để tính ra xác suất thắng. Ở đây, xác suất thắng mỗi ván cược, $p$ của bạn nhỏ hơn xác suất thua $1 - p$. Để trò chơi "công bằng", **cái gì khó đạt được thì phải có giá trị cao hơn**.
+
+Pascal không thay đổi tỉ lệ thắng thua (vì đó là luật của sòng bài), ông thay đổi giá trị (worth) của từng đồng chip bạn đang cầm trên tay. Ông đặt một con số đặc biệt $r = \frac{1 - p}{p}$. Vì $1 - p > p$ (nhà cái có lợi thế), nên $r$ luôn lớn hơn $1$. Thay vì coi mọi đồng chip đều là $1\$$, Pascal gán giá trị cho chúng theo cấp số nhân:
+
+- Đồng chip thứ 1: Giá trị $r^1$
+- Đồng chip thứ 2: Giá trị $r^2$
+- Đồng chip thứ $n$: Giá trị $r^n$
+
+Khi bạn thắng ở điểm $n$, thì bạn nhận đồng chip ở điểm $n + 1$ có giá trị $r^{n+1}$ (như bước đi trên trục Ox vậy). Tương tự, khi bạn thua ở điểm $n$, bạn mất đồng chip có giá trị $r^n$. Vì xác suất thắng $p$ của bạn thấp, nhưng phần thưởng $r^{n+1}$ lại cao (cao gấp $r$ lần cái bạn mất), nên tính trung bình lại, bạn không thắng cũng không thua.
+
+$p \times r^{n+1} - q \times r^n = 0$. (Mọi ván đấu giờ đây đều có giá trị bằng $0$).
+
+Bây giờ, vì mọi ván đấu đều "công bằng về giá trị", nên tổng giá trị lúc bắt đầu và lúc kết thúc phải bằng nhau.
+
+- Lúc bắt đầu: Bạn có $n$ đồng chip đầu tiên. Tổng giá trị là: $r^1 + r^2 + \dots + r^T$.
+- Lúc kết thúc: Nếu bạn thắng (xác suất $w_n$), bạn có tất cả $T$ đồng chip. Tổng giá trị là $V_{\text{thắng}} = r^1 + r^2 + \dots + r^T$. Nếu bạn thua, bạn có $V_{\text{thua}} = 0$ đồng.
+
+Gọi $w_n$ là xác suất thắng chung cuộc NẾU bạn đang có trong tay $n$ đô la, đây là xác suất thắng toàn cục, khác với $p$ là xác suất thắng tại mọi ván. $w_n$ có thể thay đổi tùy theo $n$ nhưng $p$ thì không. Theo định nghĩa của giá trị kỳ vọng:
+
+$$\text{Giá trị trung bình khi kết thúc} = (P_{\text{thắng}} \times \text{Giá trị khi thắng}) + (P_{\text{thua}} \times \text{Giá trị khi thua})$$
+
+Mà giá trị khi thua = 0. Nên ta có: $$V_{\text{đầu}} = (p \times V_{\text{thắng}}) + ((1 - p) \times 0)$$
+
+$$(r^1 + \dots + r^n) = w_n \times (r^1 + \dots + r^T)$$
+
+Từ đó, ông tìm ra xác suất thắng thực sự của bạn: $$w_n = \frac{r^n - 1}{r^T - 1}$$. Lưu ý, công thức này tổng quát cho cả trường hợp trò chơi công bằng (khi $r = 1$).
+
+![[IV.10.png]]
+
+### 20.1.2 A Recurrence for the Probability of Winning
+
+Phần chứng minh theo đệ quy thì Duc Cao có viết ở phần trên. Giả sử bạn đang có $n$ đô la. Ván cược đầu tiên có 2 kịch bản:
+
+- Kịch bản 1 (Thắng): Bạn thắng $1\$$ (xác suất $p$). Bây giờ bạn có $n+1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n+1}$.
+- Kịch bản 2 (Thua): Bạn thua $1\$$ (xác suất $q$). Bây giờ bạn có $n-1$ đô la. Từ đây, xác suất thắng chung cuộc của bạn là $w_{n-1}$.
+
+Vậy, xác suất thắng hiện tại là trung bình có trọng số của hai kịch bản đó: $$w_n = p \cdot w_{n+1} + q \cdot w_{n-1}$$. Từ đây ta đi giải hệ thức truy hồi này để tìm $w_n$.
+
+### 20.1.3 A simpler expression for the biased case

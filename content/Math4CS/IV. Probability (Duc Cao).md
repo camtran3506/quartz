@@ -567,9 +567,13 @@ w_n = p \cdot w_{n + 1} + q \cdot w_{n - 1} \quad (q = 1 - p)
 $$
 
 TH1: Trò chơi công bằng ($p = 1/2$)
+
 Khi này, $w_n = n/T$
+
 TH2: Trò chơi không công bằng (nhà cái có lợi thế $p < 1/2$)
+
 Chứng minh...
+
 $w_n = \frac{r^n - 1}{r^T - 1}$
 
 $$
