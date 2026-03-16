@@ -392,3 +392,21 @@ Larry Page và Sergey Brin ban đầu nghĩ rằng: Nếu coi mỗi liên kết 
 - Quyền lực không kiểm soát: Một trang web có thể trở nên có sức ảnh hưởng một cách bất công bằng cách liên tục trỏ link đến những trang khác mà nó muốn "lăng xê".
 
 ### 20.2.2 Random Walk on the Web Graph
+
+Thay vì chỉ đếm số liên kết (In-degree), Google giả lập một người dùng lướt web một cách ngẫu nhiên. Nếu một trang có $n$ liên kết đi ra, xác suất người dùng bấm vào một liên kết cụ thể là $1/n$. Xác suất bạn đến được trang $y$ phụ thuộc vào xác suất bạn đang ở trang $x$ và số lượng link trên trang $x$. Trong thực tế, đồ thị web không hoàn hảo. Có hai vấn đề nảy sinh:
+
+- Dead ends (Trang không có link ra): Người dùng sẽ bị "kẹt" lại đây mãi mãi.
+- Chu trình quẩn quanh: Người dùng lướt mãi một hồi mà không tìm thấy gì hữu ích.
+
+Giải pháp cho hai vấn đề trên là khái niệm Siêu đỉnh (supervertex). Họ thêm một siêu đỉnh và kết nối mọi trang web tới nó. Thuật toán Page Rank ban đầu cài đặt xác suất tại mỗi trang web mà người dùng sẽ đến siêu đỉnh là $15%$. Tại bất kỳ trang nào, có 15% khả năng người dùng sẽ "chán" và quyết định nhảy đến một trang bất kỳ khác trên Internet (thông qua Siêu đỉnh). Do đó, đồ thị trở nên liên thông mạnh (strongly connected), đảm bảo người lướt web có thể đi từ bất kỳ trang nào đến bất kỳ trang nào khác, không bao giờ bị kẹt.
+
+### 20.2.3 Stationary Distribution & Page Rank
+
+Giới thiệu về phân phối dừng (hình như đã gặp ở đâu đó ở các chương trước, dell nhớ): Nếu bạn tung hàng triệu "người lướt web" vào đồ thị Internet, sau một thời gian rất dài, tỉ lệ người đứng ở mỗi trang web sẽ ổn định. Tỉ lệ ổn định đó chính là Phân phối dừng.
+
+> [!INFO]
+> Một sự phân bổ xác suất là "dừng" nếu xác suất bạn đang ở trang $x$ bằng xác suất bạn sẽ đi đến trang $x$ ở bước kế tiếp.
+
+Google giải hệ phương trình tuyến tính khổng lồ: $$Rank(x) = \sum_{y \to x} \frac{Rank(y)}{outdeg(y)}$$
+
+Điều này có nghĩa là: Điểm hạng của bạn = Tổng (Điểm hạng của những người bầu cho bạn / Số lượng link mà họ có). Trong lý thuyết đồ thị, một đồ thị liên thông mạnh luôn có duy nhất một phân phối dừng (nếu không có siêu đỉnh sẽ không có tính chất này). Nhờ vậy, dù bạn bắt đầu lướt web từ bất kỳ trang nào, sau một thời gian đủ lâu, kết quả điểm hạng PageRank trả về luôn là duy nhất và chính xác.
