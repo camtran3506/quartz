@@ -45,3 +45,34 @@ Hệ thức truy hồi chia để trị có dạng: $$T(n) = \sum_{i=1}^{k} a_i 
 - $g(n)$ (Chi phí quản lý): Đây là thời gian bạn bỏ ra để chia việc và quan trọng nhất là gộp các kết quả từ cấp dưới lại thành sản phẩm cuối cùng.
 
 ### 21.4.1 The Akra-Bazzi Formula
+
+![[V.02.png]]
+
+### 21.4.2 Two Technical Issues
+
+Trong các hệ thức truy hồi tuyến tính (như Fibonacci), thay đổi điều kiện biên ($f(0), f(1)$) sẽ làm thay đổi hoàn toàn các hằng số trong công thức cuối cùng. Nhưng với hệ thức Chia để trị, các ký pháp như $\Theta(n \log n)$ chỉ quan tâm đến tốc độ tăng trưởng. Do đó, kết quả tiệm cận của Akra-Bazzi luôn đúng bất kể bạn bắt đầu với con số nào ở điều kiện biên.
+
+Khó nói, ví dụ, Merge Sort sẽ chia 15 thành $\lceil 15/2 \rceil = 8$ và $\lfloor 15/2 \rfloor = 7$. Các hàm làm tròn này không có tác dụng trong công thức của Akra-Bazzi. Bạn có thể tự tin loại bỏ tất cả các ký hiệu $\lceil \rceil$ và $\lfloor \rfloor$ khi giải hệ thức truy hồi để tìm độ phức tạp thuật toán mà không sợ làm sai lệch kết quả cuối cùng.
+
+### 21.4.3 The Akra-Bazzi Theorem
+
+:v Lười chụp định lí quá, thôi thì, lướt đến trang 885 đọc nha. Đoạn văn khẳng định rằng Akra-Bazzi không chỉ là một công thức tính toán, mà còn là một công cụ trừu tượng hóa mạnh mẽ. Nó cho phép các nhà khoa học máy tính:
+
+- Làm việc trên tập số thực thay vì bị gò bó trong số nguyên.
+- Tự tin bỏ qua các chi tiết vụn vặt như làm tròn số, vì định lý đã chứng minh rằng những "sai số" này sẽ bị triệt tiêu trong bức tranh tổng thể của tốc độ tăng trưởng tiệm cận.
+
+### 21.4.4 The Master Theorem
+
+![[V.03.png]]
+
+Là trường hợp đặc biệt của cái định lí khủng bố ở mục trước. Học trong môn CS112 ở UIT.
+
+## 21.5 A Feel for Recurrences
+
+Dựa trên các recurrences đã nhắc qua ở chương này, ta rút ra các nhận xét sau:
+
+- Việc làm cho bài toán con nhỏ đi bao nhiêu lần quan trọng hơn rất nhiều so với việc bạn làm thêm bao nhiêu bước ở mỗi tầng đệ quy. Vì nó ảnh hưởng đến thời gian thực thi rất nhiều. (So sánh giữa Tower of Hanoi vs Merge Sort) Cả hai loại hệ thức tuyến tính đều rất nhạy cảm với số lượng bài toán con.
+- Điều kiện biên ($T_0, T_1, \dots$) hầu như không quan trọng với hệ thức chia để trị và đối với hệ thức tuyến tính thì thường bị chi phối bởi hàm mũ có cơ số lớn nhất (vì nếu nó khiến số hạng này về 0, sẽ làm biến động mạnh độ phức tạp).
+- Nếu thu nhỏ bài toán bằng phép trừ thì solution là hàm mũ phức tạp, nếu thu nhỏ bài toán bằng phép chia thì sol là polynomial (Thumb rule gì gì đó)
+
+Oh shiet thật sự đã xong huhu. Right now its 00:15 AM, 17.03.2026.
