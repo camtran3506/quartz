@@ -279,7 +279,7 @@ Nếu ai đã coi Interstellar thì định luật Murphy có được nhắc xu
 
 # 20. Random Walks
 
-Hãy tưởng tượng bạn đứng ở một điểm, tung một đồng xu, nếu mặt ngửa thì tiến một bước, mặt xấp thì lùi một bước. Đó chính là một "random walk". Mặt khác, còn có ứng dụng của nó vào trong search engine. Google coi internet là một mạng lưới khổng lồ (đồ thị). Thuật toán của họ giả lập một "người lướt web ngẫu nhiên" bấm vào các đường link. Trang web nào được "người" này ghé thăm nhiều nhất thì trang đó được coi là quan trọng và xuất hiện ở đầu kết quả tìm kiếm.
+Hãy tưởng tượng bạn đứng ở một điểm, tung một đồng xu, nếu mặt ngửa thì tiến một bước, mặt xấp thì lùi một bước. Đó chính là một "random walk".
 
 ## 20.1 Gambler’s Ruin
 
@@ -367,3 +367,28 @@ Khi tính số ván cược, cứ mỗi lần bạn tung đồng xu, bạn đã 
 Phương trình kỳ vọng toàn phần: $$e_n = p \times (1 + e_{n+1}) + q \times (1 + e_{n-1})$$. Từ đó ta đi giải hệ thức truy hồi này và tìm ra đáp án.
 
 ### 20.1.5 Quit While You Are Ahead
+
+Dưới góc độ lý thuyết xác suất và thống kê, hiện tượng này được gọi là Nghịch lý về Kỳ vọng trong Bước đi ngẫu nhiên không chặn (Unbounded Random Walk).
+
+Trong một trò chơi công bằng ($p = 0.5$) mà không có mục tiêu dừng lại (không có ngưỡng $T$), xác suất người chơi bị phá sản là hội tụ về 1. Điều này có nghĩa là về mặt toán học, sự thất bại là một biến cố chắc chắn (almost sure event). Dù vốn ban đầu lớn đến đâu, các dao động ngẫu nhiên theo thời gian sớm muộn gì cũng sẽ tạo ra một chuỗi thua đủ dài để kéo số dư tài khoản về mốc 0.
+
+Mặc dù phá sản là chắc chắn, nhưng giá trị kỳ vọng ($E$) của số ván cược lại tiến đến vô hạn. Nghịch lý này phát sinh do đặc tính của phân phối xác suất có "đuôi cực dày" (heavy-tailed distribution). Trong hàng triệu kịch bản có thể xảy ra, sẽ tồn tại những trường hợp cực kỳ hiếm hoi mà người chơi thắng liên tục và đi rất xa, khiến số lần chơi là vô hạn.
+
+Ví dụ: Có một trò chơi mà $99,99...9\%$ là bạn chết ngay lập tức, nhưng có tỉ lệ siêu nhỏ ($10^{-100}$) là bạn sẽ sống mãi mãi. Khi tính trung bình: $(\text{Gần như 0}) \times (\text{Chết}) + (\text{Siêu nhỏ}) \times (\text{Vô hạn}) = \mathbf{Vô hạn}$.
+
+Giá trị trung bình "vô hạn" không đại diện cho đa số. Đối với một cá nhân cụ thể, đặc biệt là người có vốn thấp, phân phối thời gian chơi bị lệch nghiêm trọng về phía "kết thúc sớm". Thực tế thống kê cho thấy hơn 93% người chơi khởi đầu với $1$ sẽ phá sản chỉ trong vòng 5 ván cược đầu tiên.
+
+## 20.2 Random Walks on Graphs
+
+Việc mô hình hóa World Wide Web dưới dạng một đồ thị có hướng (digraph), trong đó mỗi trang web là một đỉnh và mỗi siêu liên kết là một cạnh, đã tạo ra một cuộc cách mạng trong cách chúng ta tổ chức và truy xuất thông tin.
+
+Trước đây, các công cụ tìm kiếm truyền thống hoạt động chủ yếu dựa trên phương pháp đối soát văn bản đơn thuần, tức là xếp hạng tài liệu dựa vào tần suất và vị trí xuất hiện của từ khóa trong nội dung. Tuy nhiên, hệ thống này rất dễ bị thao túng bởi các kỹ thuật "nhồi nhét từ khóa" (keyword stuffing) để đánh lừa thuật toán.
+
+### 20.2.1 A First Crack at Page Rank
+
+Larry Page và Sergey Brin ban đầu nghĩ rằng: Nếu coi mỗi liên kết trỏ đến một trang web là một "phiếu bầu", thì trang nào có nhiều phiếu nhất sẽ là trang uy tín nhất, dựa trên đồ thị có hướng của WWW. Nhưng có 2 cách cheat:
+
+- Tạo "Trang rác" (Link Farming): Bạn có thể dễ dàng tăng thứ hạng cho trang của mình bằng cách tự tạo ra hàng ngàn trang web giả (dummy pages) rồi cho tất cả chúng trỏ liên kết về trang chính.
+- Quyền lực không kiểm soát: Một trang web có thể trở nên có sức ảnh hưởng một cách bất công bằng cách liên tục trỏ link đến những trang khác mà nó muốn "lăng xê".
+
+### 20.2.2 Random Walk on the Web Graph
