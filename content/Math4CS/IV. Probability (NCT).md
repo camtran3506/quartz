@@ -206,7 +206,9 @@ Phương sai chính là thước đo của độ bất định. Cùng một mứ
 
 Đoạn văn đưa ra một hệ quả cực kỳ quan trọng (Corollary 19.2.6). Nếu chúng ta đặt khoảng cách $x$ bằng $c$ lần độ lệch chuẩn ($x = c\sigma_R$), ta có:
 
-$$Pr(|R - Ex[R]| \geq c\sigma_R) \leq \frac{1}{c^2}$$
+$$
+Pr(|R - Ex[R]| \geq c\sigma_R) \leq \frac{1}{c^2}
+$$
 
 Nó cho bạn biết xác suất dữ liệu "văng" ra ngoài phạm vi $c$ bước chân (mỗi bước dài $\sigma$):
 
@@ -251,15 +253,11 @@ Khi bạn có một giá trị kỳ vọng (trung bình), hầu hết các kết
 
 Tổng kết lại, cả ba bất đẳng thức này đều là những công cụ giúp chúng ta trả lời câu hỏi: "Xác suất để một biến ngẫu nhiên đi chệch khỏi giá trị trung bình (kỳ vọng) của nó là bao nhiêu?". Markov & Chebyshev đưa ra các cận kiểu đa thức ($1/n, 1/n^2$). Chernoff đưa ra cận kiểu hàm mũ ($e^{-n}$). Đây là phát biểu của cận Chernoff.
 
-Cho $T_1, T_2, \dots, T_n$ là các biến ngẫu nhiên độc lập tương hỗ (mutually independent) thỏa mãn điều kiện $0 \le T_i \le 1$ với mọi $i$.
+Cho $T_1, T_2, \dots, T_n$ là các biến ngẫu nhiên độc lập tương hỗ (mutually independent) thỏa mãn điều kiện $0 \le T_i \le 1$ với mọi $i$. Gọi $T$ là tổng của các biến này: $$T = \sum_{i=1}^n T_i$$. Với mọi hằng số $c > 1$, xác suất để tổng $T$ vượt quá kỳ vọng $E[T]$ một hệ số $c$ lần được chặn bởi:
 
-Gọi $T$ là tổng của các biến này:
-
-$$T = \sum_{i=1}^n T_i$$
-
-Với mọi hằng số $c > 1$, xác suất để tổng $T$ vượt quá kỳ vọng $E[T]$ một hệ số $c$ lần được chặn bởi:
-
-$$P(T \ge c \cdot E[T]) \le e^{-\beta(c) E[T]}$$
+$$
+P(T \ge c \cdot E[T]) \le e^{-\beta(c) E[T]}
+$$
 
 Trong đó, hàm số $\beta(c)$ được định nghĩa là: $$\beta(c) = c \ln(c) - c + 1$$
 
@@ -294,7 +292,7 @@ Trò chơi kết thúc khi người chơi chạm vào một trong hai cột mố
 
 Sau đây trình bày phương pháp của Pascal để tính ra xác suất thắng. Ở đây, xác suất thắng mỗi ván cược, $p$ của bạn nhỏ hơn xác suất thua $1 - p$. Để trò chơi "công bằng", **cái gì khó đạt được thì phải có giá trị cao hơn**.
 
-Pascal không thay đổi tỉ lệ thắng thua (vì đó là luật của sòng bài), ông thay đổi giá trị (worth) của từng đồng chip bạn đang cầm trên tay. Ông đặt một con số đặc biệt $r = \frac{1 - p}{p}$. Vì $1 - p > p$ (nhà cái có lợi thế), nên $r$ luôn lớn hơn $1$. Thay vì coi mọi đồng chip đều là $1\$$, Pascal gán giá trị cho chúng theo cấp số nhân:
+Pascal không thay đổi tỉ lệ thắng thua (vì đó là luật của sòng bài), ông thay đổi giá trị (worth) của từng đồng chip bạn đang cầm trên tay. Ông đặt một con số đặc biệt $r = \frac{1 - p}{p}$. Vì $1 - p > p$ (nhà cái có lợi thế), nên $r$ luôn lớn hơn $1$. Thay vì coi mọi đồng chip đều là $1$, Pascal gán giá trị cho chúng theo cấp số nhân:
 
 - Đồng chip thứ 1: Giá trị $r^1$
 - Đồng chip thứ 2: Giá trị $r^2$
@@ -311,11 +309,15 @@ Bây giờ, vì mọi ván đấu đều "công bằng về giá trị", nên t�
 
 Gọi $w_n$ là xác suất thắng chung cuộc NẾU bạn đang có trong tay $n$ đô la, đây là xác suất thắng toàn cục, khác với $p$ là xác suất thắng tại mọi ván. $w_n$ có thể thay đổi tùy theo $n$ nhưng $p$ thì không. Theo định nghĩa của giá trị kỳ vọng:
 
-$$\text{Giá trị trung bình khi kết thúc} = (P_{\text{thắng}} \times \text{Giá trị khi thắng}) + (P_{\text{thua}} \times \text{Giá trị khi thua})$$
+$$
+\text{Giá trị trung bình khi kết thúc} = (P_{\text{thắng}} \times \text{Giá trị khi thắng}) + (P_{\text{thua}} \times \text{Giá trị khi thua})
+$$
 
 Mà giá trị khi thua = 0. Nên ta có: $$V_{\text{đầu}} = (p \times V_{\text{thắng}}) + ((1 - p) \times 0)$$
 
-$$(r^1 + \dots + r^n) = w_n \times (r^1 + \dots + r^T)$$
+$$
+(r^1 + \dots + r^n) = w_n \times (r^1 + \dots + r^T)
+$$
 
 Từ đó, ông tìm ra xác suất thắng thực sự của bạn: $$w_n = \frac{r^n - 1}{r^T - 1}$$. Lưu ý, công thức này tổng quát cho cả trường hợp trò chơi công bằng (khi $r = 1$).
 
@@ -332,9 +334,7 @@ Vậy, xác suất thắng hiện tại là trung bình có trọng số của h
 
 ### 20.1.3 A simpler expression for the biased case
 
-Khi trò chơi không công bằng ($p < 1/2$), tỉ lệ $r = q/p$ sẽ lớn hơn $1$. Khi đó, xác suất thắng $w_n$ luôn nhỏ hơn một con số cụ thể: $$w_n < \left( \frac{1}{r} \right)^{T-n}$$
-
-Và công thức này không phụ thuộc vào $n$, nhỏ hay lớn gì nó cũng bị chặn trên như vậy.
+Khi trò chơi không công bằng ($p < 1/2$), tỉ lệ $r = q/p$ sẽ lớn hơn $1$. Khi đó, xác suất thắng $w_n$ luôn nhỏ hơn một con số cụ thể: $$w_n < \left( \frac{1}{r} \right)^{T-n}$$. Và công thức này không phụ thuộc vào $n$, nhỏ hay lớn gì nó cũng bị chặn trên như vậy.
 
 **Về khía cạnh trực giác**
 

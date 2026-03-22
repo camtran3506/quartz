@@ -32,11 +32,15 @@ Một niên kim trả $m$ đô mỗi năm, kéo dài trong $n$ năm sẽ có t�
 
 Tổng giá trị $V$ là:
 
-$$V = m + \frac{m}{1+p} + \frac{m}{(1+p)^2} + \dots + \frac{m}{(1+p)^{n-1}}$$
+$$
+V = m + \frac{m}{1+p} + \frac{m}{(1+p)^2} + \dots + \frac{m}{(1+p)^{n-1}}
+$$
 
 Nếu ta đặt $x = 1/(1+p)$, biểu thức trên trở thành một tổng cấp số nhân quen thuộc:
 
-$$V = m(1 + x + x^2 + \dots + x^{n-1})$$
+$$
+V = m(1 + x + x^2 + \dots + x^{n-1})
+$$
 
 Nó là một hằng đẳng thức quen thuộc. Còn một cách khác nữa để tính mà đa số mọi người quên, mình sẽ nhắc lại.
 
@@ -44,7 +48,7 @@ Nó là một hằng đẳng thức quen thuộc. Còn một cách khác nữa �
 
 Giả sử chúng ta có tổng $S$: $$S = 1 + x + x^2 + x^3 + \dots + x^n$$
 
-Ta nhân cả hai vế của $S$ với $x$. $$xS = x + x^2 + x^3 + \dots + x^n + x^{n+1}$$
+Ta nhân cả hai vế của $S$ với $x$: $$xS = x + x^2 + x^3 + \dots + x^n + x^{n+1}$$
 
 Khi lấy $S - xS$, ta được $$S - xS = 1 - x^{n+1}$$
 
@@ -217,7 +221,9 @@ Ba đặc điểm quan trọng cần lưu ý:
 
 Nếu tổng bên trong không có closed form, thì ta **đảo thứ tự lấy tổng**. Ví dụ, tổng của $n$ số Harmonic đầu tiên được viết là:
 
-$$\sum_{k=1}^{n} H_k = \sum_{k=1}^{n} \sum_{j=1}^{k} \frac{1}{j}$$
+$$
+\sum_{k=1}^{n} H_k = \sum_{k=1}^{n} \sum_{j=1}^{k} \frac{1}{j}
+$$
 
 Hãy tưởng tượng các cặp $(k, j)$ này trên một cái bảng. Cột là $j$, dòng là $k$:
 
@@ -233,7 +239,9 @@ Các cặp này tạo thành một hình tam giác. Cách tính ban đầu là c
 
 Lúc này, biểu thức được viết lại thành:
 
-$$\sum_{j=1}^{n} \sum_{k=j}^{n} \frac{1}{j}$$
+$$
+\sum_{j=1}^{n} \sum_{k=j}^{n} \frac{1}{j}
+$$
 
 ![[III.10.png]]
 
@@ -326,7 +334,7 @@ Nhưng có ngoại lệ: Nếu $f = \Theta(g)$ thì $\ln f \sim \ln g$ (trong nh
 
 ### 13.7.5 Omega (Optional)
 
-Đôi khi mọi người sử dụng sai ký hiệu Big O trong ngữ cảnh của một giới hạn dưới. Ví dụ, họ có thể nói: 'Thời gian chạy, $T(n)$, ít nhất là $O(n^2)$'. Đây là một sai lầm khác! Big O chỉ có thể được sử dụng cho các giới hạn trên. Cách đúng để diễn đạt giới hạn dưới sẽ là:$$n^2 = O(T(n))$$.
+Đôi khi mọi người sử dụng sai ký hiệu Big O trong ngữ cảnh của một giới hạn dưới. Ví dụ, họ có thể nói: 'Thời gian chạy, $T(n)$, ít nhất là $O(n^2)$'. Đây là một sai lầm khác! Big O chỉ có thể được sử dụng cho các giới hạn trên. Cách đúng để diễn đạt giới hạn dưới sẽ là: $$n^2 = O(T(n))$$.
 
 Giới hạn dưới cũng có thể được mô tả bằng một ký hiệu đặc biệt khác là 'Big Omega' ($\Omega$).
 
@@ -419,7 +427,9 @@ Từ một dãy số, ta biến đổi các số hạng trong dãy thành hệ s
 
 Ví dụ: dãy vô hạn các số 1. Khi chuyển sang hàm sinh thì nó có dạng:
 
-$$G(x) ::= 1 + x + x^2 + \cdots + x^n + \cdots .$$
+$$
+G(x) ::= 1 + x + x^2 + \cdots + x^n + \cdots
+$$
 
 Ta có thể tìm closed form của $G(x)$, sau đó dùng nó kèm với kí hiệu sau để trông gọn hơn. Ký hiệu $[x^n] F(x)$ được đọc là "hệ số của $x^n$ trong khai triển của hàm $F(x)$".
 
@@ -443,11 +453,17 @@ Tập hợp tất cả các khả năng chọn bánh Choco là một dãy vô h�
 
 Tương tự cho Vani, tập hợp tất cả các khả năng chọn Vani cũng là dãy trên. Để tìm tổng số cách kết hợp, ta nhân hai dãy này với nhau. Tức là, đây là số cách chọn ra $n$ bánh bao gồm cả 2 loại Choco và Vani.
 
-$$D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}$$
+$$
+D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}
+$$
 
-$$D(x) = (1 + x + x^2 + \dots) \times (1 + x + x^2 + \dots)$$
+$$
+D(x) = (1 + x + x^2 + \dots) \times (1 + x + x^2 + \dots)
+$$
 
-$$D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}$$
+$$
+D(x) = \frac{1}{1-x} \times \frac{1}{1-x} = \frac{1}{(1-x)^2}
+$$
 
 Tại sao phép nhân đa thức lại biến thành phép đếm? Câu trả lời nằm ở quy tắc cộng số mũ: $x^a \cdot x^b = x^{a+b}$.
 
@@ -527,7 +543,9 @@ Gọi $T(x) = \sum_{n=0}^{\infty} t_n x^n$ là hàm sinh, suy ra từ công th�
 
 Một phương trình có dạng:
 
-$$f(n) = c_1 f(n-1) + c_2 f(n-2) + \dots + c_d f(n-d) + h(n)$$
+$$
+f(n) = c_1 f(n-1) + c_2 f(n-2) + \dots + c_d f(n-d) + h(n)
+$$
 
 được gọi là hệ thức truy hồi tuyến tính bậc $d$ với số hạng không thuần nhất $h(n)$.
 
